@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <title>
-        Charley Chai's Personal Site
-    </title>
+    <head>
+        <title>Charley Chai's Personal Site</title>
+        <link href="style.css" type="text/css" rel="stylesheet"/>
+    </head>
+
 
     <body>
         <h1>
             Welcome to my 1<sup>st</sup> personal site!
         </h1>
         <p>
-            I am a student studying at <i>Compute Science College</i> in 
+            I am a student studying at <i id="CS">Compute Science College</i> in 
             <abbr title="University of Science and Technology of China"><i>USTC</i></abbr>
         </p>
         <p>
@@ -26,20 +28,45 @@
                     github.com/charleyustccs
                 </a>
             </li>
-
         </ul>
-        <address>
-            <p>
-                
-            </p>
-        </address>
+
+        <div class="page">
+            <h3>What I intrest in</h3>
+            <ul>
+                <li>
+                    Computer Science
+                </li>
+                <li>
+                    中国古典文化
+                </li>
+                <li>
+                    あいうえお
+                </li>
+            </ul>
+        </div>
+
         <hr/>
         <p>
             This site will show my own work record and study notes. May you like them. 
         </p>
-        <img src="images/snow_mountain.jpg" height="400" width="600"/>
-        <iframe src="http://maps.google.co.uk/maps?q=moma+new+york
-          &amp;output=embed" width="450" height="350" frameborder="0" scrolling="no">
-        </iframe>
+
+        <table>
+            <tr>
+                <td>
+                    <img src="images/Menhera-1.png" width="185" height="160"/>
+                </td>
+                <td class="description">
+                    I like Menhera very much!
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="images/Menhera-2.png" width="185" height="160"/>
+                </td>
+                <td class="description">
+                    It's so cute!
+                </td>
+            </tr>
+        </table>
     </body>
 </html>
