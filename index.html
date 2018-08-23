@@ -1,72 +1,47 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Charley Chai's Personal Site</title>
-        <link href="style.css" type="text/css" rel="stylesheet"/>
-    </head>
-
-
-    <body>
-        <h1>
-            Welcome to my 1<sup>st</sup> personal site!
-        </h1>
-        <p>
-            I am a student studying at <i id="CS">Compute Science College</i> in 
-            <abbr title="University of Science and Technology of China"><i>USTC</i></abbr>
-        </p>
-        <p>
-            You can contact me via:
-        </p>
-        <ul>
-            <li>E-mail:
-                <a href="mailto:charley.chai@live.com">
-                    Charley.Chai@live.com
-                </a>
-            </li>
-            <li>Github:
-                <a href="https://github.com/charleyustccs">
-                    github.com/charleyustccs
-                </a>
-            </li>
-        </ul>
-
-        <div class="page">
-            <h3>What I intrest in</h3>
-            <ul>
-                <li>
-                    Computer Science
-                </li>
-                <li>
-                    中国古典文化
-                </li>
-                <li>
-                    あいうえお
-                </li>
-            </ul>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>Time Machine</title>
+  </head>
+  <body>
+    <aside>
+      <figure>
+        <div id="avatar">
+          <img src="images/avatar.JPG" alt="avatar">
         </div>
+        <figcaption>Charley Chai</figcaption>
+      </figure>
+      <img src="images/menu.svg">
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Me</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main>
+      <h1>Welcome to my personal site!</h1>
+      <p>Well, I am writing a cross platform desktop application using 
+        <a href="//electronjs.org/">Electron</a> . I hope
+      it can help me and other people manage our limited time more efficiently.</p>
+      <a href="#" class="cta">My Portfolio</a>
+    </main>
 
-        <hr/>
-        <p>
-            This site will show my own work record and study notes. May you like them. 
-        </p>
-
-        <table>
-            <tr>
-                <td>
-                    <img src="images/Menhera-1.png" width="185" height="160"/>
-                </td>
-                <td class="description">
-                    I like Menhera very much!
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="images/Menhera-2.png" width="185" height="160"/>
-                </td>
-                <td class="description">
-                    It's so cute!
-                </td>
-            </tr>
-        </table>
-    </body>
+    <script>
+      (function () {
+        var menu = document.querySelector('ul'),
+          menulink = document.querySelector('img');
+        menulink.addEventListener('click', function (e) {
+          menu.classList.toggle('active');
+          e.preventDefault();          
+        })
+      })();
+    </script>
+  </body>
 </html>
