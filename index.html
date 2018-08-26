@@ -4,42 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Muschel Home Page</title>
     <link rel="stylesheet" href="styles/main.css">
-    <title>Time Machine</title>
   </head>
   <body>
+    <img src="images/home-bg.svg" alt="home-bg" id="bg">
     <aside>
-      <figure>
-        <div id="avatar"></div>
-        <figcaption>Charley Chai</figcaption>
-      </figure>
-      <img src="images/menu.svg">
+      <img src="images/logo.svg" alt="logo" id="logo">
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Me</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#" class="nav">Get it</a></li>
+          <li><a href="#" class="nav">Intro</a></li>
+          <li><a href="#" class="nav">Contact</a></li>
         </ul>
       </nav>
+      <img src="images/nav-btn.svg" alt="navigate button" id="nav-btn">
     </aside>
     <main>
-      <h1>Welcome to my personal site!</h1>
-      <p>Well, I am writing a cross platform desktop application using 
-        <a href="//electronjs.org/">Electron</a> . I hope
-      it can help me and other people manage our limited time more efficiently.</p>
-      <a href="#" class="cta">My Portfolio</a>
+      <div id="home">
+        <h1 class="home-content">Work efficiently.<br/>Planning thoroughly.
+        </h1>
+        <p class="home-content">Muschel is designed for students who must to<br/>handle massice things with limited time. You can<br/>    make
+          note, do planning andmore…
+        </p>
+        <img class="home-content" src="images/try.svg" alt="try-it-macos" id="try-it"><br/>
+        <img class="home-content" src="images/all-versions.svg" alt="all-versions" id="all-versions">
+      </div>
+      <div id="overview">
+        <h1 id="overview-h1">Just <abbr id="note">noting</abbr>,
+          <abbr id="plan">planning</abbr> and
+          <abbr id="read">reading</abbr> simply and beautifully.</h1>
+        <p id="overview-p">
+          Do notes with Markdown.<br/> Study notes, work records, brain-stroming and so on…
+        </p>
+        <img src="images/bear-note-page.png" alt="note-page" id="note-page"><br/>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 147.952 13" id="overview-nav-group">
+          <g id="Group_8" data-name="Group 8" transform="translate(-563 -1579)">
+            <circle id="choosen-nav" data-name="Ellipse 5" class="overview-nav" cx="6.5" cy="6.5" r="6.5" transform="translate(563 1579)"
+            />
+            <circle data-name="Ellipse 6" class="overview-nav" cx="6.5" cy="6.5" r="6.5" transform="translate(630.476 1579)" />
+            <circle data-name="Ellipse 7" class="overview-nav" cx="6.5" cy="6.5" r="6.5" transform="translate(697.952 1579)" />
+          </g>
+        </svg>
+      </div>
+      <div id="theme">
+        <div>
+          <img src="images/theme.svg" alt="beautiful theme" id="theme-left">
+          <ul id="theme-choose">
+            <li class="second">Cobalt</li>
+            <li class="first">Dracul</li>
+            <li class="original">Azure</li>
+            <li class="first">Ocean</li>
+            <li class="second">Amy</li>
+          </ul>
+        </div>
+        <div id="right">
+          <ul id="theme-show">
+            <li>
+              <img src="images/microsoft.svg" class="theme-logo">
+              <span>
+                <strong id="ms">Microsoft</strong>
+                <p>Microsoft Corporation is an American multinational technology company with headquarters in Redmond, Washington.</p>
+              </span>
+            </li>
+            <li>
+              <img src="images/google.svg" class="theme-logo">
+              <span>
+                <strong id="goog">Google</strong>
+                <p>Google is an American multinational technology company that specializes in Internet-related services and products,</p>
+              </span>
+            </li>
+            <li>
+              <img src="images/facebook.svg" class="theme-logo">
+              <span>
+                <strong id="fb">Facebook</strong>
+                <p>Facebook is an American online social media and social networking service company based in Menlo Park, California.
+                  Its website was launched on February 4, 2004.</p>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="take-notes">
+        <div id="take-notes-left">
+            <h1 class="home-content">Making notes.<br/>Let Muschel help you.</h1>
+            <p class="home-content">Muschel is designed to support Makedown.<br/>
+            You can insert any image or voice into a Muschel note.<br/>
+            Muschel pushes review notifications intelligently.</p>
+            <p id="notes-ask">How to use Muschle for notes?</p>
+            <p id="manual" class="take-notes">Manual</p>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 214.952 13" id="notes-nav-group">
+              <g transform="translate(-297.024 -3042)">
+                <circle class="overview-nav" id="choosen-nav" cx="6.5" cy="6.5" r="6.5" transform="translate(297.024 3042)" />
+                <circle class="overview-nav" cx="6.5" cy="6.5" r="6.5" transform="translate(364.5 3042)" />
+                <circle class="overview-nav" cx="6.5" cy="6.5" r="6.5" transform="translate(431.976 3042)" />
+                <circle class="overview-nav" cx="6.5" cy="6.5" r="6.5" transform="translate(498.976 3042)" />
+              </g>
+            </svg>
+        </div>
+        <div>
+            <img src="images/ball.svg" alt="ball" id="ball">
+        </div>
+      </div>
+      <div id="time-line">
+        <div id="tl-left">
+          <img src="images/teamwork.png" alt="teamwork" id="teamwork"><br/>
+          <img src="images/timeline.png" alt="tiemline" id="timeline">
+        </div>
+        <div id="tl-right">
+          <h1 id="tl-h1">Use <abbr class="todos">todos</abbr> and <abbr class="todos">time-line</abbr> for<br/>Individual events.<br/>Team works.</h1>
+          <p id="">Quickly add todos to individual events and team
+            <br/>works to keep yourself on taskly.
+            <br/>Time-line is a simply and beautiful tool
+            <br/>for your time management.</p>
+          <p id="tl-ask">How to use Muschle for todos and time-line?</p>
+          <p id="tl-manual">Manual</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 214.952 13" id="tl-nav-group">
+            <g transform="translate(-297.024 -3042)">
+              <circle class="tl-nav" id="chosen-tl-nav" cx="6.5" cy="6.5" r="6.5" transform="translate(297.024 3042)" />
+              <circle class="tl-nav" cx="6.5" cy="6.5" r="6.5" transform="translate(364.5 3042)" />
+              <circle class="tl-nav" cx="6.5" cy="6.5" r="6.5" transform="translate(431.976 3042)" />
+              <circle class="tl-nav" cx="6.5" cy="6.5" r="6.5" transform="translate(498.976 3042)" />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div id="contact-bg">
+        <div id="contact">
+          <img src="images/logo.svg" alt="logo" id="contact-logo">
+          <ul id="contact-ul">
+            <li>
+              <img src="images/instagram.svg" alt="instagram" class="logos">
+              <p class="names">Instagram</p>
+            </li>
+            <li>
+              <img src="images/facebook.svg" alt="facebook" class="logos">
+              <p class="names">Facebook</p>
+            </li>
+            <li>
+              <img src="images/twitter.svg" alt="twitter" class="logos">
+              <p class="names">Twitter</p>
+            </li>
+            <li>
+              <img src="images/wechat.svg" alt="wechat" class="logos">
+              <p class="names">Wechat</p>
+            </li>
+            <li>
+              <img src="images/weibo.svg" alt="weibo" class="logos">
+              <p class="names">Weibo</p>
+            </li>
+          </ul>
+        </div>
+        <svg viewBox="0 0 1280 388" id="cover">
+          <defs>
+            <linearGradient id="a" x1="0.682" y1="0.343" x2="0.033" y2="0.946" gradientUnits="objectBoundingBox">
+              <stop offset="0" stop-color="#41afe0" />
+              <stop offset="1" stop-color="#8f48bc" />
+            </linearGradient>
+          </defs>
+          <polygon class="polymorph" stroke-width="0" stroke="currentColor" points="1366,390 0,390 0,0 200,0 400,0 500,0 600,0 800,0 1000,0 1200,0 1366,0"></polygon>
+        </svg>
+        <p id="help">Help to improve Muschel on <abbr id="github">Github</abbr></p>
+      </div>
     </main>
-
-    <script>
-      (function () {
-        var menu = document.querySelector('ul'),
-          menulink = document.querySelector('img');
-        menulink.addEventListener('click', function (e) {
-          menu.classList.toggle('active');
-          e.preventDefault();          
-        })
-      })();
-    </script>
+    <script src="scripts/anime.min.js"></script>
+    <script src="scripts/main.js"></script>
   </body>
 </html>

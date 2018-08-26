@@ -1,27 +1,31 @@
-var myHeading = document.querySelector('h1');
-myHeading.textContent = 'Hello world!';
+function contact_anime() {
+  if (!is_first){
+    return;
+  }
+  is_first = false;
+  anime({
+    targets: '#contact-bg .polymorph',
+    points: [
+      { value: '1366,390 0,390 0,0 200,0 400,0 500,0 600,0 800,0 1000,0 1200,0 1366,0' },
+      { value: '1366,390 0,390 0,0 200,100 400,0 500,0 600,0 800,300 1000,0 1200,200 1366,0' },
+      { value: '1366,390 0,390 0,0 200,100 400,300 500,130 600,360 800,20 1000,200 1200,200 1366,0' },
+      { value: '1366,390 0,390 0,0 140,300 250,270 350,30 600,60 800,0 1000,200 1200,200 1366,0' },
+    ],
+    easing: 'easeOutQuad',
+    duration: 1200,
+    loop: false
+  });
 
-
-var myImage = document.querySelector('img');
-myImage.onclick = function () {
-    var mySrc = myImage.getAttribute('src');
-    if (mySrc === 'images/microsoft-logo.png') {
-        myImage.setAttribute('src', 'images/office-logo.png');
-    } else {
-        myImage.setAttribute('src', 'images/microsoft-logo.png');
-    }
+  anime({
+    targets: '#help',
+    opacity: 1,
+    duration: 2000,
+    translateY: 150
+  })
 }
 
+var cover = document.getElementById('cover');
+var is_first = true;
+cover.onmouseenter = contact_anime;
 
-var myButton = document.querySelector('button');
-var myHeading = document.querySelector('h1');
-function setUserName() {
-    var myName = prompt('Please enter your name.');
-    localStorage.setItem('name', myName);
-    myHeading.textContent = 'Microsoft is cool, ' + myName;
-}
-myButton.onclick = function () {
-    setUserName();
-}
 
-setUserName();
