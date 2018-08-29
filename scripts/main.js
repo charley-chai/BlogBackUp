@@ -29,3 +29,61 @@ var is_first = true;
 cover.onmouseenter = contact_anime;
 
 
+var lineDrawing = anime({
+  targets: '#lineDrawing .lines path',
+  strokeDashoffset: [anime.setDashoffset, 0],
+  easing: 'easeInOutSine',
+  duration: 1500,
+  delay: function (el, i) { return i * 250 },
+  direction: 'alternate',
+  loop: false
+});
+
+
+var promise = lineDrawing.finished.then(() => {
+  var scale = anime({
+    targets: '#lineDrawing',
+    delay: 500,
+    duration: 1000,
+    scale: 0.7,
+    translateY: -100
+  });
+  anime({
+    targets: '#body',
+    background: '#11506C',
+    delay: 500,
+    height: 400
+  });
+  scale.finished.then(() => {
+    var scale = anime({
+      targets: '#lineDrawing',
+      delay: 500,
+      duration: 1000,
+      scale: 0.49,
+      translateY: -240
+    });
+    anime({
+      targets: '#body',
+      background: '#1B78A2',
+      delay: 500,
+      height: 200
+    });
+    scale.finished.then(() => {
+      anime({
+        targets: '#lineDrawing',
+        delay: 500,
+        duration: 1000,
+        scale: 0.2,
+        translateY: -400,
+        opacity: 0
+      });
+
+      anime({
+        targets: '#body',
+        background: '#FFFFFF',
+        height: 0,
+        delay: 500
+      });
+    });
+  });
+});

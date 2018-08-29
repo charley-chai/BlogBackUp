@@ -361,3 +361,17 @@ p{
   background: white;
   border-radius: 5px;
 }
+
+#body{
+  background: black;
+  height: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+#lineDrawing{
+  padding-top: 200px; 
+  width: 50%;
+  margin-left: 25%;
+  stroke: aqua;
+}
