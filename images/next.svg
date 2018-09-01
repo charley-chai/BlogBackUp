@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 67">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: rgba(255,255,255,0.81);
+      }
+
+      .cls-4 {
+        fill: rgba(255,255,255,0.62);
+      }
+    </style>
+  </defs>
+  <g id="Group_421" data-name="Group 421" transform="translate(-935 -1001)">
+    <g id="baseline-arrow_back_ios-24px" transform="translate(935 1068) rotate(-90)">
+      <path id="Path_181" data-name="Path 181" class="cls-1" d="M24.313,5.787,20.625,2.1,0,22.725,20.625,43.35l3.688-3.687L7.375,22.725Z" transform="translate(0 2.275)"/>
+      <path id="Path_182" data-name="Path 182" class="cls-2" d="M0,0H50V50H0Z"/>
+    </g>
+    <g id="baseline-arrow_back_ios-24px-2" data-name="baseline-arrow_back_ios-24px" transform="translate(940 1049) rotate(-90)">
+      <path id="Path_181-2" data-name="Path 181" class="cls-3" d="M19.45,5.05,16.5,2.1,0,18.6,16.5,35.1l2.95-2.95L5.9,18.6Z" transform="translate(0 1.4)"/>
+      <path id="Path_182-2" data-name="Path 182" class="cls-2" d="M0,0H40V40H0Z"/>
+    </g>
+    <g id="baseline-arrow_back_ios-24px-3" data-name="baseline-arrow_back_ios-24px" transform="translate(945 1031) rotate(-90)">
+      <path id="Path_181-3" data-name="Path 181" class="cls-4" d="M14.588,4.312,12.375,2.1,0,14.475,12.375,26.85l2.213-2.213L4.425,14.475Z" transform="translate(0 0.525)"/>
+      <path id="Path_182-3" data-name="Path 182" class="cls-2" d="M0,0H30V30H0Z"/>
+    </g>
+  </g>
+</svg>

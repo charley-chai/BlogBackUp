@@ -1,377 +1,85 @@
-body html{
-  width: 100%;
-  margin: 0;
-  background: white;
-}
-
 body{
-  width: 100%;
   margin: 0;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  background: black;
 }
 
-#bg{
-  z-index: -1;
-  height: 900px;
-  position: absolute;
-  right: 0;
-  top: 0;
+.logo{
+  height: 1em;
+  width: 1em;
 }
 
-aside{
-  display: grid;
-  grid-template-columns: 258px auto 2em+158px;
-  grid-template-rows: auto;
+.container{
+  width: auto;
+  text-align: center;
 }
 
-#logo{
-  height: 2em;
-  margin: 10px 138px;
+header::after{
+  content: '';
+  display: table;
+  clear: both;
+  text-align: center;
 }
 
-#nav-btn{
-  height: 2em;
-  margin: 10px 0px;
-}
-
-li{
-  float: left;
-  width: 67px;
-  list-style-type: none;
+header{
+  background: #333;
+  opacity: 0.8;
+  width: 100%;
+  position: fixed;
 }
 
 nav ul{
-  padding: 0 0 0 740px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.nav{
+nav li{
+  display: inline-block;
+  margin: 0.7em 50px;
+}
+
+nav a{
   text-decoration: none;
   color: white;
-  font-weight: normal;
-  font-size: 1.3em;
+  font-size: 0.9em;
 }
 
-#home{
-  margin: 8em 0;
-  width: 100%;
-  height: auto;
-  color: #31C3E8;
+nav a:hover{
+  color: #999;
 }
 
-.home-content{
-  margin: 0.5em 138px;
-  color: #31C3E8;
-}
-
-#try-it{
-  height: 3em;
-}
-
-#all-versions{
-  height: 1.5em;
-  margin-top: 1em;
-}
-
-h1{
-  font-size: 3em;
-  font-weight: 600;
-}
-
-p{
-  font-size: 1.5em;
-}
-
-#overview{
-  color: #31C3E8;
-  text-align: center;
-}
-
-#overview-h1{
-  text-align: center;
-  font-size: 2.6em;
-  margin-top: 8em;
-}
-
-#overview-p{
-  text-align: center;
-}
-
-#note{
-  background: #31C3E8;
+#song_word{
+  padding: 2em; 
+  height: 100%;
   color: white;
-  border-radius: 0.15em;
-}
-
-#note-page{
-  width: 767px;
-  text-align: center;
-}
-
-.overview-nav{
-  fill: #B7B6B6;
-  opacity: .4;
-}
-
-#choosen-nav{
-  fill: #31C3E8;
-  opacity: 1;
-}
-
-#overview-nav-group{
-  height: 0.7em;
-}
-
-#theme-left{
-  margin-top: 6em;
-  height: 40em;
-  z-index: -1;
-}
-
-#theme-choose li{
-  float: none;
   font-size: 2em;
-  stroke-width: 2px;
-  color: #31C3E8;
   text-align: center;
 }
 
-#theme-choose{
-  margin-top: -15.5em;
-  margin-left: 20em;
+#singer{
+  font-size: 0.61em;
 }
 
-.first{
-  font-size: 1.5em !important;
-  opacity: .75;
+.song{
+  text-decoration: underline;
+  font-style: italic;
 }
 
-.second{
-  font-size: 1em !important;
-  opacity: .5;
-}
-
-#theme{
-  display: grid;
-  grid-template-columns: 42% auto;
-}
-
-#theme-show{
-  list-style-type: none;
-  perspective: 1000px;
-  margin-top: 20em;
-}
-
-#theme-show li{
-  width: 45em;
-  display: grid;
-  grid-template-columns: 20% auto;
-  border-radius: 10px;
-  padding: 15px;
-  cursor: pointer;
-  transform: rotateY(-20deg) rotateX(10deg);
-  position: absolute;
-  border-bottom: 4px solid rgba(0, 0, 0, .2);
-  mix-blend-mode: multiply;
-}
-
-#theme-show li:nth-child(1){
-  background: rgb(19, 28, 41);
-  color: rgb(95, 159, 183);
-  top: -165px;
-  z-index: 2;
-}
-
-#theme-show li:nth-child(2){
-  background: #343846;
-  color: #4FFA7A;
-  z-index: 1;
-}
-
-#theme-show li:nth-child(3){
-  background: rgb(36, 46, 50);
-  color: rgb(148, 207, 219);
-  top: 140px;
-}
-
-#theme-show li:hover{
-  transform: rotateY(-15deg) rotateX(7deg);
-  transition: transform .4s ease-out;
-  z-index: 3;
-  mix-blend-mode: normal;
-}
-
-.theme-logo{
-  width: 100px;
-}
-
-#goog{
-  color: #BBA0E3;
-  font-size: 1.4em;
-}
-
-#ms{
-  color: rgb(239, 138, 82);
-  font-size: 1.4em;
-}
-
-#fb{
-  font-size: 1.4em;
-  color: #31C3E8;
-}
-
-#take-notes{
-  margin-top: 20em;
-  display: grid;
-  grid-template-columns: 57% auto;
-}
-
-#notes-ask{
-  font-size: 0.9em;
-  margin: 0.5em 138px;
-  color: #31C3E8;
-}
-
-#manual{
-  background: #31C3E8;
-  border-radius: 5px;
-  color: white;
-  width: 3.2em;
+#main{
   text-align: center;
-  margin: 0.5em 138px;
-  font-size: 1.3em;
 }
 
-#ball{
-  margin-left: -10em;
-  margin-top: -12em;
-  height: 50em;
+#solar{
+  height: 22em;
+  align-self: center;
 }
 
-#notes-nav-group{
-  height: .7em;
-  margin-top: 13em;
-  margin: 200px;
-}
-
-#time-line{
-  color: #31C3E8;
-  text-align: right;
-  display: grid;
-  margin-right: 138px;
-  grid-template-columns: 50% auto;
-}
-
-#tl-ask{
-  font-size: 0.9em;
-  color: #31C3E8;
-}
-
-#tl-nav-group{
-  height: 0.7em;
-  margin-top: 10em;
-  margin-right: 3em;
-}
-
-.tl-nav{
-  fill: #B7B6B6;
-}
-
-#chosen-tl-nav{
-  fill: #31C3E8;
-}
-
-#tl-manual{
-  background: #31C3E8;
-  color: white;
-  border-radius: 5px;
-  text-align: center;
-  position: absolute;
-  right: 138px;
-  width: 3.2em;
-  font-size: 1.3em;
-  margin-top: -0.2em;
-}
-
-#teamwork{
-  margin-left: 8em;
-}
-
-#timeline{
-  margin-left: 10em;
-}
-
-#tl-h1{
-  font-size: 2.6em;
-}
-
-.todos{
-  color: white;
-  background: #31C3E8;
-  border-radius: 5px;
-}
-
-#contact {
-  margin-left: 138px;
-  position: absolute;
-  opacity: 1;
-  margin-top: 3em;
-  z-index: -1;
-}
-
-#contact-ul{
-  margin-left: -2.5em;
-}
-
-#contact-logo{
+#next{
   height: 2em;
+  align-self: center;
 }
 
-#contact li{
-  float: none;
-  display: grid;
-  grid-template-columns: 2.5em auto;
-  grid-template-rows: 2em;
-  color: #B7B6B6;
-  height: 2.3em;
-}
-
-.logos{
-  width: 1.5em;
-}
-
-.names{
-  margin: 0;
-  font-size: 1em;
-}
-
-.polymorph{
-  fill: url(#a);
-}
-
-#help{
-  margin-top: -15em;
-  font-size: 1.8em;
-  text-align: center;
-  color: white;
-  opacity: 0;
-}
-
-#github{
-  color: #31C3E8;
-  background: white;
-  border-radius: 5px;
-}
-
-#body{
-  background: black;
-  height: 600px;
-  margin: auto;
-  text-align: center;
-}
-
-#lineDrawing{
-  padding-top: 200px; 
-  width: 50%;
-  margin-left: 25%;
-  stroke: aqua;
+nav{
+  z-index: 100;
 }
