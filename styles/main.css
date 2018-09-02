@@ -47,8 +47,20 @@ nav a{
   font-size: 0.9em;
 }
 
+nav p{
+  text-decoration: none;
+  color: white;
+  font-size: 0.9em;
+  margin: 0;
+}
+
 nav a:hover{
   color: #999;
+}
+
+nav p:hover{
+  color: #999;
+  cursor: pointer;
 }
 
 #song_word{
@@ -84,10 +96,6 @@ nav{
   z-index: 100;
 }
 
-p{
-  color: white;
-}
-
 footer{
   position: fixed;
   z-index: 1000;
@@ -102,4 +110,99 @@ footer{
   width: 100%;
   background: white;
   height: 200em;
+  text-align: center;
+}
+
+.placeholder{
+  height: 2em;
+}
+
+
+#intro{
+  padding-top: 3em;
+  margin: 0;
+  color: black;
+  font-size: 1.5em;
+}
+
+#cc{
+  text-decoration: underline solid orange;
+}
+
+#info{
+  font-size: 1.8em;
+  color: black;
+}
+
+#contact_home{
+  width: auto;
+  text-align: end;
+  font-size: 1.4em;
+  color: rgb(44, 112, 195);
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+}
+
+#contact_me{
+  margin: 0;
+}
+
+#logo_big{
+  margin-top: 5em;
+  height: 20em;
+}
+
+#logo_big:hover{
+  transform: translateX(10px);
+}
+
+.logo_p:hover{
+  fill: orange;
+}
+
+#highlight_up{
+  margin-top: 5em;
+  display: grid;
+  grid-template-columns: auto 1em auto;
+}
+
+#hl_upleft{
+  background: rgb(243, 198, 200);
+  height: 40em;
+}
+
+#hl_upright{
+  background: #B7DCEA;
+  height: 40em;
+}
+
+.hl_title{
+  font-size: 2.4em;
+}
+
+.hl_intro{
+  font-size: 1.4em
+}
+
+.hl_top_href{
+  width: auto;
+  text-align: end;
+  font-size: 1.4em;
+  color: rgb(44, 112, 195);
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+}
+
+.hl_href{
+  margin: 0;
+}
+
+#upleft{
+  width: 100%;
+}
+
+#upright{
+  width: 80%;
 }
