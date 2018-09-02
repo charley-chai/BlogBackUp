@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="scripts/src/jquery.min.js"></script>
+    <script src="scripts/element_height.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
     <title>Charley Chai</title>
     <link rel="stylesheet" href="styles/main.css">
@@ -35,17 +37,28 @@
 
     <div id="main">
       <div id="particles-js" class="particles-js w-embed w-script">
-        <script src="scripts/particles.min.js"></script>
+        <script src="scripts/src/particles.min.js"></script>
       </div>
       <div id="song_word">
         <p>If tomorrow is judgment day … <br/>the Lord asks me what I did with my life <br/>I will say I spent it with you.</p>
         <p id="singer">— Whitney Houston, <abbr class="song">My Love Is Your Love<abbr></p>
       </div>
       <img src="images/logo-landing.png" id="solar"><br/>
-      <img src="images/next.svg" id="next">
     </div>
 
-    <script src="scripts/anime.min.js"></script>
+    <div id="home">
+      <p>Hello world</p>
+    </div>
+
+
+
+    <footer>
+      <div class="center">
+        <img src="images/next.svg" id="next">
+      </div>
+    </footer>
+
+    <script src="scripts/src/anime.min.js"></script>
     <script src="scripts/main.js"></script>
     <script type="text/javascript">
       particlesJS(
@@ -150,5 +163,9 @@
         position: absolute;
       }
     </style>
+    <script>
+      var height = $(window).outerHeight() - $("#song_word").outerHeight() - $("#next").outerHeight();
+        $("#solar").height(height);
+    </script>
   </body>
 </html>

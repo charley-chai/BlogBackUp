@@ -22,11 +22,12 @@ header::after{
 }
 
 header{
-  background: #333;
+  background: black;
   opacity: 0.8;
   width: 100%;
   position: fixed;
   z-index: 100;
+  top: 0;
 }
 
 nav ul{
@@ -72,15 +73,33 @@ nav a:hover{
 }
 
 #solar{
-  height: 22em;
   align-self: center;
 }
 
 #next{
   height: 2em;
-  align-self: center;
 }
 
 nav{
   z-index: 100;
+}
+
+p{
+  color: white;
+}
+
+footer{
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: black;
+}
+
+#home{
+  position: absolute;
+  width: 100%;
+  background: white;
+  height: 200em;
 }

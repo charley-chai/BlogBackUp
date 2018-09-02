@@ -1,9 +1,16 @@
-var next = document.getElementById("next");
-next.onclick = function () {
-  alert('d');
-}
+$(window).ready(function(){
+  $(document.body).css({
+    "overflow-x": "hidden",
+    "overflow-y": "hidden"
+  });
 
-var logo = document.getElementById("logo");
-logo.onclick = function () {
-  alert('Welcome to home');
-}
+  $("#next").click(function () {
+    $("footer").fadeOut("fast");
+    $("#main").slideUp(200, function(){
+      $(document.body).css({
+        "overflow-x": "auto",
+        "overflow-y": "auto"
+      });
+    });
+  });
+});
