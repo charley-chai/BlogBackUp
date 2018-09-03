@@ -159,18 +159,19 @@ footer{
 #highlight_up{
   margin-top: 5em;
   display: grid;
+  height: 35em;
   grid-template-columns: 50% 50%;
 }
 
 #highlight_bottom{
   margin-top: 1em;
   display: grid;
+  height: 35em;
   grid-template-columns: 50% 50%;
 }
 
 #hl_upleft{
   background: black;
-  height: 35em;
   margin-left: 1em;
   margin-right: 0.5em;
   color: white;
@@ -178,21 +179,18 @@ footer{
 
 #hl_upright{
   background: #B7DCEA;
-  height: 35em;
   margin-left: 0.5em;
   margin-right: 1em;
 }
 
 #hl_bottomleft{
-  background: rgb(250, 250, 250);
-  height: 35em;
+  background: rgb(240, 240, 240);
   margin-left: 1em;
   margin-right: 0.5em;
 }
 
 #hl_bottomright{
-  background: rgb(228, 222, 198);
-  height: 35em;
+  background: rgb(250, 250, 250);
   margin-left: 0.5em;
   margin-right: 1em;
 }
@@ -221,19 +219,53 @@ footer{
 
 #upleft{
   margin-top: 1em;
-  width: 50%;
+  height: 20em;
 }
 
 #upright{
   margin-top: 1em;
-  width: 50%;
+  height: 20em;
 }
 
 #bottomleft1{
   margin-top: 2em;
-  width: 25%;
+  height: 20em;
+}
+
+.bottomleft2{
+  height: 20em;
 }
 
 #bottomright{
-  width: 5em;
+  margin-top: 2em;
+  height: 20em;
+}
+
+#contact{
+  background: #F1F5F5;
+  margin-top: 1em;
+}
+
+#welcome{
+  padding-top: 1em;
+  font-size: 2em;
+  margin: 0;
+}
+
+#cvia{
+  margin: 0.5em;
+  font-size: 1.5em;
+  color: #999;
+}
+
+.logos{
+  height: 1.5em;
+  margin: 1em 1em;
+}
+
+#copyright{
+  font-size: 0.8em;
+  color: #999;
+  margin: 0;
+  padding-bottom: 0.5em
 }
