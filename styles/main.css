@@ -109,7 +109,6 @@ footer{
   position: absolute;
   width: 100%;
   background: white;
-  height: 200em;
   text-align: center;
 }
 
@@ -153,10 +152,6 @@ footer{
   height: 20em;
 }
 
-#logo_big:hover{
-  transform: translateX(10px);
-}
-
 .logo_p:hover{
   fill: orange;
 }
@@ -164,17 +159,42 @@ footer{
 #highlight_up{
   margin-top: 5em;
   display: grid;
-  grid-template-columns: auto 1em auto;
+  grid-template-columns: 50% 50%;
+}
+
+#highlight_bottom{
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 #hl_upleft{
-  background: rgb(243, 198, 200);
-  height: 40em;
+  background: black;
+  height: 35em;
+  margin-left: 1em;
+  margin-right: 0.5em;
+  color: white;
 }
 
 #hl_upright{
   background: #B7DCEA;
-  height: 40em;
+  height: 35em;
+  margin-left: 0.5em;
+  margin-right: 1em;
+}
+
+#hl_bottomleft{
+  background: rgb(250, 250, 250);
+  height: 35em;
+  margin-left: 1em;
+  margin-right: 0.5em;
+}
+
+#hl_bottomright{
+  background: rgb(228, 222, 198);
+  height: 35em;
+  margin-left: 0.5em;
+  margin-right: 1em;
 }
 
 .hl_title{
@@ -200,9 +220,20 @@ footer{
 }
 
 #upleft{
-  width: 100%;
+  margin-top: 1em;
+  width: 50%;
 }
 
 #upright{
-  width: 80%;
+  margin-top: 1em;
+  width: 50%;
+}
+
+#bottomleft1{
+  margin-top: 2em;
+  width: 25%;
+}
+
+#bottomright{
+  width: 5em;
 }
