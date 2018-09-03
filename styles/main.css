@@ -9,6 +9,11 @@ body{
   width: 1em;
 }
 
+a{
+  text-decoration: none;
+  color: rgb(44, 112, 195);
+}
+
 .container{
   width: auto;
   text-align: center;
@@ -217,6 +222,10 @@ footer{
   margin: 0;
 }
 
+.hl_href:hover{
+  cursor: pointer;
+}
+
 #upleft{
   margin-top: 1em;
   height: 20em;
@@ -242,8 +251,7 @@ footer{
 }
 
 #contact{
-  background: #F1F5F5;
-  margin-top: 1em;
+  background: rgb(231, 243, 243);
 }
 
 #welcome{
@@ -268,4 +276,41 @@ footer{
   color: #999;
   margin: 0;
   padding-bottom: 0.5em
+}
+
+.link:hover{
+  cursor: pointer;
+}
+
+#class_related{
+  margin-top: 1em;
+  background: rgb(240, 247, 248);
+  height: 25em;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: auto;
+}
+
+.books_title{
+  transform: translateY(-12em);
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.books{
+  height: 20em;
+  transform: translateY(2.5em);
+}
+
+.update{
+  font-size: 0.8em;
+  transform: translateY(-8em);
+}
+
+#l1, #l2, #l3, #l4, #l5{
+  color: white;
+}
+
+.singlebook:hover{
+  transform: scale(1.1);
 }
