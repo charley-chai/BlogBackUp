@@ -2,11 +2,11 @@
   <defs>
     <style>
       .cls-1 {
-        fill: url(#linear-gradient);
+        fill: url(#radial-gradient);
       }
 
       .cls-2 {
-        fill: rgba(71,43,172,0.65);
+        fill: #8e929b;
       }
 
       .cls-3, .cls-4 {
@@ -24,17 +24,15 @@
         font-family: HelveticaNeue, Helvetica Neue;
       }
     </style>
-    <linearGradient id="linear-gradient" x1="0.069" y1="0.155" x2="0.964" y2="0.968" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#7647ce"/>
-      <stop offset="0.159" stop-color="#6265d7" stop-opacity="0.937"/>
-      <stop offset="0.821" stop-color="#2161bf" stop-opacity="0.867"/>
-      <stop offset="1" stop-color="#4394e5" stop-opacity="0.839"/>
-    </linearGradient>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.574" gradientTransform="matrix(1.41, 0.058, -0.115, 1.41, -0.147, -0.234)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#454b5c"/>
+      <stop offset="1" stop-color="#030303" stop-opacity="0.839"/>
+    </radialGradient>
   </defs>
-  <g id="Group_441" data-name="Group 441" transform="translate(-1372 -422)">
-    <g id="Group_430" data-name="Group 430">
-      <rect id="Rectangle_34" data-name="Rectangle 34" class="cls-1" width="400" height="565" rx="5" transform="translate(1372 422)"/>
-      <g id="Group_426" data-name="Group 426" transform="translate(768 58.132)">
+  <g id="Group_442" data-name="Group 442" transform="translate(-875 -422)">
+    <g id="Group_429" data-name="Group 429">
+      <rect id="Rectangle_33" data-name="Rectangle 33" class="cls-1" width="400" height="565" rx="5" transform="translate(875 422)"/>
+      <g id="Group_423" data-name="Group 423" transform="translate(272 58.132)">
         <path id="Path_278" data-name="Path 278" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-2063.115 2.988)"/>
         <path id="Path_279" data-name="Path 279" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-1882.569 2.988)"/>
         <path id="Path_280" data-name="Path 280" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-1972.842 2.988)"/>
@@ -43,9 +41,9 @@
         <path id="Path_283" data-name="Path 283" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-1972.842 -39)"/>
       </g>
     </g>
-    <g id="Group_435" data-name="Group 435" transform="translate(499 -705)">
-      <text id="Computer_Network_2018_Fall" data-name="Computer Network
-2018 Fall" class="cls-3" transform="translate(900 1218)"><tspan x="0" y="0">Computer Network</tspan><tspan x="0" y="37">2018 Fall</tspan></text>
+    <g id="Group_434" data-name="Group 434" transform="translate(0 -705)">
+      <text id="Program_Languages_2018_" data-name="Program Languages
+2018 ~" class="cls-3" transform="translate(900 1218)"><tspan x="0" y="0">Program Languages</tspan><tspan x="0" y="37">2018 ~</tspan></text>
       <text id="UPDATES_Sep_3_2018" data-name="UPDATES
 Sep 3, 2018" class="cls-4" transform="translate(900 1613)"><tspan x="0" y="0">UPDATES</tspan><tspan x="0" y="24">Sep 3, 2018</tspan></text>
     </g>

@@ -2,28 +2,50 @@
   <defs>
     <style>
       .cls-1 {
-        fill: url(#linear-gradient);
+        fill: url(#radial-gradient);
       }
 
       .cls-2 {
-        fill: rgba(57,144,163,0.79);
+        fill: #4b494b;
+      }
+
+      .cls-3, .cls-4 {
+        fill: #dbefef;
+      }
+
+      .cls-3 {
+        font-size: 30px;
+        font-family: HelveticaNeue-Medium, Helvetica Neue;
+        font-weight: 500;
+      }
+
+      .cls-4 {
+        font-size: 20px;
+        font-family: HelveticaNeue, Helvetica Neue;
       }
     </style>
-    <linearGradient id="linear-gradient" x1="1.075" y1="-0.545" x2="0.163" y2="0.961" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#47ce66"/>
-      <stop offset="0.419" stop-color="#43c5b2"/>
-      <stop offset="1" stop-color="#41bfe5"/>
-    </linearGradient>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.574" gradientTransform="matrix(1.41, 0.058, -0.115, 1.41, -0.147, -0.234)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#adadaf"/>
+      <stop offset="1" stop-color="#3c3a3a" stop-opacity="0.839"/>
+    </radialGradient>
   </defs>
-  <g id="Group_431" data-name="Group 431" transform="translate(-1869 -422)">
-    <rect id="Rectangle_35" data-name="Rectangle 35" class="cls-1" width="400" height="565" rx="5" transform="translate(1869 422)"/>
-    <g id="Group_427" data-name="Group 427" transform="translate(1267 58.132)">
-      <path id="Path_278" data-name="Path 278" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-2063.115 2.988)"/>
-      <path id="Path_279" data-name="Path 279" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-1882.569 2.988)"/>
-      <path id="Path_280" data-name="Path 280" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-1972.842 2.988)"/>
-      <path id="Path_281" data-name="Path 281" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-1972.842 44.975)"/>
-      <path id="Path_282" data-name="Path 282" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-2063.115 -39)"/>
-      <path id="Path_283" data-name="Path 283" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-1972.842 -39)"/>
+  <g id="Group_439" data-name="Group 439" transform="translate(-875 -1124)">
+    <g id="Group_432" data-name="Group 432">
+      <rect id="Rectangle_36" data-name="Rectangle 36" class="cls-1" width="400" height="565" rx="5" transform="translate(875 1124)"/>
+      <g id="Group_428" data-name="Group 428" transform="translate(272 764.132)">
+        <path id="Path_278" data-name="Path 278" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-2063.115 2.988)"/>
+        <path id="Path_279" data-name="Path 279" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-1882.569 2.988)"/>
+        <path id="Path_280" data-name="Path 280" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-1972.842 2.988)"/>
+        <path id="Path_281" data-name="Path 281" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-1972.842 44.975)"/>
+        <path id="Path_282" data-name="Path 282" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-2063.115 -39)"/>
+        <path id="Path_283" data-name="Path 283" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-1972.842 -39)"/>
+      </g>
+    </g>
+    <g id="Group_433" data-name="Group 433" transform="translate(0 1)">
+      <text id="Algorithm_Basis_2018_Fall" data-name="Algorithm Basis
+2018 Fall" class="cls-3" transform="translate(900 1218)"><tspan x="0" y="0">Algorithm Basis</tspan><tspan x="0" y="37">2018 Fall</tspan></text>
+      <text id="UPDATES_Sep_3_2018" data-name="UPDATES
+Sep 3, 2018" class="cls-4" transform="translate(900 1613)"><tspan x="0" y="0">UPDATES</tspan><tspan x="0" y="24">Sep 3, 2018</tspan></text>
     </g>
   </g>
 </svg>

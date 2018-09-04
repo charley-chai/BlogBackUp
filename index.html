@@ -15,20 +15,25 @@
       <div class="container">
           <nav>
             <ul>
-              <li>
-                <a href="#">
-                  <img src="images/logo.svg" class="logo" id="logo">
-                </a>
+              <li class="frim" id="expand">
+                <p href="#">
+                  <img src="images/expand.svg" class="logo" >
+                </p>
               </li>
-              <li><p id="home_nav">Home</p></li>
-              <li><a href="#">Blogs</a></li>
-              <li><a href="#">Notes</a></li>
-              <li><a href="#">Peojects</a></li>
-              <li><a href="#">Hobbies</a></li>
-              <li>
-                <a href="#">
+              <li class="frim">
+                <p href="#">
+                  <img src="images/logo.svg" class="logo" id="logo">
+                </p>
+              </li>
+              <li class="shift"><p id="home_nav">Home</p></li>
+              <li class="shift"><a href="#">Blogs</a></li>
+              <li class="shift"><a href="#">Notes</a></li>
+              <li class="shift"><a href="#">Peojects</a></li>
+              <li class="shift"><a href="#">Hobbies</a></li>
+              <li class="frim" id="search">
+                <p href="#">
                   <img src="images/search.svg" class="logo">
-                </a>
+                </p>
               </li>
             </ul>
           </nav>
@@ -43,7 +48,9 @@
         <p>If tomorrow is judgment day … <br/>the Lord asks me what I did with my life <br/>I will say I spent it with you.</p>
         <p id="singer">— Whitney Houston, <abbr class="song link">My Love Is Your Love<abbr></p>
       </div>
-      <img src="images/logo-landing.png" id="solar"><br/>
+      <div id="sl">
+        <img src="images/logo-landing.png" id="solar"><br/>
+      </div>
     </div>
 
     <div id="home">
@@ -122,31 +129,21 @@
       <div id="class_related">
         <div id="l1" class="singlebook">
           <img src="images/papers.svg" class="books">
-          <p class="books_title">Finished papers<br/>In 2018</p>
-          <p class="update">UPDATES<br>2018.09.02</p>
         </div>
         <div id="l2" class="singlebook">
-          <img src="images/program.svg" class="books">
-          <p class="books_title">Program Languages<br/>2018 ~</p>
-          <p class="update">UPDATES<br>2018.09.02</p>
+          <img src="images/lang.svg" class="books">
         </div>
 
         <div id="l3" class="singlebook">
           <img src="images/network.svg" class="books">
-          <p class="books_title">Computer Network<br/>In 2018 fall</p>
-          <p class="update">UPDATES<br>2018.09.02</p>
         </div>
 
         <div id="l4" class="singlebook">
-          <img src="images/compile.svg" class="books">
-          <p class="books_title"> Compilers Principle<br/>In 2018 Fall</p>
-          <p class="update">UPDATES<br>2018.09.02</p>
+          <img src="images/compiler.svg" class="books">
         </div>
 
         <div id="l5" class="singlebook">
           <img src="images/algorithm.svg" class="books">
-          <p class="books_title">Algorithm Basis<br/>In 2018 Fall</p>
-          <p class="update">UPDATES<br>2018.09.02</p>
         </div>
       </div>
 
@@ -278,7 +275,8 @@
     </style>
     <script>
       var height = $(window).outerHeight() - $("#song_word").outerHeight() - $("#next").outerHeight();
-        $("#solar").height(height);
+      $("#sl").outerHeight(height);
+      $("#solar").css("padding-top", (height - $("#solar").height()) / 2);
     </script>
   </body>
 </html>

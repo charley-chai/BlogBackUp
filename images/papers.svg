@@ -8,6 +8,21 @@
       .cls-2 {
         fill: #fff;
       }
+
+      .cls-3, .cls-4 {
+        fill: #dbefef;
+      }
+
+      .cls-3 {
+        font-size: 30px;
+        font-family: HelveticaNeue-Medium, Helvetica Neue;
+        font-weight: 500;
+      }
+
+      .cls-4 {
+        font-size: 20px;
+        font-family: HelveticaNeue, Helvetica Neue;
+      }
     </style>
     <linearGradient id="linear-gradient" x1="0.867" y1="0.082" x2="0.116" y2="0.954" gradientUnits="objectBoundingBox">
       <stop offset="0" stop-color="#cd7de5" stop-opacity="0.816"/>
@@ -17,9 +32,11 @@
       <stop offset="1" stop-color="#9edbe6"/>
     </linearGradient>
   </defs>
-  <g id="Group_423" data-name="Group 423" transform="translate(-378 -422)">
-    <rect id="Rectangle_32" data-name="Rectangle 32" class="cls-1" width="400" height="565" rx="5" transform="translate(378 422)"/>
-    <g id="Group_422" data-name="Group 422" transform="translate(-223 58.132)">
+  <g id="Group_438" data-name="Group 438" transform="translate(-1372 -1128)">
+    <g id="Group_424" data-name="Group 424" transform="translate(994 706)">
+      <rect id="Rectangle_32" data-name="Rectangle 32" class="cls-1" width="400" height="565" rx="5" transform="translate(378 422)"/>
+    </g>
+    <g id="Group_422" data-name="Group 422" transform="translate(771 764.132)">
       <path id="Path_278" data-name="Path 278" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-2063.115 2.988)"/>
       <path id="Path_279" data-name="Path 279" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-1882.569 2.988)"/>
       <path id="Path_280" data-name="Path 280" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-1972.842 2.988)"/>
@@ -27,5 +44,9 @@
       <path id="Path_282" data-name="Path 282" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-2063.115 -39)"/>
       <path id="Path_283" data-name="Path 283" class="cls-2" d="M2737.315,650l-45.2,21.133,45.2,20.854,45.026-20.854Z" transform="translate(-1972.842 -39)"/>
     </g>
+    <text id="Finished_papers_2018" data-name="Finished papers
+2018" class="cls-3" transform="translate(1399 1219)"><tspan x="0" y="0">Finished papers</tspan><tspan x="0" y="37">2018</tspan></text>
+    <text id="UPDATES_Sep_3_2018" data-name="UPDATES
+Sep 3, 2018" class="cls-4" transform="translate(1399 1614)"><tspan x="0" y="0">UPDATES</tspan><tspan x="0" y="24">Sep 3, 2018</tspan></text>
   </g>
 </svg>

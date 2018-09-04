@@ -4,6 +4,8 @@ $(window).ready(function(){
     "overflow-y": "hidden"
   });
 
+  
+
   $("#next").click(function(){
     welcome_page_fade();
   });
@@ -13,14 +15,9 @@ $(window).ready(function(){
   });
 });
 
+
 function welcome_page_fade() {
-  var fade = anime({
-    targets: '#main',
-    delay: 500,
-    duration: 2000,
-    height: 0,
-    translateY: -240
-  });
+  $("#main").slideUp(500);
 
   $("footer").fadeOut(700, function () {
     $(document.body).css({
