@@ -275,7 +275,7 @@ footer{
   padding-bottom: 0.5em
 }
 
-.link{
+.link, .hl_href{
   text-align: right;
 }
 
