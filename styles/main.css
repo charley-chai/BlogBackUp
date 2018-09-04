@@ -89,12 +89,6 @@ nav p:hover{
   text-align: center;
 }
 
-#solar{
-  align-self: center;
-  width: 90%;
-  padding: 2em 0;
-}
-
 #next{
   height: 2em;
 }
@@ -304,7 +298,7 @@ footer{
 }
 
 #sl{
-  max-width: 100%;
+  width: 100%;
   height: auto;
   text-align: center;
 }
@@ -314,6 +308,12 @@ footer{
     display: none;
     width: 0;
     margin: 0;
+  }
+
+
+  #solar{
+    align-self: center;
+    max-width: 90%;
   }
 
   .frim{
@@ -453,9 +453,7 @@ footer{
     font-size: 1em;
     color: #999;
   }
-
 }
-
 
 @media only screen and (min-width: 1000px){
   #expand{
