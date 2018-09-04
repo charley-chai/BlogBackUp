@@ -275,6 +275,10 @@ footer{
   padding-bottom: 0.5em
 }
 
+.link{
+  text-align: right;
+}
+
 .link:hover{
   cursor: pointer;
 }
