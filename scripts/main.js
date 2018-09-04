@@ -24,9 +24,6 @@ function welcome_page_fade() {
       "overflow-x": "auto",
       "overflow-y": "auto"
     });
-  });
-
-  fade.finished.then(()=>{
     $("#main").remove();
   });
 }
