@@ -4,6 +4,10 @@ body{
   background: black;
 }
 
+#hoster{
+  color: #999;
+}
+
 .logo{
   height: 1em;
   width: 1em;
