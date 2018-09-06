@@ -66,7 +66,6 @@ body{
 }
 
 #swangeese{
-  margin-top: 1em;
   margin-bottom: 0em;
   display: grid;
   grid-template-columns: 50% 50%;
@@ -115,4 +114,20 @@ div{
 #contact{
   margin-top: 1em;
   background: white; 
+}
+
+#sharel{
+  height: 15em; 
+  margin-bottom: 2em;
+}
+
+#share{
+  margin-top: 4em;
+  margin-bottom: 2em;
+  height: 20em;
+}
+
+#sharer{
+  height: 15em;
+  margin-bottom: 3em;
 }
