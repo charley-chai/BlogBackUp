@@ -5,7 +5,8 @@ $(window).ready(function(){
 
   $(document.body).css({
     "overflow-x": "hidden",
-    "overflow-y": "hidden"
+    "overflow-y": "hidden",
+    "height": "100%"
   });
 
   $("#expand").click(function(){
@@ -19,13 +20,15 @@ $(window).ready(function(){
       $('html,body').animate({ scrollTop: 0 }, 500);
       $(document.body).css({
         "overflow-x": "hidden",
-        "overflow-y": "hidden"
+        "overflow-y": "hidden",
+        "height": "100%"
       });
       $(document.body).bind('touchmove', false);
     } else{
       $(document.body).css({
         "overflow-x": "auto",
-        "overflow-y": "auto"
+        "overflow-y": "auto",
+        "height": "auto"
       });
       $(document.body).bind('touchmove', true);
     }
@@ -48,7 +51,8 @@ function welcome_page_fade() {
     if (!expand){
       $(document.body).css({
         "overflow-x": "auto",
-        "overflow-y": "auto"
+        "overflow-y": "auto",
+        "height": "auto"
       });
     }
     $("#main").remove();
