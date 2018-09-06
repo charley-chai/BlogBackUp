@@ -1,3 +1,5 @@
+var expand = false;
+
 $(window).ready(function(){
 
   $(document.body).css({
@@ -5,16 +7,11 @@ $(window).ready(function(){
     "overflow-y": "hidden"
   });
 
-  var expand = false;
-
   $("#expand").click(function(){
     $("#xxxx").toggleClass("nav_active");
     var nav = $("#ssub_nav");
     nav.toggleClass("small_nav");
     nav.height($(window).outerHeight());
-    $(document.body).addEventListener('touchmove', function (event) {
-      event.preventDefault();
-    }, false);
     expand = !expand;
 
     if (expand){
@@ -56,6 +53,4 @@ function welcome_page_fade() {
     }
     $("#main").remove();
   });
-
-
 }
