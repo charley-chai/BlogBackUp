@@ -1,4 +1,5 @@
 $(window).ready(function(){
+
   $(document.body).css({
     "overflow-x": "hidden",
     "overflow-y": "hidden"
@@ -11,7 +12,7 @@ $(window).ready(function(){
     var nav = $("#ssub_nav");
     nav.toggleClass("small_nav");
     nav.height($(window).outerHeight());
-    document.body.addEventListener('touchmove', function (event) {
+    $(document.body).addEventListener('touchmove', function (event) {
       event.preventDefault();
     }, false);
     expand = !expand;
