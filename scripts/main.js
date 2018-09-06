@@ -6,8 +6,9 @@ $(window).ready(function(){
   $(document.body).css({
     "overflow-x": "hidden",
     "overflow-y": "hidden",
-    "height": "100%"
   });
+
+  $(document.body).height($(window).height());
 
   $("#expand").click(function(){
     $("#xxxx").toggleClass("nav_active");
