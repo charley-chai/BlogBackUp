@@ -1,4 +1,5 @@
 var expand = false;
+var first = true;
 
 $(window).ready(function(){
 
@@ -20,11 +21,7 @@ $(window).ready(function(){
         "overflow-x": "hidden",
         "overflow-y": "hidden"
       });
-      $(document.body).bind('touchmove', function (event, enable) {
-        if (enable) {
-          event.preventDefault();
-        }
-      });
+      $(document.body).bind('touchmove', false);
     } else{
       $(document.body).css({
         "overflow-x": "auto",
