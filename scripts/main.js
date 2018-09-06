@@ -20,14 +20,17 @@ $(window).ready(function(){
         "overflow-x": "hidden",
         "overflow-y": "hidden"
       });
-      $("body").on("touchmove", function (event) {
-        event.preventDefault;
-      }, false);
+      $(document.body).bind('touchmove', function (event, enable) {
+        if (enable) {
+          event.preventDefault();
+        }
+      });
     } else{
       $(document.body).css({
         "overflow-x": "auto",
         "overflow-y": "auto"
       });
+      $(document.body).bind('touchmove', true);
     }
   });
 
