@@ -22,6 +22,9 @@ $(window).ready(function(){
         "overflow-x": "hidden",
         "overflow-y": "hidden"
       });
+      $("body").on("touchmove", function (event) {
+        event.preventDefault;
+      }, false);
     } else{
       $(document.body).css({
         "overflow-x": "auto",
