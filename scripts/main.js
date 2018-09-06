@@ -4,14 +4,30 @@ $(window).ready(function(){
     "overflow-y": "hidden"
   });
 
+  var expand = false;
+
   $("#expand").click(function(){
     $("#xxxx").toggleClass("nav_active");
     var nav = $("#ssub_nav");
     nav.toggleClass("small_nav");
     nav.height($(window).outerHeight());
-    nav.addEventListener('touchmove', function (event) {
+    document.body.addEventListener('touchmove', function (event) {
       event.preventDefault();
     }, false);
+    expand = !expand;
+
+    if (expand){
+      $('html,body').animate({ scrollTop: 0 }, 500);
+      $(document.body).css({
+        "overflow-x": "hidden",
+        "overflow-y": "hidden"
+      });
+    } else{
+      $(document.body).css({
+        "overflow-x": "auto",
+        "overflow-y": "auto"
+      });
+    }
   });
 
   $("#next").click(function(){
@@ -26,12 +42,14 @@ $(window).ready(function(){
 
 function welcome_page_fade() {
   $("#main").slideUp(500);
-
   $("footer").fadeOut(700, function () {
-    $(document.body).css({
-      "overflow-x": "auto",
-      "overflow-y": "auto"
-    });
+
+    if (!expand){
+      $(document.body).css({
+        "overflow-x": "auto",
+        "overflow-y": "auto"
+      });
+    }
     $("#main").remove();
   });
 
