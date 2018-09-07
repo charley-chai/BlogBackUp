@@ -59,7 +59,7 @@ body{
 
 #updateabout{
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 60% 40%;
   height: 30em;
 }
 
@@ -111,7 +111,8 @@ body {
 
 .box {
   width: 50%;
-  min-width: 150px;
+  min-width: 150;
+  max-width: 200px;
   display: block;
   height: 50px;
   position: relative;
