@@ -8,6 +8,7 @@
   <title>Notes for cs classes in USTC</title>
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/notes.css">
+  <script src="/scripts/src/jquery.min.js"></script>
 </head>
 <body>
   <header>
@@ -40,9 +41,87 @@
       </nav>
     </div>
   </header>
-  <div class="placeholder"></div>
-  <div>
-    <p>Notes</p>
+
+  <div id="background">
+    <div class="placeholder"></div>
+    <img src="/images/notes/ustc_logo.svg" alt="ustc" id="ustc">
+    <img src="/images/notes/globe.png" id="globe">
   </div>
+
+  <div id="place"></div>
+
+  <div id="cs_nav">
+    <ul>
+      <li>
+        <a href="#">
+          <img src="/images/notes/computer_network.jpg" class="project_logos">
+          <br/>
+          <p>计算机网络</p>
+          <p class="teacher">田野</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="/images/notes/compiler.jpg" class="project_logos">
+          <br/>
+          <p>编译原理与技术</p>
+          <p class="teacher">郑启龙</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="/images/notes/algorithm.jpg" class="project_logos">
+          <br/>
+          <p>算法基础</p>
+          <p class="teacher">徐云</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="/images/notes/micro-computer.jpg" class="project_logos">
+          <br/>
+          <p>微机原理与系统B</p>
+          <p class="teacher">张俊霞</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="/images/notes/stochastic_process.jpg" class="project_logos">
+          <br/>
+          <p>随机过程</p>
+          <p class="teacher">郑坚坚</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="/images/notes/Electromagnetism.jpg" class="project_logos">
+          <br/>
+          <p>电磁学C</p>
+          <p class="teacher">张一飞</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="updateabout">
+    <div id="update">
+      <p id="log">作业和资料更新</p>
+      <hr color="brown" size=0.5/>
+      <ul>
+        <li>
+          <p><abbr class="time">05/09/18</abbr> <abbr class="type">Homework</abbr> 随机过程B: 第一章1-6</p>
+        </li>
+      </ul>
+    </div>
+
+    <div id="findbytag">
+      <div id="tag" class="box shadow">
+        <a href="#">按课程查找</a>
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/scripts/notes.js"></script>
 </body>
 </html>
