@@ -21,10 +21,13 @@ body{
   width: 30%;
 }
 
+
+
 #cs_nav{
   background: white;
   opacity: 0.85;
   text-align: center;
+  display: none;
 }
 
 #cs_nav ul{
@@ -175,4 +178,12 @@ body {
 
 #place{
   height: 0.7em;
+}
+
+#ustc{
+  display: none;
+}
+
+#log{
+  margin-top: 1em; 
 }
