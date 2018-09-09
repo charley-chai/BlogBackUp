@@ -266,3 +266,41 @@ img{
 #snap{
   text-align: center;
 }
+
+#ai{
+  background: white;
+}
+
+#ai p{
+  margin-top: 0;
+  padding-top: 2em; 
+}
+
+
+#contact{
+  background: white;
+}
+
+#welcome{
+  padding-top: 1em;
+  font-size: 2em;
+  margin: 0;
+}
+
+#cvia{
+  margin: 0.5em;
+  font-size: 1.5em;
+  color: #999;
+}
+
+.logos{
+  height: 1.5em;
+  margin: 1em 1em;
+}
+
+#copyright{
+  font-size: 0.8em;
+  color: #999;
+  margin: 0;
+  padding-bottom: 0.5em
+}
