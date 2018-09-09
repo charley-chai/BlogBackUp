@@ -1,0 +1,126 @@
+body{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: white;
+  text-align: center;
+}
+
+#hoster{
+  color: #999;
+}
+
+.logo{
+  height: 1em;
+  width: 1em;
+}
+
+a{
+  text-decoration: none;
+  color: rgb(44, 112, 195);
+}
+
+.contain{
+  width: auto;
+  text-align: center;
+  opacity: 0.8;
+  background: black;
+}
+
+nav ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li{
+  display: inline-block;
+  margin: 0.7em 4%;
+}
+
+nav a{
+  text-decoration: none;
+  color: white;
+  font-size: 0.9em;
+}
+
+nav p{
+  text-decoration: none;
+  color: white;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+nav a:hover{
+  color: #999;
+}
+
+nav p:hover{
+  color: #999;
+  cursor: pointer;
+}
+
+#name{
+  position: sticky;
+  top: -3px;
+  z-index: 1000;
+  background: whitesmoke;
+  opacity: 0.85;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+#name a{
+  font-size: 1.1em;
+  padding: 0;
+  text-align: right;
+  font-size: 1.1em;
+  color: rgb(44, 112, 195);
+}
+
+#overview{
+  background: white;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: auto;
+}
+
+#bloghost{
+  color: gray !important;
+}
+
+#expand{
+  display: none;
+}
+
+#contact{
+  background: white;
+}
+
+#welcome{
+  padding-top: 1em;
+  font-size: 2em;
+  margin: 0;
+}
+
+#cvia{
+  margin: 0.5em;
+  font-size: 1.5em;
+  color: #999;
+}
+
+.logos{
+  height: 1.5em;
+  margin: 1em 1em;
+}
+
+#copyright{
+  font-size: 0.8em;
+  color: #999;
+  margin: 0;
+  padding-bottom: 0.5em
+}
+
+#intro{
+  height: 300em;
+}
