@@ -1,0 +1,61 @@
+body{
+  background: #EFEFEF;
+}
+
+.lr{
+  height: 22em;
+  background: black;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  margin: 1em 13%;
+}
+
+.left{
+  max-height: 20em;
+  width: 60%;
+  margin: 1em 20%;
+}
+
+.right{
+  background: white;
+}
+
+.tag{
+  color: rgb(120,219,244);
+  text-align: left;
+  margin: 5em 0 0 40px;
+  padding: 0;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.title{
+  margin: 0.5em 40px;
+  padding: 0;
+  font-size: 1.4em;
+  font-weight: 600;
+  text-align: left;
+}
+
+.intro{
+  text-align: left;
+  font-size: 1.2em;
+  margin: 0.5em 40px;
+  height: 8em;
+}
+
+.time{
+  text-align: left;
+  margin: 0 40px;
+  color: #999;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+#contact{
+  background: #EFEFEF;
+}
+
+ul li{
+  list-style-type: none;
+}

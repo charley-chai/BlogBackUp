@@ -1,0 +1,54 @@
+#name{
+  position: sticky;
+  top: -3px;
+  z-index: 1000;
+  background: whitesmoke;
+  opacity: 0.85;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+#name p{
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0.5em 0;
+  color: #333;
+  text-align: left;
+  padding-left: 30%; 
+}
+
+#name a{
+  font-size: 1.1em;
+  padding: 0;
+  margin: 0.8em 30% 0.6em 0;
+  color: gray;
+  text-align: right;
+  font-size: 1.1em;
+  color: rgb(44, 112, 195);
+  text-align: left;
+}
+
+.number{
+  background: #999999;
+  color: white;
+  font-size: 0.6em;
+  border-radius: 5px;
+  padding: 3px;
+  margin: 1px;
+}
+
+#rightinfo{
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+#rightinfo p{
+  font-size: 1.1em;
+  padding: 0;
+  margin: 0.8em 30% 0.6em 0;
+  color: gray;
+  text-align: right;
+  font-size: 1.1em;
+  font-weight: normal;
+  text-align: right;
+}
