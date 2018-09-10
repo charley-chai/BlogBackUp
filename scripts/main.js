@@ -12,9 +12,9 @@ $(window).ready(function(){
 
   $("#expand").click(function(){
     $("#xxxx").toggleClass("nav_active");
-    var nav = $("#ssub_nav");
-    nav.toggleClass("small_nav");
+    var nav = $("#sub_nav");
     nav.height($(window).outerHeight());
+    nav.slideToggle();
     expand = !expand;
 
     if (expand){

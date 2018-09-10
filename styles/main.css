@@ -311,8 +311,12 @@ footer{
   text-align: center;
 }
 
-#ssub_nav{
+#sub_nav{
   display: none;
+}
+
+#placeholder{
+  height: 2.5em;
 }
 
 @media only screen and (max-width: 1000px){
@@ -465,26 +469,24 @@ footer{
     color: #999;
   }
 
-  .small_nav{
-    margin-top: 2em;
-    display: grid !important;
+  #sub_nav{
     list-style-type: none;
     text-decoration: none;
     background: black;
   }
 
-  .small_nav a{
+  #sub_nav a{
     color: white;
     font-size: 1em;
     padding: 0;
   }
 
-  .small_nav li{
+  #sub_nav li{
     margin: 1em 0;
     text-decoration: none;
   }
 
-  .small_nav ul hr{
+  #sub_nav ul hr{
     width: 85%;
     margin-right: 20%; 
   }
