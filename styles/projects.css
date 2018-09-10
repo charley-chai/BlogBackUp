@@ -131,3 +131,11 @@ div{
   height: 15em;
   margin-bottom: 3em;
 }
+
+.small_nav{
+  text-align: left;
+}
+
+#ssub_nav{
+  margin-top: 2.5em;
+}
