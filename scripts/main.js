@@ -1,7 +1,9 @@
 var expand = false;
 var first = true;
+var open = false;
 
 $(window).ready(function(){
+
   $(document.body).height($(window).height());
 
   $("#expand").click(function(){
@@ -14,9 +16,14 @@ $(window).ready(function(){
     if (expand) {
       $('html,body').animate({ scrollTop: 0 }, 500, function(){
         $("#home").addClass("home");
+        $("#main").addClass("home");
       });
     } else {
-      $("#home").removeClass("home");
+      if (open){
+        $("#home").removeClass("home");
+      } else {
+        $("#main").removeClass("home");
+      }
     }
   });
 
@@ -27,12 +34,18 @@ $(window).ready(function(){
   $("#home_nav").click(function(){
     welcome_page_fade();
   });
+
+  var height = $(window).outerHeight() - $("#song_word").outerHeight() - $("#next").outerHeight();
+  $("#sl").outerHeight(height);
+  $("#solar").css("max-height", height);
+  $("#solar").css("padding-top", (height - $("#solar").innerHeight()) / 2);
+
 });
 
 
 function welcome_page_fade() {
   $("footer").fadeOut(700, function () {
-
+    open = true;
     if (!expand){
       $("#home").toggleClass("home");
     }
