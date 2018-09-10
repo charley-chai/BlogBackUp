@@ -319,6 +319,10 @@ footer{
   height: 2.5em;
 }
 
+.home{
+  display: none;
+}
+
 @media only screen and (max-width: 1000px){
   .shift{
     display: none;

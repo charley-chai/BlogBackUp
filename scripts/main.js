@@ -2,12 +2,6 @@ var expand = false;
 var first = true;
 
 $(window).ready(function(){
-
-  $(document.body).css({
-    "overflow-x": "hidden",
-    "overflow-y": "hidden",
-  });
-
   $(document.body).height($(window).height());
 
   $("#expand").click(function(){
@@ -17,21 +11,12 @@ $(window).ready(function(){
     nav.slideToggle();
     expand = !expand;
 
-    if (expand){
-      $('html,body').animate({ scrollTop: 0 }, 500);
-      $(document.body).css({
-        "overflow-x": "hidden",
-        "overflow-y": "hidden",
-        "height": "100%"
+    if (expand) {
+      $('html,body').animate({ scrollTop: 0 }, 500, function(){
+        $("#home").addClass("home");
       });
-      $(document.body).bind('touchmove', false);
-    } else{
-      $(document.body).css({
-        "overflow-x": "auto",
-        "overflow-y": "auto",
-        "height": "auto"
-      });
-      $(document.body).bind('touchmove', true);
+    } else {
+      $("#home").removeClass("home");
     }
   });
 
@@ -46,16 +31,11 @@ $(window).ready(function(){
 
 
 function welcome_page_fade() {
-  $("#main").slideUp(500);
   $("footer").fadeOut(700, function () {
 
     if (!expand){
-      $(document.body).css({
-        "overflow-x": "auto",
-        "overflow-y": "auto",
-        "height": "auto"
-      });
+      $("#home").toggleClass("home");
     }
-    $("#main").remove();
+    $("#main").slideUp(500);
   });
 }
