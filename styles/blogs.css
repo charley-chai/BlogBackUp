@@ -95,6 +95,10 @@ svg{
   height: 1.1em;
 }
 
+ul li{
+  list-style-type: none;
+}
+
 @media only screen and (min-width: 1000px){
   #expandmore{
     display: none;
@@ -140,6 +144,10 @@ svg{
   margin-right: 20%; 
 }
 
+#firstblog{
+  background: black;
+}
+
 @media only screen and (max-width: 1000px){
   #class_nav li{
     width: 40%;
@@ -157,32 +165,53 @@ svg{
     width: 100%;
   }
 
-  .singlebolg{
-    margin: 0;
+  .singleblog{
+    margin: 0 0 1em 0;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 60% 40%;
     height: 100%;
+    background: white;
   }
 
   .image{
-    height: 13em;
+    min-height: 13em;
   }
 
   .intro{
     display: none;
   }
 
+  .firsttag{
+    margin-top: 2em !important;
+  }
+
   .tag{
-    margin-top: 2em;
+    margin-top: 0;
+    margin-left: 5%;
   }
 
   .time{
     margin-bottom: 2em;
+    margin-left: 5%; 
   }
 
   .information{
     height: 100%;
+    margin: 0;
+  }
+
+  .subimage{
+    width: 90% !important; 
+    margin: 5%;
+  }
+
+  .title{
+    margin: 0.5em 5%;
   }
   
+}
+
+.purple{
+  color: purple;
 }
