@@ -1,5 +1,6 @@
 var expand = false;
 var first = true;
+var open = false;
 
 $(window).ready(function () {
 
@@ -7,26 +8,24 @@ $(window).ready(function () {
 
     $("#expand").click(function () {
         $("#xxxx").toggleClass("nav_active");
-        var nav = $("#ssub_nav");
-        nav.toggleClass("small_nav");
+        var nav = $("#sub_nav");
         nav.height($(window).outerHeight());
+        nav.slideToggle();
         expand = !expand;
 
         if (expand) {
-            $('html,body').animate({ scrollTop: 0 }, 500);
-            $(document.body).css({
-                "overflow-x": "hidden",
-                "overflow-y": "hidden",
-                "height": "100%"
+            $('html,body').animate({ scrollTop: 0 }, 500, function () {
+                $("#home").addClass("home");
+                $("#main").addClass("home");
             });
-            $(document.body).bind('touchmove', false);
+            //$('body').css("background", "black");
         } else {
-            $(document.body).css({
-                "overflow-x": "auto",
-                "overflow-y": "auto",
-                "height": "auto"
-            });
-            $(document.body).bind('touchmove', true);
+            if (open) {
+                $("#home").removeClass("home");
+            } else {
+                $("#main").removeClass("home");
+            }
+            $('body').css("background", "white");
         }
     });
 
@@ -37,20 +36,21 @@ $(window).ready(function () {
     $("#home_nav").click(function () {
         welcome_page_fade();
     });
+
+    var height = $(window).outerHeight() - $("#song_word").outerHeight() - $("#next").outerHeight();
+    $("#sl").outerHeight(height);
+    $("#solar").css("max-height", height);
+    $("#solar").css("padding-top", (height - $("#solar").innerHeight()) / 2);
+
 });
 
 
 function welcome_page_fade() {
-    $("#main").slideUp(500);
     $("footer").fadeOut(700, function () {
-
+        open = true;
         if (!expand) {
-            $(document.body).css({
-                "overflow-x": "auto",
-                "overflow-y": "auto",
-                "height": "auto"
-            });
+            $("#home").toggleClass("home");
         }
-        $("#main").remove();
+        $("#main").slideUp(500);
     });
 }

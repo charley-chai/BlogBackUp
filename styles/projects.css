@@ -2,29 +2,29 @@ body{
   background: white;
 }
 
-#sub_nav{
+#picturenav{
   background: rgb(246, 246, 246);
   text-align: center;
 }
 
-#sub_nav ul{
+#picturenav ul{
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-#sub_nav li{
+#picturenav li{
   display: inline-block;
   margin: 2em 4% 0 4%;
 }
 
-#sub_nav p{
+#picturenav p{
   color: black;
   margin: 0.3em 0;
   font-size: 0.8em;
 }
 
-#sub_nav p:hover{
+#picturenav p:hover{
   color: rgb(44, 112, 195);
 }
 
@@ -136,6 +136,90 @@ div{
   text-align: left;
 }
 
-#ssub_nav{
-  margin-top: 2.5em;
+body{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#hoster{
+  color: #999;
+}
+
+.logo{
+  height: 1em;
+  width: 1em;
+}
+
+a{
+  text-decoration: none;
+  color: rgb(44, 112, 195);
+}
+
+.container{
+  width: auto;
+  text-align: center;
+}
+
+header::after{
+  content: '';
+  display: table;
+  clear: both;
+  text-align: center;
+}
+
+header{
+  background: black;
+  opacity: 0.8;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+}
+
+nav ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li{
+  display: inline-block;
+  margin: 0.7em 4%;
+}
+
+nav a{
+  text-decoration: none;
+  color: white;
+  font-size: 0.9em;
+}
+
+nav p{
+  text-decoration: none;
+  color: white;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+nav a:hover{
+  color: #999;
+}
+
+nav p:hover{
+  color: #999;
+  cursor: pointer;
+}
+
+#placeholder{
+  background: black;
+}
+
+#sub_nav ul{
+  margin: 0;
+  padding-top: 0.001em;
+}
+
+#sub_nav li{
+  margin: 1em 0;
+  text-decoration: none;
+  text-align: left;
 }
