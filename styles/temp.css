@@ -75,10 +75,6 @@ nav{
   z-index: 100;
 }
 
-#contact{
-  background: white;
-}
-
 #welcome{
   padding-top: 1em;
   font-size: 2em;
@@ -175,6 +171,7 @@ nav{
   .nav_active{
     border-bottom: 0.5px solid #555;
   }
+
 }
 
 @media only screen and (min-width: 1000px){
@@ -203,5 +200,5 @@ div{
 }
 
 .hidden{
-    display: none;
+    display: none !important;
 }

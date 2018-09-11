@@ -37,7 +37,7 @@ body{
   background: #EFEFEF;
 }
 
-.lr{
+.singlebolg{
   height: 22em;
   background: black;
   display: grid;
@@ -45,13 +45,13 @@ body{
   margin: 1em 13%;
 }
 
-.left{
+.image{
   max-height: 20em;
   width: 60%;
   margin: 1em 20%;
 }
 
-.right{
+.information{
   background: white;
 }
 
@@ -84,11 +84,6 @@ body{
   margin: 0 40px;
   color: #999;
   font-size: 0.8em;
-  font-weight: bold;
-}
-
-ul li{
-  list-style-type: none;
 }
 
 #bloghost{
@@ -145,10 +140,6 @@ svg{
   margin-right: 20%; 
 }
 
-.class_sub_nav_expand{
-  transform: rotate(90deg) translate(-70px, -65px);
-}
-
 @media only screen and (max-width: 1000px){
   #class_nav li{
     width: 40%;
@@ -161,4 +152,37 @@ svg{
   #expandmore{
     text-align: right;
   }
+
+  #main li{
+    width: 100%;
+  }
+
+  .singlebolg{
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 60% 40%;
+    height: 100%;
+  }
+
+  .image{
+    height: 13em;
+  }
+
+  .intro{
+    display: none;
+  }
+
+  .tag{
+    margin-top: 2em;
+  }
+
+  .time{
+    margin-bottom: 2em;
+  }
+
+  .information{
+    height: 100%;
+  }
+  
 }

@@ -1,3 +1,5 @@
+var expand = false;
+
 $(window).ready(function () {
 
     $(document.body).height($(window).height());
@@ -11,23 +13,17 @@ $(window).ready(function () {
 
         if (expand) {
             $('html,body').animate({ scrollTop: 0 }, 500, function () {
-                $("#home").addClass("home");
-                $("#main").addClass("home");
-                $("header").css("opacity", "0.8");
+                $("#class_nav").addClass("hidden");
+                $("#contact").addClass("hidden");
+                $("#main").addClass("hidden");
+                $("header").css("opacity", "1");
             });
         } else {
-            if (open) {
-                $("#home").removeClass("home");
-            } else {
-                $("#main").removeClass("home");
-            }
-            $("header").css("opacity", "1");
+            $("#contact").removeClass("hidden");
+            $("#main").removeClass("hidden");
+            $("#class_nav").removeClass("hidden");
+            $("header").css("opacity", "0.8");
         }
-    });
-
-    $("#expandmore").click(function(){
-        $("#class_sub_nav").slideToggle();
-        $("#expandmore").toggleClass("class_sub_nav_expand");
     });
 
     $("#next").click(function () {
@@ -37,12 +33,6 @@ $(window).ready(function () {
     $("#home_nav").click(function () {
         welcome_page_fade();
     });
-
-    var height = $(window).outerHeight() - $("#song_word").outerHeight() - $("#next").outerHeight();
-    $("#sl").outerHeight(height);
-    $("#solar").css("max-height", height);
-    $("#solar").css("padding-top", (height - $("#solar").innerHeight()) / 2);
-
 });
 
 function welcome_page_fade() {

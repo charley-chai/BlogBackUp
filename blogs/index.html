@@ -67,9 +67,22 @@
         <li class="shift"><a href="#">AI</a></li>
         <li class="shift"><a href="#">UI/UX</a></li>
         <li class="frim" id="expandmore"><a href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <svg id="next" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
             <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
             <path d="M0 0h24v24H0z" fill="none" />
+          </svg>
+          <svg id="next1" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <defs>
+              <style>
+                .cls-1 {
+                  fill: none;
+                }
+              </style>
+            </defs>
+            <g id="baseline-navigate_next-24px" transform="translate(24) rotate(90)">
+              <path id="Path_1" data-name="Path 1" d="M10,6,8.59,7.41,13.17,12,8.59,16.59,10,18l6-6Z" />
+              <path id="Path_2" data-name="Path 2" class="cls-1" d="M0,0H24V24H0Z" />
+            </g>
           </svg>
         </a></li>
       </ul>
@@ -89,20 +102,18 @@
       </ul>
     </div>
   
-    <ul>
-      <li>
-        <div id="frist" class="lr">
-          <img class="left" src="/images/blogs/2018/fluentdesign.svg" />
-          <div class="right">
-            <p class="tag">UI/UX</p>
-            <p class="title">Fluent Design System</p>
-            <p class="intro">Microsoft officially unveiled <i>Fluent Design System</i> at its Build 2017.
-              What's new about the new modern design language?</p>
-            <p class="time">August 9, 2018</p>
-          </div>
+    <section id="main">
+      <div id="frist" class="singlebolg">
+        <img class="image" src="/images/blogs/2018/fluentdesign.svg" />
+        <div class="information">
+          <p class="tag">UI/UX</p>
+          <p class="title">Fluent Design System</p>
+          <p class="intro">Microsoft officially unveiled <i>Fluent Design System</i> at its Build 2017.
+            What's new about the new modern design language?</p>
+          <p class="time">August 9, 2018</p>
         </div>
-      </li>
-    </ul>
+      </div>
+    </section>
   </div>
 
    
@@ -121,6 +132,7 @@
     </div>
   </div>
   <script src="/scripts/temp.js"></script>
+  <script src="/scripts/blogs.js"></script>
 </body>
 
 </html>
