@@ -18,7 +18,6 @@ $(window).ready(function () {
                 $("#home").addClass("home");
                 $("#main").addClass("home");
             });
-            //$('body').css("background", "black");
         } else {
             if (open) {
                 $("#home").removeClass("home");

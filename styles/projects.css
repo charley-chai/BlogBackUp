@@ -223,3 +223,29 @@ nav p:hover{
   text-decoration: none;
   text-align: left;
 }
+
+.hidden{
+  display: none !important;
+}
+
+@media only screen and (max-width: 1000px){
+  .project_logos{
+    height: auto;
+    width: 20%;
+    margin: 0;
+  }
+
+  #picturenav p{
+    display: none !important;
+  }
+
+  .team{
+    font-size: 0.5em !important;
+    color: orange !important;
+  }
+
+  #picturenav li{
+    display: inline-block;
+    margin: 0;
+  }
+}

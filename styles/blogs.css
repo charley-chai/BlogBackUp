@@ -37,11 +37,12 @@ body{
   background: #EFEFEF;
 }
 
-.singlebolg{
+.singleblog{
   height: 22em;
   background: black;
   display: grid;
   grid-template-columns: 60% 40%;
+  grid-template-rows: auto;
   margin: 1em 13%;
 }
 
@@ -209,7 +210,6 @@ ul li{
   .title{
     margin: 0.5em 5%;
   }
-  
 }
 
 .purple{
