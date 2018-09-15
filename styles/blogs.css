@@ -46,6 +46,15 @@ body{
   margin: 1em 13%;
 }
 
+.singleblogv{
+  height: 22em;
+  background: black;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: auto;
+  margin: 1em 13%;
+}
+
 .image{
   max-height: 20em;
   width: 60%;
@@ -109,6 +118,17 @@ ul li{
     text-align: left;
   }
 
+  .hiddenbig{
+    display: none;
+  }
+
+  .singleblog:hover{
+    grid-template-columns: 58% 42%;
+  }
+
+  .singleblogv:hover{
+    grid-template-columns: 42% 58%;
+  }
 }
 
 #class_sub_nav{
@@ -149,7 +169,16 @@ ul li{
   background: black;
 }
 
+.subimage{
+  width: 100%;
+  height: 100%;
+}
+
 @media only screen and (max-width: 1000px){
+  .hiddensmall{
+    display: none;
+  }
+
   #class_nav li{
     width: 40%;
   }
@@ -167,6 +196,15 @@ ul li{
   }
 
   .singleblog{
+    margin: 0 0 1em 0;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 60% 40%;
+    height: 100%;
+    background: white;
+  }
+
+  .singleblogv{
     margin: 0 0 1em 0;
     display: grid;
     grid-template-columns: auto;
@@ -205,13 +243,25 @@ ul li{
   .subimage{
     width: 90% !important; 
     margin: 5%;
+    height: auto;
   }
 
   .title{
     margin: 0.5em 5%;
+  }
+
+  .title:hover{
+    color: #999;
+    cursor: pointer;
   }
 }
 
 .purple{
   color: purple;
 }
+
+.title:hover{
+  color: #999;
+  cursor: pointer;
+}
+

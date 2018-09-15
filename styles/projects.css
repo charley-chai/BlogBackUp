@@ -531,6 +531,24 @@ div{
   margin: 1em 1em;
 }
 
+.hl_top_href{
+  width: auto;
+  text-align: end;
+  font-size: 1.4em;
+  color: rgb(44, 112, 195);
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+}
+
+.hl_href{
+  margin: 0;
+}
+
+.hl_href:hover{
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 1000px){
   .project_logos{
     height: auto;
