@@ -265,3 +265,35 @@ ul li{
   cursor: pointer;
 }
 
+.introhidden{
+  display: none;
+}
+
+.dualblog{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background: #EFEFEF;
+  grid-template-rows: auto;
+  margin: 1em 13%;
+}
+
+.leftblog{
+  background: black;
+  margin-right: 0.5em; 
+  margin-bottom: 2em; 
+}
+
+.informationdual{
+  padding-bottom: 2em;
+  padding-top: 0.01em; 
+  background: white;
+}
+
+.tagdual{
+  color: rgb(120,219,244);
+  text-align: left;
+  margin: 2em 0 0 40px;
+  padding: 0;
+  font-size: 0.9em;
+  font-weight: bold;
+}
