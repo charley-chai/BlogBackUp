@@ -283,6 +283,25 @@
                     <h3>测试L<abbr class="up">A</abbr>T<abbr class="bottom">E</abbr>X效果</h3>
                     <p>在设置好之后，重启VS Code。下面我们就开始测试我们的工作是否有效。</p>
                     <p>首先，在某个目录线新建一个LaTeX文件，这里我们不妨叫它<i>helloworld.tex</i></p>
+                    <p>再次文件中输入一下LaTeX代码：</p>
+                    <pre>
+                        <code lang="latex">
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{xfrac}
+\begin{document}
+Hello world!
+
+你好世界！
+\end{document}
+                        </code>
+                    </pre>
+                    <p>当我们保存之后(CMD + S)，VS Code就会在本目录下生成一堆文件，其中有一个<i>helloworld.pdf</i>
+                    的文件，那正是我们需要的。同时VS Code还支持生成PDF文件的“预览”，只需点击界面右上角的一个有放大镜的图标即可。
+                    效果如图所示：</p>
+                    <img src="/images/blogs/2018/preview.png" width="100%">
+                    <p>哈哈，如果你跟着我走到了这一步，说明你已经成功了！🎊🎉</p>
+                    <p>那么之后，我们要怎么在自己构建的这个利器的帮助下写出高质量的论文/笔记呢？请期待我的下一篇相关博文！</p>
                 </div>
             </section>
         </main>
