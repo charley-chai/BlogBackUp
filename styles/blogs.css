@@ -283,8 +283,6 @@ ul li{
   .informationdual{
     padding-bottom: 0.01em !important;
   }
-
-
 }
 
 .imagecontainer > image{
@@ -295,6 +293,7 @@ ul li{
   width: 100%; 
   height: 13em;
   background: black;
+  margin: 0;
 }
 
 .purple{
@@ -343,4 +342,18 @@ ul li{
   padding: 0;
   font-size: 0.9em;
   font-weight: bold;
+}
+
+.up{
+    position: relative;
+    top: -0.2em;
+}
+
+.bottom{
+    position: relative;
+    top: 0.2em;
+}
+
+.red{
+  color: red !important;
 }
