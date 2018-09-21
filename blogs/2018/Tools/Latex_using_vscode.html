@@ -152,7 +152,12 @@
                 <div class="blog_content">
                     <h3>使用什么编写L<abbr class="up">A</abbr>T<abbr class="bottom">E</abbr>X</h3>
                     <p>有很多软件可供我们使用L<abbr class="up">A</abbr>T<abbr class="bottom">E</abbr>X，维基百科上有一个很全面的<a href="https://en.wikipedia.org/wiki/Comparison_of_TeX_editors">对比</a>可以参考。下面的列出一些：</p>
-                    <ul width="100%" border="0">
+                    <ul width="100%" border="0" class="list">
+                        <style>
+                            .list li{
+                                text-align: center;
+                            }
+                        </style>
                         <li>
                             <p class="listintro"><i><a href="https://www.lyx.org/">LyX</a></i>: 所见即所得，支持Windows，macOS，Linux，OS/2等。</p>
                             <img src="/images/blogs/2018/lyx.png" class="list_img">
@@ -175,7 +180,109 @@
                 </div>
                 <div class="blog_content">
                     <h3>在macOS下使用Visual Studio Code编辑L<abbr class="up">A</abbr>T<abbr class="bottom">E</abbr>X</h3>
-                    <p>回到宿舍再写吧。。好累</p>
+                    <h4>准备工作</h4>
+                    <p>首先我们需要在Mac上安装<a href="https://code.visualstudio.com/">Visual Studio Code</a>（以下简称VS Code）和<a href="http://www.tug.org/mactex/">MacTeX</a>（你也可以选择其他发行版，不过并不保证后面的做法有效）。这里的
+                    就是普通下载安装就行了。</p>
+                    <h4>安装VS Code插件</h4>
+                    <p>接下来我们需要做的是安装VS Code上的LaTeX插件。</p>
+                    <p>其中<b>LaTeX Workshop</b>是必须要装的。此外推荐<b>LaTeX language support</b>插件，它提供更好的语法高亮等功能。</p>
+                    <p>安装插件的方法也很简单，此处不再赘述。</p>
+                    <h4>设置VS Code</h4>
+                    <p>这里我们做两件事</p>
+                    <ul id="step">
+                        <style>
+                            #step li{
+                                list-style: lower-greek !important;
+                            }
+                        </style>
+                        <li><p>在<b>latex-workshop.latex.tools</b>配置中，增加xelatex项。</p></li>
+                        <li><p>在<b>latex-workshop.latex.recipes</b>配置中，将第一项的latexmk改为xelatex。</p></li>
+                    </ul>
+                    <p>至于原因，由于本人对此插件的了解程度不是很深，就。。。就不班门弄斧了（😁）</p>
+                    <p>那么应该怎么具体操作呢？很简单：</p>
+                    <ul id="step">
+                        <li>
+                            <h4>如何找到设置</h4>
+                            <p>在菜单栏中<i>Code > Preferences > Settings</i>打开设置界面</p>
+                            <img src="/images/blogs/2018/findsetting.png" class="list_img">
+                        </li>
+                        <li>
+                            <h5>修改用户设置</h5>
+                            <p>在上面搜索栏中对<b>latex-workshop.latex.tools</b>进行搜索定位</p>
+                            <img src="/images/blogs/2018/grtsetting.png" class="list_img">
+                            <p>得到上图所示的界面之后，在右侧的用户设置区将下面的代码复制进行就OK了。</p>
+                            <pre>
+                                <code lang="json">
+{
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ],
+
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "xelatex",
+            "tools": [
+                "xelatex"
+            ]
+        },
+        {
+            "name": "pdflatex -> bibtex -> pdflatex*2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        }
+    ]
+}
+                                </code>
+                            </pre>
+                        </li>
+                    </ul>
+                </div>
+                <div class="blog_content">
+                    <h3>测试L<abbr class="up">A</abbr>T<abbr class="bottom">E</abbr>X效果</h3>
+                    <p>在设置好之后，重启VS Code。下面我们就开始测试我们的工作是否有效。</p>
+                    <p>首先，在某个目录线新建一个LaTeX文件，这里我们不妨叫它<i>helloworld.tex</i></p>
                 </div>
             </section>
         </main>
@@ -200,6 +307,9 @@
     </div>
     <script src="/scripts/temp.js"></script>
     <script src="/scripts/blogs.js"></script>
+    <link href="/styles/monokai.css" rel="stylesheet">
+    <script src="/scripts/src/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 </body>
 
 </html>
