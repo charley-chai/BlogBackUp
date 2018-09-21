@@ -1,0 +1,72 @@
+body{
+    background: rgb(255, 255, 255) !important;
+}
+
+
+main{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+section{
+    margin: 0 19%;
+}
+
+.green{
+    color: red;
+    font-size: 0.8em;
+}
+
+.blog_title{
+    margin-top: 1em;
+    font-size: 2.5em;
+    text-align: left;
+}
+
+.blog_tag{
+    margin-top: 5em !important;
+    font-size: 0.85em !important;
+    text-align: left;
+    font-weight: bold;
+}
+
+#blog_head{
+    margin: 2em 20%;
+}
+
+.firstclass{
+    font-weight: bold;
+    color: black;
+}
+
+.blog_time{
+    color: #999;
+    text-align: left;
+    font-weight: bold;
+    font-size: 0.7em;
+    margin-bottom: 3em;
+}
+
+.blog_image{
+    width: 100%;
+}
+
+h3{
+    text-align: left;
+}
+
+.blog_content{
+    margin: 0 10%;
+    text-align: left;
+}
+
+.up{
+    position: relative;
+    top: -0.2em;
+}
+
+.bottom{
+    position: relative;
+    top: 0.2em;
+}

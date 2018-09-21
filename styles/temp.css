@@ -4,7 +4,15 @@ body{
 }
 
 #hoster{
-  color: #999;
+  color: #999 !important;
+}
+
+.hoster{
+  color: #999 !important;
+}
+
+.host{
+  color: rgb(44, 112, 195) !important;
 }
 
 .logo{
@@ -77,13 +85,13 @@ nav{
 
 #welcome{
   padding-top: 1em;
-  font-size: 2em;
+  font-size: 1.4em;
   margin: 0;
 }
 
 #cvia{
   margin: 0.5em;
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: #999;
 }
 
