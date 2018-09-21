@@ -70,3 +70,15 @@ h3{
     position: relative;
     top: 0.2em;
 }
+
+li{
+    text-align: center;
+}
+
+.listintro{
+    text-align: left;
+}
+
+.list_img{
+    width: 60%;
+}
