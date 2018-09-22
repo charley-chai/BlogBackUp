@@ -78,3 +78,13 @@ h3{
 .list_img{
     width: 60%;
 }
+
+.tableimg{
+    width: 90%;
+}
+
+@media only screen and (max-width: 1000px){
+    section{
+        margin: 0 !important;
+    }
+}
