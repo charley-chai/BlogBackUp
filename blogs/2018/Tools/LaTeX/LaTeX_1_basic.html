@@ -131,8 +131,37 @@
                     <pre>
                         <code lang="latex">
 \documentclass[UTF8]{ctexart}
-\usepackage{amsmath}
-\usepackage{xfrac}
+\begin{document}
+Hello world!
+你好世界！
+\end{document}
+                        </code>
+                    </pre>
+                    <p>当我们保存这段代码之后，就会看到LaTeX生成的对应PDF文件：</p>
+                    <img src="/images/blogs/2018/preview.png" width="100%">
+                    <p>从我个人的角度，这就是LaTeX中的Hello World代码了。下面简单解释一下吧：</p>
+                    <p>如果你之前对标记语言没有任何了解，你也许会奇怪，我明明写了好多行，怎么生成的PDF中只有两行呢？其实，我们编写的
+                        LaTeX中不仅有我们需要现实的内容，还会包含一些控制符号等，后者决定我们的文本内容要以怎样的形式呈现，同时这些控制符并不会输出。
+                    </p>
+                    <p>
+                        在这个例子中，<code class="code">\documentclass[UTF8]{ctexart}、\begin{document}、\end{document}
+                        </code>就是控制序列（或称命令/标记）。我们可以马上看到这些命令的共同之处——以反斜杠\开头，以第一个空格或非字母
+                        的字符结束的一串文字，后面紧跟着的 {Parameter}。而<code class="code">Hello world!
+                        你好世界！</code>则是我们想要现实的内容，它们也如愿显示在了PDF上。
+                    </p>
+                </div>
+
+                <div class="blog_content">
+                    <h3>L<abbr class="up">A</abbr>T<abbr class="bottom">E</abbr>X的结构</h3>
+                    <p>对LaTeX的组成稍有一点点了解之后，我们来看一看一个LaTeX文件的结构。</p>
+                    <p>一个LaTeX的文件分为两部分：导言和正文。<code class="code">\begin{document}、\end{document}</code>之间的内容是正文，而导语部分位于
+                    <code class="code">\begin{document}</code>之前，这部分通常是定义文章的格式、作者、标题等信息。</p>
+                    <pre>
+                        <code>
+\documentclass[UTF8]{ctexart}
+\title{LaTeX Hello World}
+\author{Charley Chai}
+\date{\today}
 \begin{document}
 Hello world!
 
@@ -140,10 +169,16 @@ Hello world!
 \end{document}
                         </code>
                     </pre>
-                    <p>从我个人的角度，这就是LaTeX中的Hello World代码了。下面简单解释一下吧：</p>
-                    <p>Sorry，我先去睡觉了😪。。。</p>
+                    <p>上面就是一个完整的LaTeX文件的简单示意，在导言区我们定义了文章的题目，作者以及创作日期。</p>
                 </div>
-                
+
+                <div class="blog_content">
+                    <h3>L<abbr class="up">A</abbr>T<abbr class="bottom">E</abbr>X文件的拆分</h3>
+                    <p>我们使用LaTeX的场合一般是创作书籍或者写论文，这些内容有的时候会很多。如果我们吧左右内容都写在一个LaTeX文件中，显然对于操作或者修改都不是很方便。适当的对文件进行拆分，有利于提高效率。
+                    </p>
+                    <p>使用<code class="code">\include{filename}</code>或者<code class="code">\input{filename}</code>命令来将分开的文件合并。</p>
+
+                </div>
                 <div class="blog_content">
                     <style>
                         #bloglink {

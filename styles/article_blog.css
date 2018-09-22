@@ -83,6 +83,10 @@ h3{
     width: 90%;
 }
 
+.code{
+    background: #DEDEDE;
+}
+
 @media only screen and (max-width: 1000px){
     section{
         margin: 0 !important;
