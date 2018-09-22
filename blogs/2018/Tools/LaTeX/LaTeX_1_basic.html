@@ -179,6 +179,104 @@ Hello world!
                     <p>使用<code class="code">\include{filename}</code>或者<code class="code">\input{filename}</code>命令来将分开的文件合并。</p>
 
                 </div>
+
+                <div class="blog_content">
+
+                    <h3>L<abbr class="up">A</abbr>T<abbr class="bottom">E</abbr>X的导言部分</h3>
+                    <p>前面已经提到过导言部分的作用。这里常用的命令是<code class="code">\documentclass</code>、<code class="code">\usepackage</code>，以及一些关于名字、作者等的设置语句。              
+                    
+                    <h4><code class="code">\documentclass</code>命令</h4>
+                    <p>\documentclass命令是用于设置LaTex文件所生成文档的格式。其格式为：</p>
+                    <pre>
+                        <code>
+\documentclass[option]{class}
+                        </code>
+                    </pre>
+
+                    <p><i>option</i>是文档格式的选项，常用的命令以及功能为（根据自己的使用不断完善）：</p>
+                    <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                        <tr>
+                            <th>Options</th>
+                            <th>含义</th>
+                        </tr>
+                        <tr>
+                            <td width="25%">15pt</td>
+                            <td width="75%">文章正文使用15pt大小的字体(默认为10pt)</td>
+                        </tr>
+                        <tr>
+                            <td>a4paper, letterpaper</td>
+                            <td>页面规格(默认为letterpaper或a4paper)</td>
+                        </tr>
+                        <tr>
+                            <td>landscape</td>
+                            <td>水平打印</td>
+                        </tr>
+                        <tr>
+                            <td>UTF8</td>
+                            <td>文中采用UTF-8字符集显示（意味着支持多国语言和各种符号）</td>
+                        </tr>
+                    </table>
+
+                    <p><i>class</i>是之文档格式，常用的格式有：</p>
+                    <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                        <tr>
+                            <th>Class</th>
+                            <th>含义</th>
+                        </tr>
+                        <tr>
+                            <td width="25%">article</td>
+                            <td width="75%">论文、报告、文档等</td>
+                        </tr>
+                        <tr>
+                            <td>proc</td>
+                            <td>法律文书</td>
+                        </tr>
+                        <tr>
+                            <td>book</td>
+                            <td>书籍</td>
+                        </tr>
+                        <tr>
+                            <td>beamer</td>
+                            <td>PPT（厉害了！！！）</td>
+                        </tr>
+                    </table>
+
+                    <h4><code class="code">\usepackage</code>命令</h4>
+                    <p>\usepackage命令设置在编译LaTex文件时要导入的扩展包</p>
+                    <pre>
+                        <code>
+\usepackage{packagename}
+                        </code>
+                    </pre>
+
+                    <h4>设置基本信息</h4>
+                    <p>要设置文章的基本信息，其语法为：</p>
+                    <pre>
+                        <code>
+\title{LaTeX Hello World}
+\author{Charley Chai}
+\date{\today}
+                        </code>
+                    </pre>
+
+                    <h4>一些小的注意点</h4>
+                    <p>LaTeX是区分大小写的。</p>
+                    <p>在LaTeX中，添加注释的语法为</p>
+                    <pre>
+                        <code>
+%this is a comment                                    
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="blog_content">
+                    <h3>L<abbr class="up">A</abbr>T<abbr class="bottom">E</abbr>X的正文部分</h3>
+                    <p>我要休息♨️啦</p>
+                </div>
+
+
+
+
                 <div class="blog_content">
                     <style>
                         #bloglink {

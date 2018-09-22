@@ -87,6 +87,10 @@ h3{
     background: #DEDEDE;
 }
 
+th, tr{
+    text-align: center;
+}
+
 @media only screen and (max-width: 1000px){
     section{
         margin: 0 !important;
