@@ -271,10 +271,71 @@ Hello world!
 
                 <div class="blog_content">
                     <h3>L<abbr class="up">A</abbr>T<abbr class="bottom">E</abbr>X的正文部分</h3>
-                    <p>我要休息♨️啦</p>
+                    <p>当我们看一本书的时候，可以看到它有封面，目录，正文等等部分组成。下面我们按着一本书中的必要组成部分，依次用LaTeX来实现。</p>
+                    <h4>封面</h4>
+                    <pre>
+                        <code>
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+                        </code>
+                    </pre>
+                    上面的命令会将我们的在导言区设置的题目、作者、时间等信息显示出来。
+                    <h4>目录</h4>
+                    <pre>
+                        <code>
+\tableofcontents
+                        </code>
+                    </pre>
+                    <h4>页码</h4>
+                    <pre>
+                        <code>
+\pagenumbering{digit type}
+                        </code>
+                    </pre>
+                    <p>其中<b>digit type</b>可以有很多选择：</p>
+                    <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                        <tr>
+                            <th>Type</th>
+                            <th>含义</th>
+                        </tr>
+                        <tr>
+                            <td width="25%">arabic</td>
+                            <td width="75%">阿拉伯数字（默认）</td>
+                        </tr>
+                        <tr>
+                            <td>roman</td>
+                            <td>小写罗马数字</td>
+                        </tr>
+                        <tr>
+                            <td>Roman</td>
+                            <td>大写罗马数字</td>
+                        </tr>
+                        <tr>
+                            <td>alpha</td>
+                            <td>小写英文</td>
+                        </tr>
+                        <tr>
+                            <td>Alpha</td>
+                            <td>大写英文</td>
+                        </tr>
+                    </table>
+                    <p>如果某一页我们不想标页码的话（比如封面），可以使用</p>
+                    <pre>
+                        <code>
+\thispagestyle{empty}                            
+                        </code>
+                    </pre>
+                    <h4>章节和段落</h4>
+                    <p>我们文章的主要部分就是这一部分了，我们先看一个完整的例子吧：</p>
+                    <pre>
+                        <code>
+\waiting for it 😁                            
+                        </code>
+                    </pre>
                 </div>
 
-                
+
                 <div class="blog_content">
                     <style>
                         #bloglink {
