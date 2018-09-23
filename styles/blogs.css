@@ -122,14 +122,6 @@ ul li{
     display: none;
   }
 
-  .singleblog:hover{
-    grid-template-columns: 58% 42%;
-  }
-
-  .singleblogv:hover{
-    grid-template-columns: 42% 58%;
-  }
-
   .dualrightout{
     display: none;
   }
@@ -256,8 +248,8 @@ ul li{
 
   .subimage{
     width: 90% !important; 
-    margin: 5%;
-    height: 13em;
+    margin: 5% !important;
+    height: auto;
   }
 
   .imagecontainer{
@@ -292,11 +284,6 @@ ul li{
     padding-bottom: 0.01em !important;
   }
 
-  #azure{
-    width: 90%;
-    text-align: center;
-    margin: 0;
-  }
 }
 
 .imagecontainer > image{
@@ -316,8 +303,9 @@ ul li{
 }
 
 #azure{
-  width: 90%;
+  width: 100%;
   text-align: center;
+  height: 100%;
   margin: 0;
 }
 
@@ -339,14 +327,19 @@ ul li{
 }
 
 .leftblog{
-  background: black;
   margin-right: 0.5em; 
   margin-bottom: 2em; 
+  background: white;
+}
+
+.rightblog{
+  background: white;
 }
 
 .informationdual{
   padding-bottom: 2em;
-  padding-top: 0.01em; 
+  padding-top: -1em; 
+  margin: 0;
   background: white;
 }
 
