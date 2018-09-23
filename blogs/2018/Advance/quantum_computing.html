@@ -16,7 +16,7 @@
     <meta name="author" content="Charley Chai">
     <meta property="og:image" content="/images/logo.png">
     <meta property="og:description" content="这是我的LaTe系列博客的第二篇文章,主要介绍LaTeX的基本使用.">
-    <meta property="og:title" content="LaTex Guide | LaTeX Basic">
+    <meta property="og:title" content="Quantum Computing">
 </head>
 
 <body>
@@ -55,7 +55,7 @@
         <ul>
             <li><a href="/">Home</a></li>
             <hr color="#555" size=0.5>
-            <li><a href="/blogs" class="hoster">Blogs</a></li>
+            <li><a href="/blogs">Blogs</a></li>
             <hr color="#555" size=0.5>
             <li><a href="/notes">Notes</a></li>
             <hr color="#555" size=0.5>
@@ -69,11 +69,11 @@
         <nav id="class_nav">
             <ul>
                 <li id="bloghost" class="frim"><a href="#">Blogs</a></li>
-                <li class="shift"><a href="#">Program</a></li>
+                <li class="shift"><a href="#" class="host">Advanced</a></li>
                 <li class="shift"><a href="#">Network</a></li>
                 <li class="shift"><a href="#">AI</a></li>
                 <li class="shift"><a href="#">UI/UX</a></li>
-                <li class="shift"><a href="#" class="host">Tools</a></li>
+                <li class="shift"><a href="#">Tools</a></li>
                 <li class="frim" id="expandmore"><a href="#">
                         <svg id="next" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
@@ -115,227 +115,34 @@
         <main>
             <section class="section_content">
                 <div id="blog_head">
-                    <div class="blog_tag green">Tools</div>
-                    <h1 class="blog_title">LaTex的基本用法</h1>
-                    <div class="blog_time">SEP 22, 2018</div>
+                    <div class="blog_tag green">Advanced</div>
+                    <h1 class="blog_title">量子计算</h1>
+                    <div class="blog_time">SEP 23, 2018</div>
                     <hr />
                 </div>
-                <img src="/images/blogs/2018/latexandvscode.png" class="blog_image">
+                <img src="/images/blogs/2018/quantum_computing.jpg" class="blog_image">
                 <div class="blog_content">
-                    <h3>L<abbr class="up">A</abbr>T<abbr class="bottom">E</abbr>X之Hello World</h3>
-                    <p>⚠️注意：
-                        <strong>本人在这里使用的编辑器是由Microsoft开源的Visual Studio Code。在这里强烈安利，如果你也想跟我一起使用的话，可以参考我的另一篇文章——<a href="/blogs/2018/Tools/LaTeX/Latex_using_vscode.html">在Visual
-                                Studio Code中使用LaTex</a> 。
-                        </strong>
-                    </p>
-                    <p>首先呢，拿出上篇文章最后的那一段测试代码：</p>
-                    <pre>
-                        <code lang="latex">
-\documentclass[UTF8]{ctexart}
-\begin{document}
-Hello world!
-你好世界！
-\end{document}
-                        </code>
-                    </pre>
-                    <p>当我们保存这段代码之后，就会看到LaTeX生成的对应PDF文件：</p>
-                    <img src="/images/blogs/2018/preview.png" width="100%">
-                    <p>从我个人的角度，这就是LaTeX中的Hello World代码了。下面简单解释一下吧：</p>
-                    <p>如果你之前对标记语言没有任何了解，你也许会奇怪，我明明写了好多行，怎么生成的PDF中只有两行呢？其实，我们编写的
-                        LaTeX中不仅有我们需要现实的内容，还会包含一些控制符号等，后者决定我们的文本内容要以怎样的形式呈现，同时这些控制符并不会输出。
-                    </p>
+                    <h3>关于作者</h3>
                     <p>
-                        在这个例子中，<code class="code">\documentclass[UTF8]{ctexart}、\begin{document}、\end{document}
-                        </code>就是控制序列（或称命令/标记）。我们可以马上看到这些命令的共同之处——以反斜杠\开头，以第一个空格或非字母
-                        的字符结束的一串文字，后面紧跟着的 {Parameter}。而<code class="code">Hello world!
-                        你好世界！</code>则是我们想要现实的内容，它们也如愿显示在了PDF上。
+                        夏培肃先生是我科（本渣😢就读于中国科大CS）计算机系的首任系主任，中国科学院院士，我国首台计算机——107机的发明者，被誉为中国计算机之母。这篇文章是先生于2001年10月发表在《计算机研究与发展》期刊上。
                     </p>
                 </div>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="center"><img class="tableimg" src="/images/blogs/2018/xiapeisu.jpg"></td>
+                        <td align="center"><img class="tableimg" src="/images/blogs/2018/no107.jpg"></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><i>夏培肃先生</i></td>
+                        <td align="center"><i>107机</i></td>
+                    </tr>
+                </table>
+
 
                 <div class="blog_content">
-                    <h3>L<abbr class="up">A</abbr>T<abbr class="bottom">E</abbr>X的结构</h3>
-                    <p>对LaTeX的组成稍有一点点了解之后，我们来看一看一个LaTeX文件的结构。</p>
-                    <p>一个LaTeX的文件分为两部分：导言和正文。<code class="code">\begin{document}、\end{document}</code>之间的内容是正文，而导语部分位于
-                        <code class="code">\begin{document}</code>之前，这部分通常是定义文章的格式、作者、标题等信息。</p>
-                    <pre>
-                        <code>
-\documentclass[UTF8]{ctexart}
-\title{LaTeX Hello World}
-\author{Charley Chai}
-\date{\today}
-\begin{document}
-Hello world!
-
-你好世界！
-\end{document}
-                        </code>
-                    </pre>
-                    <p>上面就是一个完整的LaTeX文件的简单示意，在导言区我们定义了文章的题目，作者以及创作日期。</p>
+                    <h3></h3>
+                    <p></p>
                 </div>
-
-                <div class="blog_content">
-                    <h3>L<abbr class="up">A</abbr>T<abbr class="bottom">E</abbr>X文件的拆分</h3>
-                    <p>我们使用LaTeX的场合一般是创作书籍或者写论文，这些内容有的时候会很多。如果我们吧左右内容都写在一个LaTeX文件中，显然对于操作或者修改都不是很方便。适当的对文件进行拆分，有利于提高效率。
-                    </p>
-                    <p>使用<code class="code">\include{filename}</code>或者<code class="code">\input{filename}</code>命令来将分开的文件合并。</p>
-
-                </div>
-
-                <div class="blog_content">
-
-                    <h3>L<abbr class="up">A</abbr>T<abbr class="bottom">E</abbr>X的导言部分</h3>
-                    <p>前面已经提到过导言部分的作用。这里常用的命令是<code class="code">\documentclass</code>、<code class="code">\usepackage</code>，以及一些关于名字、作者等的设置语句。
-
-                        <h4><code class="code">\documentclass</code>命令</h4>
-                        <p>\documentclass命令是用于设置LaTex文件所生成文档的格式。其格式为：</p>
-                        <pre>
-                        <code>
-\documentclass[option]{class}
-                        </code>
-                    </pre>
-
-                        <p><i>option</i>是文档格式的选项，常用的命令以及功能为（根据自己的使用不断完善）：</p>
-                        <table border="1" cellspacing="0" cellpadding="0" width="100%">
-                            <tr>
-                                <th>Options</th>
-                                <th>含义</th>
-                            </tr>
-                            <tr>
-                                <td width="25%">15pt</td>
-                                <td width="75%">文章正文使用15pt大小的字体(默认为10pt)</td>
-                            </tr>
-                            <tr>
-                                <td>a4paper, letterpaper</td>
-                                <td>页面规格(默认为letterpaper或a4paper)</td>
-                            </tr>
-                            <tr>
-                                <td>landscape</td>
-                                <td>水平打印</td>
-                            </tr>
-                            <tr>
-                                <td>UTF8</td>
-                                <td>文中采用UTF-8字符集显示（意味着支持多国语言和各种符号）</td>
-                            </tr>
-                        </table>
-
-                        <p><i>class</i>是之文档格式，常用的格式有：</p>
-                        <table border="1" cellspacing="0" cellpadding="0" width="100%">
-                            <tr>
-                                <th>Class</th>
-                                <th>含义</th>
-                            </tr>
-                            <tr>
-                                <td width="25%">article</td>
-                                <td width="75%">论文、报告、文档等</td>
-                            </tr>
-                            <tr>
-                                <td>proc</td>
-                                <td>法律文书</td>
-                            </tr>
-                            <tr>
-                                <td>book</td>
-                                <td>书籍</td>
-                            </tr>
-                            <tr>
-                                <td>beamer</td>
-                                <td>PPT（厉害了！！！）</td>
-                            </tr>
-                        </table>
-
-                        <h4><code class="code">\usepackage</code>命令</h4>
-                        <p>\usepackage命令设置在编译LaTex文件时要导入的扩展包</p>
-                        <pre>
-                        <code>
-\usepackage{packagename}
-                        </code>
-                    </pre>
-
-                        <h4>设置基本信息</h4>
-                        <p>要设置文章的基本信息，其语法为：</p>
-                        <pre>
-                        <code>
-\title{LaTeX Hello World}
-\author{Charley Chai}
-\date{\today}
-                        </code>
-                    </pre>
-
-                        <h4>一些小的注意点</h4>
-                        <p>LaTeX是区分大小写的。</p>
-                        <p>在LaTeX中，添加注释的语法为</p>
-                        <pre>
-                        <code>
-%this is a comment                                    
-                        </code>
-                    </pre>
-                </div>
-
-                <div class="blog_content">
-                    <h3>L<abbr class="up">A</abbr>T<abbr class="bottom">E</abbr>X的正文部分</h3>
-                    <p>当我们看一本书的时候，可以看到它有封面，目录，正文等等部分组成。下面我们按着一本书中的必要组成部分，依次用LaTeX来实现。</p>
-                    <h4>封面</h4>
-                    <pre>
-                        <code>
-\begin{titlepage}
-\maketitle
-\end{titlepage}
-                        </code>
-                    </pre>
-                    上面的命令会将我们的在导言区设置的题目、作者、时间等信息显示出来。
-                    <h4>目录</h4>
-                    <pre>
-                        <code>
-\tableofcontents
-                        </code>
-                    </pre>
-                    <h4>页码</h4>
-                    <pre>
-                        <code>
-\pagenumbering{digit type}
-                        </code>
-                    </pre>
-                    <p>其中<b>digit type</b>可以有很多选择：</p>
-                    <table border="1" cellspacing="0" cellpadding="0" width="100%">
-                        <tr>
-                            <th>Type</th>
-                            <th>含义</th>
-                        </tr>
-                        <tr>
-                            <td width="25%">arabic</td>
-                            <td width="75%">阿拉伯数字（默认）</td>
-                        </tr>
-                        <tr>
-                            <td>roman</td>
-                            <td>小写罗马数字</td>
-                        </tr>
-                        <tr>
-                            <td>Roman</td>
-                            <td>大写罗马数字</td>
-                        </tr>
-                        <tr>
-                            <td>alpha</td>
-                            <td>小写英文</td>
-                        </tr>
-                        <tr>
-                            <td>Alpha</td>
-                            <td>大写英文</td>
-                        </tr>
-                    </table>
-                    <p>如果某一页我们不想标页码的话（比如封面），可以使用</p>
-                    <pre>
-                        <code>
-\thispagestyle{empty}                            
-                        </code>
-                    </pre>
-                    <h4>章节和段落</h4>
-                    <p>我们文章的主要部分就是这一部分了，我们先看一个完整的例子吧：</p>
-                    <pre>
-                        <code>
-\waiting for it 😁                            
-                        </code>
-                    </pre>
-                </div>
-
 
                 <div class="blog_content">
                     <style>

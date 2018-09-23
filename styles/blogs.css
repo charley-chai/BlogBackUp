@@ -290,14 +290,6 @@ ul li{
   width: 90% !important;
 }
 
-.imagecontainer{
-  width: 100%; 
-  height: 13em;
-  background: white;
-  margin: 0;
-  text-align: center;
-}
-
 .purple{
   color: purple;
 }
@@ -332,8 +324,11 @@ ul li{
   background: white;
 }
 
+
+
 .rightblog{
   background: white;
+  margin-left: 0.5em;
 }
 
 .informationdual{
