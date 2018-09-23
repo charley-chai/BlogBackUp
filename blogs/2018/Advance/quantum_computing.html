@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/styles/temp.css">
     <link rel="stylesheet" href="/styles/blogs.css">
     <link rel="stylesheet" href="/styles/article_blog.css">
-    <link rel="stylesheet" href="/styles/topandstick.css">
+    <link rel="stylesheet" href="/styles/quantum.css">
     <meta name="keywords" content="Quantum computation CharleyChai 博客 柴磊 量子计算">
     <meta name="description" content="这是一篇关于夏培肃先生的一篇介绍量子计算的文章的笔记">
     <meta name="author" content="Charley Chai">
@@ -122,23 +122,6 @@
                     <hr />
                 </div>
                 <img src="/images/blogs/2018/quantum_computing.jpg" class="blog_image">
-                <div class="blog_content">
-                    <h3>关于作者</h3>
-                    <p>
-                        夏培肃先生是我科（本渣😢就读于中国科大CS）计算机系的首任系主任，中国科学院院士，我国首台计算机——107机的发明者，被誉为中国计算机之母。这篇文章是先生于2001年10月发表在《计算机研究与发展》期刊上。
-                    </p>
-                </div>
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td align="center"><img class="tableimg" src="/images/blogs/2018/xiapeisu.jpg"></td>
-                        <td align="center"><img class="tableimg" src="/images/blogs/2018/no107.jpg"></td>
-                    </tr>
-                    <tr>
-                        <td align="center"><i>夏培肃先生</i></td>
-                        <td align="center"><i>107机</i></td>
-                    </tr>
-                </table>
-
 
                 <div class="blog_content">
                     <h3>量子计算的提出和发展</h3>
@@ -1061,12 +1044,48 @@ mechanical, and by golly it's a wonderful problem, because it doesn't look so ea
                     </ul>
                 </div>
 
+                <div class="blog_content">
+                    <h3>量子比特</h3>
+                    <p>在常规的计算机中，信息单元使用二进制的一个比特（Bit）来表示。这个位不是0就是1。在量子计算机中，一个信息单元成为<b>量子比特</b>（Q比特、qubit）。</p>
+                    <p>量子比特除了可以处在0态和1态，还可以处在<b>叠加态</b>（superposed state）。所谓叠加态，就是0态和1态的任意线性叠加，它既可以是0态又可以是1态, 0态
+                    和1态各以一定的概率同时存在。通过测量或与其它物体发生相互作用而呈现出0态或1态。</p>
+                    <p>任何两态的量子系统都可用来实现量子比特, 例如：</p>
+                    <ul id="qubit">
+                        <style>
+                            #qubit li {
+                                list-style: armenian;
+                            }
+                        </style>
+                        <li>氢原子中的电子的基态（ground state）和第一激发态（first excited state）。</li>
+                        <li>质子自旋在任意方向的-1/2分量和-1/2分量。</li>
+                        <li>圆偏振光的左旋和右旋。</li>
+                    </ul>
+                </div>
+
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="center"><img class="tableimg" src="/images/blogs/2018/electron.png"></td>
+                        <td align="center"><img class="tableimg" src="/images/blogs/2018/proton_spin.png"></td>
+                        <td align="center"><img class="tableimg" src="/images/blogs/2018/polarized_light .png"></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><i>基态与激发态</i></td>
+                        <td align="center"><i>质子自旋</i></td>
+                        <td align="center"><i>偏振光</i></td>
+                    </tr>
+                </table>
 
                 <div class="blog_content">
                     <h3>关于作者</h3>
                     <p>
                         夏培肃先生是我科（本渣😢就读于中国科大CS）计算机系的首任系主任，中国科学院院士，我国首台计算机——107机的发明者，被誉为中国计算机之母。这篇文章是先生于2001年10月发表在《计算机研究与发展》期刊上。
                     </p>
+                    <p>
+                        这是一段引自李国杰院士在缅怀夏先生时的文字：
+                    </p>
+                    <blockquote>
+                        在她近80岁高龄时，开始学习量子力学的基本概念，花了大约一年的时间，阅读了100多篇有关量子计算机论文。在此基础上她撰写了一篇综述性文章“量子计算”，在《计算机研究与发展》上发表，成为该学报引用率最高的论文之一。面对老一辈科学家如此敬业的态度，我们还有什么理由懈怠。
+                    </blockquote>
                 </div>
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>

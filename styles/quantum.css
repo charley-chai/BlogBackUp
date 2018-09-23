@@ -154,3 +154,8 @@
       linear-gradient(to bottom, #25DD73, #ffffff) 1 100%;
     border-right: 0;
 }
+
+.tableimg{
+    max-width: 90%;
+    height: auto !important;
+}
