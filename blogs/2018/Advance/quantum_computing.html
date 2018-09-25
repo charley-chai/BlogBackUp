@@ -19,12 +19,15 @@
     <meta property="og:description" content="这是我的LaTe系列博客的第二篇文章,主要介绍LaTeX的基本使用.">
     <meta property="og:title" content="Quantum Computing">
 
-        <script type="text/x-mathjax-config">
-              MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-            </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-
-</script></head>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+</script>
+<script type="text/javascript" src="/scripts/src/MathJax/MathJax.js"></script>
+</head>
 
 <body>
     <header>
@@ -1074,7 +1077,6 @@
     <link href="/styles/monokai.css" rel="stylesheet">
     <script src="/scripts/src/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-
 </body>
 
 </html>
