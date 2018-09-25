@@ -1,56 +1,518 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Blogs - Charley Chai</title>
+  <script src="/scripts/src/jquery.min.js"></script>
   <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
+  <title>Fluent Design | Introduction</title>
+  <link rel="stylesheet" href="/styles/temp.css">
   <link rel="stylesheet" href="/styles/blogs.css">
-  <link rel="stylesheet" href="/styles/blogarticl.css">
+  <link rel="stylesheet" href="/styles/article_blog.css">
+  <meta name="keywords" content="Fluent Design Microsoft CharleyChai 博客 柴磊">
+  <meta name="description" content="本人主要介绍一些fluent design的新的特点。">
+  <meta name="author" content="Charley Chai">
+  <meta property="og:image" content="/images/logo.png">
+  <meta property="og:description" content="本人主要介绍一些fluent design的新的特点。">
+  <meta property="og:title" content="Fluent Design | Introduction">
+  <link rel="stylesheet" href="/styles/timeline.css">
 </head>
+
 <body>
-  <div class="contain">
-    <nav>
+  <header>
+    <div class="container">
+      <nav id="xxxx">
+        <ul>
+          <li class="frim" id="expand">
+            <p>
+              <img src="/images/expand.svg" class="logo">
+            </p>
+          </li>
+          <li class="frim">
+            <a href="/">
+              <img src="/images/logo.svg" class="logo" id="logo">
+            </a>
+          </li>
+          <li class="shift"><a href="/">Home</a></li>
+          <li class="shift"><a href="/blogs" class="hoster">Blogs</a></li>
+          <li class="shift"><a href="/notes">Courses</a></li>
+          <li class="shift"><a href="/projects">Projects</a></li>
+          <li class="shift"><a href="/hobbies">Hobbies</a></li>
+          <li class="frim" id="search">
+            <p>
+              <img src="/images/search.svg" class="logo">
+            </p>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div id="placeholder"></div>
+
+  <div id="sub_nav">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <hr color="#555" size=0.5>
+      <li><a href="/blogs">Blogs</a></li>
+      <hr color="#555" size=0.5>
+      <li><a href="/notes">Courses</a></li>
+      <hr color="#555" size=0.5>
+      <li><a href="/projects">Projects</a></li>
+      <hr color="#555" size=0.5>
+      <li><a href="/hobbies">Hobbies</a></li>
+    </ul>
+  </div>
+
+  <div id="top" class="content">
+    <nav id="class_nav">
       <ul>
-        <li class="frim" id="expand">
-          <p>
-            <img src="/images/expand.svg" class="logo">
-          </p>
-        </li>
-        <li class="frim">
-          <a href="/">
-            <img src="/images/logo.svg" class="logo" id="logo">
-          </a>
-        </li>
-        <li class="shift"><a href="/">Home</a></li>
-        <li class="shift"><a href="/blogs" id="hoster">Blogs</a></li>
-        <li class="shift"><a href="/notes">Notes</a></li>
-        <li class="shift"><a href="/projects">Projects</a></li>
-        <li class="shift"><a href="/hobbies">Hobbies</a></li>
-        <li class="frim" id="search">
-          <p href="#">
-            <img src="/images/search.svg" class="logo">
-          </p>
-        </li>
+        <li id="bloghost" class="frim"><a href="#">Blogs</a></li>
+        <li class="shift"><a href="#">Advanced</a></li>
+        <li class="shift"><a href="#">Network</a></li>
+        <li class="shift"><a href="#">AI</a></li>
+        <li class="shift"><a href="#" class="host">UI/UX</a></li>
+        <li class="shift"><a href="#" >Tools</a></li>
+        <li class="frim" id="expandmore"><a href="#">
+            <svg id="next" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+              <path d="M0 0h24v24H0z" fill="none" />
+            </svg>
+            <svg id="next1" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: none;
+                  }
+                </style>
+              </defs>
+              <g id="baseline-navigate_next-24px" transform="translate(24) rotate(90)">
+                <path id="Path_1" data-name="Path 1" d="M10,6,8.59,7.41,13.17,12,8.59,16.59,10,18l6-6Z" />
+                <path id="Path_2" data-name="Path 2" class="cls-1" d="M0,0H24V24H0Z" />
+              </g>
+            </svg>
+          </a></li>
       </ul>
     </nav>
+
+    <div id="class_sub_nav">
+      <ul>
+        <li><a href="/blogs">Blogs</a></li>
+        <hr color="#BBB" size=0.2>
+        <li><a href="/blogs/program.html">Advanced</a></li>
+        <hr color="#BBB" size=0.2>
+        <li><a href="/blogs/network.html">Network</a></li>
+        <hr color="#BBB" size=0.2>
+        <li><a href="/blogs/ai.html">AI</a></li>
+        <hr color="#BBB" size=0.2>
+        <li><a href="/blogs/uiux.html">UI/UX</a></li>
+        <hr color="#BBB" size=0.2>
+        <li><a href="/blogs/uiux.html" class="host">Tools</a></li>
+      </ul>
+    </div>
+
+    <main>
+      <section class="section_content">
+        <div id="blog_head">
+          <div class="blog_tag green">UI/UX</div>
+          <h1 class="blog_title">Fluent Design简介</h1>
+          <div class="blog_time">SEP 25, 2018</div>
+          <hr />
+        </div>
+        <img src="/images/blogs/2018/fluentdesign.png" class="blog_image">
+        <div class="blog_content">
+          <h3>从Windows的历史说起</h3>
+            <div class="timeline">
+                      <h4 class="timetag">1985</h4>
+                      <article>
+                    
+                        <h4><svg class="timecircle" viewBox="0 0 50 50">
+                            <defs>
+                              <style>
+                                .cls-1,
+                                .cls-4 {
+                                  fill: none;
+                                }
+                    
+                                .cls-1 {
+                                  stroke: #f23030;
+                                  stroke-width: 5px;
+                                }
+                    
+                                .cls-2 {
+                                  fill: #f23030;
+                                }
+                    
+                                .cls-3 {
+                                  stroke: none;
+                                }
+                              </style>
+                            </defs>
+                            <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                              <g id="Ellipse_1" data-name="Ellipse 1" class="cls-1" transform="translate(1056 251)">
+                                <circle class="cls-3" cx="25" cy="25" r="25" />
+                                <circle class="cls-4" cx="25" cy="25" r="22.5" />
+                              </g>
+                              <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-2" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                            </g>
+                          </svg>Windows 1.0</h4>
+                        <p class="timeintro top-to-bottom"><br>
+                          Windows 1.0
+                          <br><br>
+                          Windows 2.0
+                          <br><br>
+                          Windows 2.1X
+                          <br><br><br>
+                      </p>
+                </article>
+                    
+            </div>
+
+
+            <div class="timeline">
+
+              <h4 class="timetag">1990</h4>
+              <article>
+
+                <h4><svg class="timecircle" viewBox="0 0 50 50">
+                    <defs>
+                      <style>
+                        .cls-11,
+                        .cls-14 {
+                          fill: none;
+                        }
+
+                        .cls-11 {
+                          stroke: #ffb134;
+                          stroke-width: 5px;
+                        }
+
+                        .cls-12 {
+                          fill: #ffb134;
+                        }
+
+                        .cls-13 {
+                          stroke: none;
+                        }
+                      </style>
+                    </defs>
+                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                      <g id="Ellipse_1" data-name="Ellipse 1" class="cls-11" transform="translate(1056 251)">
+                        <circle class="cls-13" cx="25" cy="25" r="25" />
+                        <circle class="cls-14" cx="25" cy="25" r="22.5" />
+                      </g>
+                      <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-12" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                    </g>
+                  </svg>Windows 3.0</h4>
+                <p class="timeintro top-to-bottom1"><br>
+                  Windows 3.0
+                  <br><br>
+                  Windows 3.1
+                  <br><br>
+                  Windows 3.2
+                  <br><br><br>
+                </p>
+              </article>
+
+            </div>
+
+            <div class="timeline">
+
+              <h4 class="timetag">1995</h4>
+              <article>
+
+                <h4><svg class="timecircle" viewBox="0 0 50 50">
+                    <defs>
+                      <style>
+                        .cls-21,
+                        .cls-24 {
+                          fill: none;
+                        }
+
+                        .cls-21 {
+                          stroke: #FAEE5D;
+                          stroke-width: 5px;
+                        }
+
+                        .cls-22 {
+                          fill: #FAEE5D;
+                        }
+
+                        .cls-23 {
+                          stroke: none;
+                        }
+                      </style>
+                    </defs>
+                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                      <g id="Ellipse_1" data-name="Ellipse 1" class="cls-21" transform="translate(1056 251)">
+                        <circle class="cls-23" cx="25" cy="25" r="25" />
+                        <circle class="cls-24" cx="25" cy="25" r="22.5" />
+                      </g>
+                      <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-22" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                    </g>
+                  </svg>Window 95</h4>
+                <p class="timeintro top-to-bottom2"><br>
+                  Windows 95
+                  <br><br>
+                  Windows 98
+                  <br><br>
+                  Windows 2000
+                  <br><br><br>
+                </p>
+              </article>
+
+            </div>
+
+            <div class="timeline">
+
+              <h4 class="timetag">2001</h4>
+              <article>
+
+                <h4><svg class="timecircle" viewBox="0 0 50 50">
+                    <defs>
+                      <style>
+                        .cls-31,
+                        .cls-34 {
+                          fill: none;
+                        }
+
+                        .cls-31 {
+                          stroke: #25DD73;
+                          stroke-width: 5px;
+                        }
+
+                        .cls-32 {
+                          fill: #25DD73;
+                        }
+
+                        .cls-33 {
+                          stroke: none;
+                        }
+                      </style>
+                    </defs>
+                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                      <g id="Ellipse_1" data-name="Ellipse 1" class="cls-31" transform="translate(1056 251)">
+                        <circle class="cls-33" cx="25" cy="25" r="25" />
+                        <circle class="cls-34" cx="25" cy="25" r="22.5" />
+                      </g>
+                      <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-32" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                    </g>
+                  </svg>Windows XP</h4>
+                <p class="timeintro top-to-bottom3"><br>
+                  Windows XP
+                  <br><br><br> </p>
+              </article>
+
+            </div>
+
+            <div class="timeline">
+
+              <h4 class="timetag">2006</h4>
+              <article>
+
+                <h4><svg class="timecircle" viewBox="0 0 50 50">
+                    <defs>
+                      <style>
+                        .cls-41,
+                        .cls-44 {
+                          fill: none;
+                        }
+
+                        .cls-41 {
+                          stroke: #30A4F8;
+                          stroke-width: 5px;
+                        }
+
+                        .cls-42 {
+                          fill: #30A4F8;
+                        }
+
+                        .cls-43 {
+                          stroke: none;
+                        }
+                      </style>
+                    </defs>
+                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                      <g id="Ellipse_1" data-name="Ellipse 1" class="cls-41" transform="translate(1056 251)">
+                        <circle class="cls-43" cx="25" cy="25" r="25" />
+                        <circle class="cls-44" cx="25" cy="25" r="22.5" />
+                      </g>
+                      <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-42" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                    </g>
+                  </svg>Windows Vista</h4>
+                <p class="timeintro top-to-bottom4"><br>
+                  Windows Vista
+                  <br><br><br> 
+                </p>
+              </article>
+
+            </div>
+
+            <div class="timeline">
+
+              <h4 class="timetag">2009</h4>
+              <article>
+
+                <h4><svg class="timecircle" viewBox="0 0 50 50">
+                    <defs>
+                      <style>
+                        .cls-51,
+                        .cls-54 {
+                          fill: none;
+                        }
+
+                        .cls-51 {
+                          stroke: #08FDE1;
+                          stroke-width: 5px;
+                        }
+
+                        .cls-52 {
+                          fill: #08FDE1;
+                        }
+
+                        .cls-53 {
+                          stroke: none;
+                        }
+                      </style>
+                    </defs>
+                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                      <g id="Ellipse_1" data-name="Ellipse 1" class="cls-51" transform="translate(1056 251)">
+                        <circle class="cls-53" cx="25" cy="25" r="25" />
+                        <circle class="cls-54" cx="25" cy="25" r="22.5" />
+                      </g>
+                      <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-52" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                    </g>
+                  </svg>Windows 7</h4>
+                <p class="timeintro top-to-bottom5"><br>
+                  Windows 7
+                  <br><br><br>
+                </p>
+              </article>
+
+            </div>
+
+            <div class="timeline">
+
+              <h4 class="timetag">2012</h4>
+              <article>
+
+                <h4><svg class="timecircle" viewBox="0 0 50 50">
+                    <defs>
+                      <style>
+                        .cls-61,
+                        .cls-64 {
+                          fill: none;
+                        }
+
+                        .cls-61 {
+                          stroke: #6630F8;
+                          stroke-width: 5px;
+                        }
+
+                        .cls-62 {
+                          fill: #6630F8;
+                        }
+
+                        .cls-63 {
+                          stroke: none;
+                        }
+                      </style>
+                    </defs>
+                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                      <g id="Ellipse_1" data-name="Ellipse 1" class="cls-61" transform="translate(1056 251)">
+                        <circle class="cls-63" cx="25" cy="25" r="25" />
+                        <circle class="cls-64" cx="25" cy="25" r="22.5" />
+                      </g>
+                      <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-62" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                    </g>
+                  </svg>Windows 8</h4>
+                <p class="timeintro top-to-bottom6"><br />
+                  Windows 8
+                  <br><br>
+                  Windows 8.1
+                  <br><br><br>
+              </article>
+            </div>
+
+
+            <div class="timeline">
+              <h4 class="timetag">2014</h4>
+              <article>
+            
+                <h4><svg class="timecircle" viewBox="0 0 50 50">
+                    <defs>
+                      <style>
+                        .cls-1,
+                        .cls-4 {
+                          fill: none;
+                        }
+            
+                        .cls-1 {
+                          stroke: #f23030;
+                          stroke-width: 5px;
+                        }
+            
+                        .cls-2 {
+                          fill: #f23030;
+                        }
+            
+                        .cls-3 {
+                          stroke: none;
+                        }
+                      </style>
+                    </defs>
+                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                      <g id="Ellipse_1" data-name="Ellipse 1" class="cls-1" transform="translate(1056 251)">
+                        <circle class="cls-3" cx="25" cy="25" r="25" />
+                        <circle class="cls-4" cx="25" cy="25" r="22.5" />
+                      </g>
+                      <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-2" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                    </g>
+                  </svg>Windows 10</h4>
+                <p class="timeintro top-to-bottomendred"><br>
+                  Windows 10
+                  <br><br><br>
+                </p>
+              </article>
+            
+            </div>
+
+
+        </div>
+
+        <div class="blog_content">
+          <h4>Windows的UI设计语言</h4>
+          MetroUI、
+          ModernUI、
+          Fluent Design
+        </div>
+
+
+        <div class="blog_content">
+          <style>
+            #bloglink {
+              text-align: left;
+            }
+          </style>
+          <p>上一篇：<a href="/blogs/2018/Tools/LaTeX/Latex_using_vscode.html">在Visual Studio Code中使用LaTex</a></p>
+          <p>下一篇：<a href="#">LaTeX编辑数学公式（暂无）</a></p>
+        </div>
+
+
   </div>
 
-  <div id="main">
-    <nav id="name">
-      <p>Fluent Design System</p>
-      <div id="rightinfo">
-        <p class="word">word <abbr class="number">240</abbr></p>
-        <a class="hl_href" href="projects/muschel">Issues <abbr class="number">000</abbr></a>
-      </div>
-    </nav>
-    <article>
 
-    </article>
+  </section>
+  </main>
+
+
+
+
   </div>
 
-  <div id="contact">
+  <div id="contact" class="content">
     <p id="welcome">Welcome to join me to find and create bueautiful stuffs!</p>
     <p id="cvia">Contact me via:</p>
     <div id="mi_logos">
@@ -63,5 +525,12 @@
     <hr />
     <p id="copyright">A project by Charley Chai</p>
   </div>
+  </div>
+  <script src="/scripts/temp.js"></script>
+  <script src="/scripts/blogs.js"></script>
+  <link href="/styles/monokai.css" rel="stylesheet">
+  <script src="/scripts/src/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 </body>
+
 </html>

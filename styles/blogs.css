@@ -274,6 +274,13 @@ ul li{
     width: 100%;
   }
 
+  .dualblog2{
+    margin: 0 0 1em 0 !important;
+    padding: 0 !important;
+    grid-template-columns: 100% !important;
+    width: 100%;
+  }
+
   .leftblog{
     background: white !important;
     margin: 0 !important;
@@ -318,9 +325,16 @@ ul li{
   margin: 1em 13%;
 }
 
+.dualblog2{
+  display: grid;
+  grid-template-columns: 40% 60%;
+  background: #EFEFEF;
+  grid-template-rows: auto;
+  margin: 1em 13%;
+}
+
 .leftblog{
   margin-right: 0.5em; 
-  margin-bottom: 2em; 
   background: white;
 }
 

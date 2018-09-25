@@ -176,14 +176,14 @@ footer{
 }
 
 #hl_upleft{
-  background: black;
+  background: #090909;
   margin-left: 1em;
   margin-right: 0.5em;
   color: white;
 }
 
 #hl_upright{
-  background: #B7DCEA;
+  background: rgb(250, 250, 250);
   margin-left: 0.5em;
   margin-right: 1em;
 }
@@ -195,7 +195,7 @@ footer{
 }
 
 #hl_bottomright{
-  background: rgb(250, 250, 250);
+  background: rgb(244, 244, 244);
   margin-left: 0.5em;
   margin-right: 1em;
 }
