@@ -18,7 +18,13 @@
     <meta property="og:image" content="/images/logo.png">
     <meta property="og:description" content="这是我的LaTe系列博客的第二篇文章,主要介绍LaTeX的基本使用.">
     <meta property="og:title" content="Quantum Computing">
-</head>
+
+        <script type="text/x-mathjax-config">
+              MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+            </script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+
+</script></head>
 
 <body>
     <header>
@@ -999,6 +1005,10 @@
                     <p>首先，提出量子系统的概念，其定义比较模糊。大致来说，量子系统就是我们在经典世界中看到的非经典现象的承载体，它包含若干粒子，我们使用量子态来描述此系统的状态。
                         量子系统描述的是微观世界的随机现象，量子态描述的是在实际观测中这些现象的几率分布。
                     </p>
+                    <p>   When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+                        $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+                        </p>
+
                 </div>
 
                 <div class="blog_content">
@@ -1064,6 +1074,7 @@
     <link href="/styles/monokai.css" rel="stylesheet">
     <script src="/scripts/src/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+
 </body>
 
 </html>
