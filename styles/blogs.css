@@ -319,7 +319,7 @@ ul li{
 
 .dualblog{
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 49.5% auto 49.5%;
   background: #EFEFEF;
   grid-template-rows: auto;
   margin: 1em 13%;
@@ -327,14 +327,13 @@ ul li{
 
 .dualblog2{
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 39.4% auto 59.6%;
   background: #EFEFEF;
   grid-template-rows: auto;
   margin: 1em 13%;
 }
 
 .leftblog{
-  margin-right: 0.5em; 
   background: white;
 }
 
@@ -342,7 +341,6 @@ ul li{
 
 .rightblog{
   background: white;
-  margin-left: 0.5em;
 }
 
 .informationdual{
