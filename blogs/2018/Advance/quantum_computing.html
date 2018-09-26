@@ -1007,7 +1007,7 @@
                         量子系统描述的是微观世界的随机现象，量子态描述的是在实际观测中这些现象的几率分布，称为态空间。
                     </p>
                     <p>
-                        态空间由多个本征态（eigenstate）构成，量子态可以由希尔伯特（Hilbert）空间（线性复向量空间） ${\mathcal {H}}$ 来描述。为了方便计算和表示，狄拉克（Dirac）提出使用 ${|\psi \rangle }$ 来表示量子态，称之为态矢量。
+                        态空间由多个本征态（eigenstate）构成，量子态可以由希尔伯特（Hilbert）空间（线性复向量空间） ${\mathcal {H}}$ 来描述。为了方便计算和表示，狄拉克（Dirac）提出使用 ${|\psi \rangle }$ （<a href="#fulu1">性质</a>）来表示量子态，称之为态矢量。
                         ${|\psi \rangle }$ 是一个列向量，称为 $ket$ ；它的共轭转制为 $\langle \psi |$，这是一个列向量，称为 $bra$。一个量子态可由二维 $\mathcal {H}$ 表示，即：
                         $$ {|\psi \rangle = \alpha |\uparrow \rangle + \beta |\downarrow \rangle ;}$$
                         其中，$|\uparrow \rangle$、$|\downarrow \rangle$是本征态；$\alpha$、$\beta$ 是复值系数，例如在施特恩-格拉赫实验中 $|\alpha|^2$、$|\beta|^2$ 分别为入射银原子束处于上旋、下旋的概率，$|\alpha|^2+|\beta|^2=1$。由此也可以得到，${|\psi \rangle }$ 是单位向量，即规一化的（normalized）。
@@ -1026,7 +1026,52 @@
 
                 <div class="blog_content">
                     <p>在常规计算机中，一个数位的态是确定的，但是在量子计算机中，量子位的叠加态是不确定的，而是概率性的（probabilistic）。</p>
+                    <p>对处于叠加态的量子位进行观察或测量时叠加态将受到干扰并发生变化，这种变化称为坍缩。对于上述测量，叠加态坍缩为基本态。这里可以类比对穿过垂直偏振光滤波器的偏振光进行观测时，只能观测到水平偏振光，它出现的概率为 $|b|^2$。</p>
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="blog_content">
+                    <h3>附：数学知识</h3>
+                    <h4 id="fulu1"">$| \psi \rangle$ 的性质</h4>
+                    <h5>$| \psi \rangle$ 的具体含义</h5>
+                    <p>在二维希尔伯特空间 $\mathcal {H}$ 中，有 $x \in \{0, 1\}$，则 $| x \rangle$ 是具有两个分量的向量，令：
+                    $$ | 0 \rangle = \left\lgroup
+                    \begin{matrix}
+                    1 \\
+                    0 \\
+                    \end{matrix}
+                    \right\rgroup
+                    \qquad
+                    | 1 \rangle = \left\lgroup
+                    \begin{matrix}
+                    0 \\
+                    1 \\
+                    \end{matrix}
+                    \right\rgroup$$</p>
+
+                </div>
+
+
+
+
+
+
+
+
                 <div class="blog_content">
                     <h3>关于作者</h3>
                     <p>
@@ -1049,7 +1094,6 @@
                         <td align="center"><i>107机</i></td>
                     </tr>
                 </table>
-
 
                 <div class="blog_content">
                     <style>
