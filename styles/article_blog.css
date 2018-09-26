@@ -97,3 +97,27 @@ th, tr{
         margin: 0 !important;
     }
 }
+
+.purple{
+    color: #6630F8;
+        font-size: 0.8em;
+
+}
+
+.red{
+    color:  #f23030;
+        font-size: 0.8em;
+
+}
+
+.orange{
+    color: #ffb134;
+        font-size: 0.8em;
+
+}
+
+.blue{
+    color: #08FDE1;
+        font-size: 0.8em;
+
+}
