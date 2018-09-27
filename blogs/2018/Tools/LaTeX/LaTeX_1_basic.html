@@ -287,6 +287,7 @@ Hello world!
 \tableofcontents
                         </code>
                     </pre>
+                    <p>这个命令就会在文章的对应部分生成整个文章的目录。</p>
                     <h4>页码</h4>
                     <pre>
                         <code>
@@ -330,10 +331,68 @@ Hello world!
                     <p>我们文章的主要部分就是这一部分了，我们先看一个完整的例子吧：</p>
                     <pre>
                         <code>
-\waiting for it 😁                            
+\documentclass{article}
+\title{USTC}
+\begin{document}
+\maketitle
+\section{USTC}
+    USTC actually means University of Science and Technology of China.
+        \subsection{Where is USTC} 
+            USTC is located in Hefei, China.
+                \subsubsection{The campus of USTC}
+                    \paragraph{East Campus}is main campus of USTC.
+                        \subparagraph{GuoMoRuo Square} is very beautiful.
+        \subsection{The history of USTC}
+            \paragraph{USTC} is 60 year old now (2018).
+\end{document}
                         </code>
                     </pre>
+                    <p>可以自己试一试效果，对应着理解一下。这里的一些空格之类的只是为了写文章时使结构看起来而加入的，不是必须的。</p>
+                    <p>这里使用了：</p>
+                    <p></p>
+                    <ul>
+                        <li><code class="code">\section{}</code></li>
+                        <li><code class="code">\subsection{}</code></li>
+                        <li><code class="code">\subsubsection{}</code></li>
+                        <li><code class="code">\paragraph{}</code></li>
+                        <li><code class="code">\subparagraph{}</code></li>
+                    </ul>
+                    来调整文章结构。
                 </div>
+                <div class="blog_content">
+                    <h4>换行与空格</h4>
+                    <p>
+                        在上面的一个完整的例子中，你也许会疑惑，为什么说那些空格啊，缩进呀不用管呢？而且你生成的结果不出意外也验证了这一点。
+                        这里就要说到LaTeX中的换行和空格了。
+                    </p>
+                    <h5>换行</h5>
+                    <p>LaTeX中的换行命令有好几个，其作用和使用场合各有不同：</p>
+                    <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                        <tr>
+                            <th>命令</th>
+                            <th>含义</th>
+                        </tr>
+                        <tr>
+                            <td width="25%"><code class="code">\\</code></td>
+                            <td width="75%">换行</td>
+                        </tr>
+                        <tr>
+                            <td><code class="code">\\[offset]</code></td>
+                            <td>换行，并且下一行的行距为原行距+offset</td>
+                        </tr>
+                        <tr>
+                            <td><code class="code">\newline</code></td>
+                            <td>作用同<code class="code">\\</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="code">\linebreak</code></td>
+                            <td>强制换行，下一段的开头与当前行分散对齐</td>
+                        </tr>
+                    </table>
+                    <h5>空格</h5>
+                </div>
+
+
 
 
                 <div class="blog_content">
@@ -343,7 +402,7 @@ Hello world!
                             }
                     </style>
                         <p>上一篇：<a href="/blogs/2018/Tools/LaTeX/Latex_using_vscode.html">在Visual Studio Code中使用LaTex</a></p>
-                        <p>下一篇：<a href="#">LaTeX编辑数学公式（暂无）</a></p>
+                        <p>下一篇：<a href="/blogs/2018/Tools/LaTeX/latex_math.html">LaTeX编辑数学公式</a></p>
                 </div>
 
 
