@@ -1007,8 +1007,8 @@
                         量子系统描述的是微观世界的随机现象，量子态描述的是在实际观测中这些现象的几率分布，称为态空间。
                     </p>
                     <p>
-                        态空间由多个本征态（eigenstate）构成，量子态可以由希尔伯特（Hilbert）空间（线性复向量空间） ${\mathcal {H}}$ 来描述。为了方便计算和表示，狄拉克（Dirac）提出使用 ${|\psi \rangle }$ （<a href="#fulu1">性质</a>）来表示量子态，称之为态矢量。
-                        ${|\psi \rangle }$ 是一个列向量，称为 $ket$ ；它的共轭转制为 $\langle \psi |$，这是一个列向量，称为 $bra$。一个量子态可由二维 $\mathcal {H}$ 表示，即：
+                        量子态可以是纯态（eigenstate）或混合态，它可由希尔伯特（Hilbert）空间（线性复向量空间） ${\mathcal {H}}$ 来描述。为了方便计算和表示，狄拉克（Dirac）提出使用 ${|\psi \rangle }$ （<a href="#fulu1">了解其性质</a>）来表示量子态，称之为态矢量。
+                        ${|\psi \rangle }$ 是一个列向量，称为右矢（$ket$）；它的共轭转置为 $\langle \psi |$，这是一个行向量，称为左矢（$bra$）。一个量子态可由二维 $\mathcal {H}$ 表示，即：
                         $$ {|\psi \rangle = \alpha |\uparrow \rangle + \beta |\downarrow \rangle ;}$$
                         其中，$|\uparrow \rangle$、$|\downarrow \rangle$是本征态；$\alpha$、$\beta$ 是复值系数，例如在施特恩-格拉赫实验中 $|\alpha|^2$、$|\beta|^2$ 分别为入射银原子束处于上旋、下旋的概率，$|\alpha|^2+|\beta|^2=1$。由此也可以得到，${|\psi \rangle }$ 是单位向量，即规一化的（normalized）。
                     </p>
@@ -1048,7 +1048,8 @@
                     <h3>附：数学知识</h3>
                     <h4 id="fulu1"">$| \psi \rangle$ 的性质</h4>
                     <h5>$| \psi \rangle$ 的具体含义</h5>
-                    <p>在二维希尔伯特空间 $\mathcal {H}$ 中，有 $x \in \{0, 1\}$，则 $| x \rangle$ 是具有两个分量的向量，令：
+                    <p>$| \psi \rangle$ 中的任意符号 $\psi$ 可以是任何符号：字母、数字或单字。</p>
+                    <p>如在二维希尔伯特空间 $\mathcal {H}$ 中，若 $x \in \{0, 1\}$，则 $| x \rangle$ 是具有两个分量的向量，令：
                         $$ | 0 \rangle = \left\lgroup
                         \begin{matrix}
                         1 \\
@@ -1064,15 +1065,15 @@
                         \right\rgroup$$                
                     </p>
                     <h5>$| \psi \rangle$ 共轭</h5>
-                    <p>
-                        $\langle x |$ 是 $| x \rangle$ 的共轭，有：
+                    <p>在对于每一个右矢 $|\psi \rangle$ ，都独特地存在一个对应的左矢 $\langle \psi|$，左矢与右矢指的是同一个量子态。左矢属于另外一个希尔伯特空间，称为对偶空间。
+                        假设右矢 $|\psi \rangle$ 的维度为有限值，则可以将右矢写为竖排，左矢写为横排。如：
                         $$
                         \langle 0 | = (1, 0) \quad, \quad \langle 1 | = (0, 1)
                         $$
                     </p>
                     <h5>$| \psi \rangle$ 内积与外积</h5>
                     <p>
-                        $\langle x | y \rangle =\langle x || y \rangle $ 称为内积，这是一个标量：
+                        $\langle x | y \rangle =\langle x || y \rangle $ 称为内积，其物理意义为在量子态 $|x \rangle$ 里找到量子态 $|y \rangle$ 的概率幅，这是一个标量：
                         $$
                         \langle 0 | 0 \rangle = \langle 1 | 1 \rangle = 1
                         $$
@@ -1113,8 +1114,18 @@
                         \begin{matrix}
                         1 & 0\\
                         0 & 0\\
-                        \end{matrix}\right\rgroup
+                        \end{matrix}\right\rgroup (\alpha | 0 \rangle + \beta | 1 \rangle) = \alpha | 0 \rangle
+                        \tag{$*$}
                         $$
+                        $$
+                        | 1 \rangle \langle 1 | (| \psi \rangle)= \left\lgroup
+                        \begin{matrix}
+                        0 & 0\\
+                        0 & 1\\
+                        \end{matrix}\right\rgroup (\alpha | 0 \rangle + \beta | 1 \rangle) = \beta | 1 \rangle
+                        \tag{$**$}
+                        $$
+                        式 $*$ 和 $**$ 分别表示将属于 $| 0 \rangle$ 和 $| 0 \rangle$ 的成分取出。
                     </p>
                 </div>
 
