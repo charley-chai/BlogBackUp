@@ -1030,7 +1030,7 @@
                 </div>
 
                 <div class="blog_content">
-                    <h4>量子寄存器</h4>
+                    <h3>量子寄存器</h3>
                     <p>
                         n个量子位的有序集合称为n位量子寄存器，它的态是n个量子位的态的张量积（tensor product）。张量积也称作直积，使用符号 $\otimes$（<a href="#fulu2">了解其性质</a>）表示。
                     </p>
@@ -1079,6 +1079,24 @@
                         其中 $(\alpha_0 \alpha_1)^2  + (\alpha_0 \beta_1)^2 +
                         (\beta_0 \alpha_1)^2 + (\beta_0 \beta_1)^2 = 1 .$ 可以说两位量子寄存器的状态 $| \psi \rangle$ 是 $2^2$ 维希尔伯特空间 $\mathcal {H}$ 的单位向量。它有四个正交基本态：
                         $$| 00 \rangle, \quad | 01 \rangle,\quad | 10 \rangle, \quad | 11 \rangle.$$
+                    </p>
+                    <p>
+                        对于三量子寄存器，其叠加态为
+                        $$ | \psi \rangle = | \psi_0 \psi_1 \psi_2 \rangle = | \psi_0 \rangle \otimes | \psi_1 \rangle \otimes | \psi_2 \rangle = \sum_{i = 0}^{7}{c_i|x\rangle}.$$
+                        其中，
+                        $$ \sum_{i=0}^{7}{ | c_i |^2 } = 1.$$
+                        $| \psi \rangle$ 是 $2^3$ 维希尔伯特空间 $\mathcal {H}$ 中的单位向量，它有八个相互正交的基本态：
+                        $$| 000 \rangle, \quad | 001 \rangle,\quad | 010 \rangle, \quad | 011 \rangle,$$ 
+                        $$| 100 \rangle, \quad | 101 \rangle,\quad | 110 \rangle, \quad | 111 \rangle.$$
+                    </p>
+                    <p>
+                        通过类比，就可以推断出，对于一个 $n$ 位的量子寄存器，其叠加态为：
+                        $$ | \psi \rangle = | \psi_0 \psi_1 ... \psi_{n-1} \rangle = | \psi_0 \rangle \otimes | \psi_1 \rangle \otimes ... \otimes | \psi_n \rangle.
+                        $$
+                        $| \psi \rangle$ 为 $2^n$ 维希尔伯特空间 $\mathcal {H}$ 中的单位向量，它有 $2^n$ 个相互正交的基本态。
+                    </p>
+                    <p>
+                        所以，处于叠加态的 $n$ 位量子寄存器中的数是 $0$ 到 $2^n-1$。可以看到，<b>量子计算机中量子寄存器的线性增长带来存储空间的指数级增长</b>。
                     </p>
                 </div>
 
