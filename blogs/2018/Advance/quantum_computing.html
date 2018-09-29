@@ -1098,6 +1098,26 @@
                     <p>
                         所以，处于叠加态的 $n$ 位量子寄存器中的数是 $0$ 到 $2^n-1$。可以看到，<b>量子计算机中量子寄存器的线性增长带来存储空间的指数级增长</b>。
                     </p>
+                    <p>
+                        那么，如何测量量子寄存器的态呢？可以通过测量量子寄存器中的每一个量子位的态来完成，而对每个量子态的测量都是对其各自的基本态进行的。以
+                        两位量子寄存器为例：
+                        $$ | \psi \rangle = \alpha_{00}|00\rangle + \alpha_{01}|01\rangle +\alpha_{10}|10\rangle +\alpha_{11}|11\rangle.
+                        $$假定有位于左右两边的两个量子位，分别使用记号 $L, R$。在测量左边的量子态时，可以将 $| \psi \rangle$ 写作：
+                        $$ | \psi \rangle = |0\rangle_{L}\otimes(\alpha_{00}|0\rangle_{R}+\alpha_{01}|1\rangle_{R})+|1\rangle_{L}\otimes(\alpha_{10}|0\rangle_{R}+\alpha_{11}|1\rangle_{R})
+                        $$
+                        $$= p|0\rangle\otimes|\psi\rangle_p+q|1\rangle\otimes|\psi\rangle_q.
+                        $$
+                        其中：
+                        $$ p = \sqrt{|\alpha_{00}|^2+|\alpha_{01}|^2}, $$
+                        $$ q = \sqrt{|\alpha_{10}|^2+|\alpha_{11}|^2}, $$
+                        $$ | \psi \rangle_p = \frac{\alpha_{00}}{p} |0\rangle_R + \frac{\alpha_{01}}{p} |1\rangle_R, $$
+                        $$ | \psi \rangle_q = \frac{\alpha_{10}}{q} |0\rangle_R + \frac{\alpha_{11}}{q} |1\rangle_R. $$
+                    </p>
+                    <p>
+                        有了上面的表示，如果我们现在想要测 $|\psi\rangle$ 为 $|01\rangle$ 的概率，先测量左位为 $|0\rangle$ 的态。
+                        $$ |0\rangle_L\langle0|_L(|\psi\rangle) = p|0\rangle_L\otimes|\psi\rangle_p = |\psi' \rangle_p$$
+                        测量后，状态 $| \psi \rangle$ 坍缩为 $|\psi' \rangle_p$，左态为 $|0\rangle$ 的概率为 $|p|^2$。
+                    </p>
                 </div>
 
 
@@ -1197,7 +1217,7 @@
                         \end{matrix}\right\rgroup (\alpha | 0 \rangle + \beta | 1 \rangle) = \beta | 1 \rangle
                         \tag{$**$}.
                         $$
-                        式 $*$ 和 $**$ 分别表示将属于 $| 0 \rangle$ 和 $| 0 \rangle$ 的成分取出。
+                        式 $*$ 和 $**$ 分别表示将属于 $| 0 \rangle$ 和 $| 1 \rangle$ 的成分取出。
                     </p>
                     <h4 id="fulu2">$\otimes$ 的性质</h4>
                     <h5>$\otimes$ 的运算规则</h5>
