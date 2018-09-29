@@ -7,17 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="/scripts/src/jquery.min.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
-    <title>LaTex Guide | LaTeX Basic</title>
+    <title>History of Neural Network</title>
     <link rel="stylesheet" href="/styles/temp.css">
     <link rel="stylesheet" href="/styles/blogs.css">
     <link rel="stylesheet" href="/styles/article_blog.css">
     <link rel="stylesheet" href="/styles/timeline.css">
-    <meta name="keywords" content="LaTeX VScode CharleyChai 博客 柴磊">
-    <meta name="description" content="这是我的LaTe系列博客的第二篇文章,主要介绍LaTeX的基本使用.">
+    <meta name="keywords" content="NN ML 神经网络 机器学习 历史 CharleyChai 博客 柴磊">
+    <meta name="description" content="">
     <meta name="author" content="Charley Chai">
     <meta property="og:image" content="/images/logo.png">
-    <meta property="og:description" content="这是我的LaTe系列博客的第二篇文章,主要介绍LaTeX的基本使用.">
-    <meta property="og:title" content="LaTex Guide | LaTeX Basic">
+    <meta property="og:description" content="NN ML 神经网络 机器学习 历史 CharleyChai 博客 柴磊">
+    <meta property="og:title" content="History of Neural Network">
 </head>
 
 <body>
@@ -129,6 +129,7 @@
                         在1950年，<i>Alen Turing</i>在论文中提到所谓“图灵测试”。
                         1958年的达特茅斯会议上，人中智能研究的先驱<i>John Maclly</i>提出了人工智能（Artificial Intelligence）一词。之后人工智能的研究经历了数次跌宕起伏。Hinton于2006年提出深度学习的概念，
                         之后，人工智能尤其是深度学习迎来了火热的发展。而如今，人工智能技术已经在我们的生活中广泛应用。
+                                                <br><br>
                     </p>
                 </div>
 
@@ -732,10 +733,33 @@
                     
                 </div>
 
-                <div class="blog-content">
-                    <p></p>
+                <div class="blog_content">
+                    <h3>第一代神经网络（1958~1969）</h3>
+                    <p>最早的神经网络思想起源于1943年的MCP人工神经元模型。<br> 第一次将MCP用于机器学习的当属1958年Rosenblatt发明的感知器(perceptron)算法。
+                        <br> 1969年，美国数学家及人工智能先驱Minsky在其著作中证明感知器本质上是一种线性模型，由此宣判了感知器的死刑，神经网络的研究也陷入了近20年的停滞。</p>
                 </div>
 
+                <div class="blog_content">
+                    <h3>第二代神经网络（1986~1998）</h3>
+                    <p>Hinton在1986年发明了适用于多层感知器(MLP)的BP算法，并采用Sigmoid进行非线性激活，有效解决了非线性分类和学习的问题，从而引起了神经网络的第二次热潮。</p>
+                    <p>1989年，Robert Hecht-Nielsen证明了MLP的万能逼近定理。</p>
+                    <p>1989年，LeCun发明了卷积神经网络LeNet，并将其用于数字识别，且取得了较好的成绩。</p>
+                    <p>1991年，BP算法被指出存在梯度消失问题，这对本身就缺少严格数学理论证明的神经网络无疑是雪上加霜，神经网络的发展渐渐冷淡。</p>
+                    <p>1997年，LSTM模型被发明，尽管该模型在序列建模上的特性非常突出，但由于正处于NN的下坡期，也没有引起足够的重视。</p>
+                </div>
+
+                <div class="blog_content">
+                    <h3>第三代神经网络（2006~）</h3>
+                    <p>2006年，Hinton提出了深层网络训练中梯度消失问题的解决方案：无监督预训练对权值进行初始化+有监督训练微调。</p>
+                    <p>2011年，ReLU激活函数被提出，该激活函数能够有效的抑制梯度消失问题。</p>
+                    <p>2011年，微软首次将深度学习应用在语音识别上，使识别错误率下降了20%-30%。</p>
+                    <p>2012年，Hinton课题组为了证明深度学习的潜力，首次参加ImageNet图像识别比赛，通过构建的CNN网络AlexNet一举夺得冠军，且碾压第二名(SVM方法)的分类性能。</p>
+                    <p>2013、2014、2015年，通过ImageNet图像识别比赛，深度学习的网络结构、训练方法、GPU硬件的不断进步，促使其在其他领域也在不断的征服战场。</p>
+                    <p>2016年3月，由谷歌旗下DeepMind公司开发的AlphaGo与围棋世界冠军、职业九段棋手李世石进行围棋人机大战，以4比1的总比分获胜。</p>
+                    <p>2016年末2017年初，AlphaGo在中国棋类网站上以”Master”为注册帐号与中日韩数十位围棋高手进行快棋对决，连续60局无一败绩。</p>
+                    <p>2017年5月，在中国乌镇围棋峰会上，AlphaGo与排名世界第一的世界围棋冠军柯洁对战，以3比0的总比分获胜。</p>
+                    <p>2017年10月，DeepMind团队重磅发布AlphaGo Zero，再次震惊世人。相比之前的AlphaGo，该版本的AlphaGo Zero实现了在AI发展中非常有意义的一步——"无师自通"。</p>
+                </div>
 
 
 
@@ -746,7 +770,7 @@
                         }
                     </style>
                     <p>上一篇：无</p>
-                    <p>下一篇：<a href="#">令人惊叹的AI技术</a></p>
+                    <p>下一篇：<a href="/blogs/2018/ai/intro_nn.html">神经网络简介</a></p>
                 </div>
 
 
