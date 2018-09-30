@@ -1118,6 +1118,13 @@
                         $$ |0\rangle_L\langle0|_L(|\psi\rangle) = p|0\rangle_L\otimes|\psi\rangle_p = |\psi' \rangle_p$$
                         测量后，状态 $| \psi \rangle$ 坍缩为 $|\psi' \rangle_p$，左态为 $|0\rangle$ 的概率为 $|p|^2$。
                     </p>
+                    <p>
+                        接着，我们再测量右位为 $|1\rangle$ 的态。
+                        $$|1\rangle_R\langle0|_R(|\psi' \rangle_p) = p|0\rangle_L\otimes \frac{\alpha_{01}}{p} |1\rangle_R = \alpha_{01} |01 \rangle$$
+                    </p>
+                    <p>
+                        可以看到，经过两次测量后， $|\psi\rangle$ 坍缩为 $\alpha_{01}|01\rangle$ ，其概率为 ${|\alpha_{01}|}^2$。总结起来就是，量子寄存器虽可以存储 $2^n$ 个 $n$ 位数，但是在测量的时候只能得到一个 $n$ 位数。
+                    </p>
                 </div>
 
 
