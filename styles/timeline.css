@@ -176,6 +176,22 @@
     border-right: 0;
 }
 
+.top-to-bottomendorange{
+    border-width: 0.2em;
+    border-style: solid;
+    -webkit-border-image: 
+      -webkit-gradient(linear, 0 0, 0 100%, from(#ffb134), to(#ffffff)) 1 100%;
+    -webkit-border-image: 
+      -webkit-linear-gradient(#ffb134, #ffffff) 1 100%;
+    -moz-border-image:
+      -moz-linear-gradient(#ffb134, #ffffff) 1 100%;    
+    -o-border-image:
+      -o-linear-gradient(#ffb134, #ffffff) 1 100%;
+    border-image:
+      linear-gradient(to bottom, #ffb134, #ffffff) 1 100%;
+    border-right: 0;
+}
+
 .tableimg{
     max-width: 90%;
     height: auto !important;
