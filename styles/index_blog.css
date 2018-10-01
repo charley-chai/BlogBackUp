@@ -1,0 +1,48 @@
+#leftNav{
+    height: 0;
+    display: grid;
+    grid-template-columns: 18% auto;
+    text-align: left;
+    margin-left: 2%;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 18% 82%;
+}
+
+#leftNav > h4{
+    margin: 0;
+    
+}
+
+#slideNav{
+    text-align: left;
+
+}
+
+#rightContent{
+    height: 100em;
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+
+}
+
+#contentLeft{
+    background: red;
+    margin: 0 3%;
+}
+
+#contentCenter{
+    background: orange;
+    margin: 0 3%;
+}
+
+#contentRight{
+    background: gray;
+    margin: 0 3%;
+}
+
+
+
+
