@@ -216,10 +216,10 @@
                                     </g>
                                 </svg>初露锋芒</h4>
                             <p class="timeintro top-to-bottom1"><br />
-                                Rosenblatt发明的感知器算法，初次将MCP用于机器学习，他用定制硬件的方法实现了感知机的想法，展示出它可以用来学习对20×20像素输入中的简单形状进行正确分类。。该算法使用MCP模型对输入的多维数据进行二分类，且能够使用梯度下降法从训练样本中自动学习更新权值。1962年该方法被证明为能够收敛，理论与实践效果引起第一次神经网络的浪潮。
+                                <i>Rosenblatt</i>发明的感知器算法，初次将MCP用于机器学习，他用定制硬件（如下图）的方法实现了感知机的想法，展示出它可以用来学习对20×20像素输入中的简单形状进行正确分类。该算法使用MCP模型对输入的多维数据进行二分类，且能够使用梯度下降法从训练样本中自动学习更新权值。1962年该方法被证明为能够收敛，理论与实践效果引起第一次神经网络的浪潮。
                                 <img src="/images/blogs/2018/nn_gzj.jpg" id="ddddd">
                                 <style>
-                                    #ddddd{
+                                    #ddddd {
                                         width: 50%;
                                         margin: 0 25%;
                                     }
@@ -266,7 +266,7 @@
                                     </g>
                                 </svg>第一次寒冬</h4>
                             <p class="timeintro top-to-bottom2"><br>
-                                1969年，美国数学家及人工智能先驱Minsky在其著作中证明感知器本质上是一种线性模型，由此宣判了感知器的死刑，神经网络的研究也陷入了近20年的停滞。
+                                美国数学家及人工智能先驱Minsky在其著作 <b><i>Perceptrons</i></b> 中证明感知器本质上是一种线性模型，由此宣判了感知器的死刑，神经网络的研究也陷入了近20年的停滞。
                                 <img src="/images/blogs/2018/nn_book.jpg" id="bookbbo">
                                 <style>
                                     #bookbbo {
@@ -317,6 +317,7 @@
                                 </svg>冬去春来</h4>
                             <p class="timeintro top-to-bottom3"><br>
                                 Hinton在1986年发明了适用于多层感知器(MLP)的BP算法，并采用Sigmoid进行非线性激活，有效解决了非线性分类和学习的问题，从而引起了神经网络的第二次热潮。
+                                <br><br>
                                 <img src="/images/blogs/2018/nn_mlp.jpeg" width="100%">
                                 <br><br><br> </p>
                         </article>
@@ -357,12 +358,15 @@
                                         </g>
                                         <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-42" cx="12" cy="12" r="12" transform="translate(1069 264)" />
                                     </g>
-                                </svg>万能逼近定理，卷积神经网络LeNet</h4>
+                                </svg>万能逼近定理，LeNet</h4>
                             <p class="timeintro top-to-bottom4"><br>
-                                Robert Hecht-Nielsen证明了MLP的万能逼近定理。
+                                <i>Robert Hecht-Nielsen</i>证明了MLP的万能逼近定理，即对于任何闭区间内的一个连续函数，都可以用含有一个隐含层的BP网络来逼近该定理的发现极大的鼓舞了神经网络的研究人员。
                                 <br><br>
-                                LeCun发明了卷积神经网络LeNet，并将其用于数字识别，取得了较好的成绩。
+                                <i>LeCun</i>发明了卷积神经网络 <i><b>LeNet</b></i>，并将其用于数字识别，取得了很好的成绩。
+                                <br><br>
+                                <img src="/images/blogs/2018/nn_lenet.png" width="100%">
                                 <br><br><br> </p>
+                            </p>
                         </article>
 
                     </div>
@@ -401,9 +405,9 @@
                                         </g>
                                         <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-52" cx="12" cy="12" r="12" transform="translate(1069 264)" />
                                     </g>
-                                </svg>再次迎来寒冬</h4>
+                                </svg>凛冬又至</h4>
                             <p class="timeintro top-to-bottom5"><br>
-                                BP算法被指出存在梯度消失问题，这对本身就缺少严格数学理论证明的神经网络无疑是雪上加霜，神经网络的发展渐渐冷淡。
+                                BP算法被指出存在梯度消失问题，即在误差梯度后向传递的过程中，后层梯度以乘性方式叠加到前层，由于Sigmoid函数的饱和特性，后层梯度本来就小，误差梯度传到前层时几乎为0，因此无法对前层进行有效的学习，该发现对此时的NN发展雪上加霜。
                                 <br><br><br>
                             </p>
                         </article>
@@ -447,6 +451,13 @@
                                 </svg>沉寂中孤掌难鸣</h4>
                             <p class="timeintro top-to-bottom6"><br />
                                 1997年，LSTM模型被发明，尽管该模型在序列建模上的特性非常突出，但由于正处于NN的下坡期，也没有引起足够的重视。
+                                <img src="/images/blogs/2018/lstm.png" id="lsdsds">
+                                <style>
+                                    #lsdsds {
+                                        width: 80%;
+                                        margin: 0 10%;
+                                    }
+                                </style>
                                 <br><br><br>
                         </article>
                     </div>
@@ -530,9 +541,15 @@
                                     </g>
                                 </svg>ReLU激活函数</h4>
                             <p class="timeintro top-to-bottom1"><br />
-                                2011年，ReLU激活函数被提出，该激活函数能够有效的抑制梯度消失问题。
+                                ReLU激活函数被提出，该激活函数能够有效的抑制梯度消失问题。
                                 <br><br>
-                                2011年，微软首次将深度学习应用在语音识别上，使识别错误率下降了20%-30%。
+                                <img src="/images/blogs/2018/nn_ReLU.png" id="errer">
+                                <style>
+                                    #errer {
+                                        width: 50%;
+                                        margin: 0 25%;
+                                    }
+                                </style>
                                 <br><br><br>
                             </p>
                         </article>
@@ -575,7 +592,8 @@
                                     </g>
                                 </svg>AlexNet</h4>
                             <p class="timeintro top-to-bottom2"><br>
-                                2012年，Hinton课题组为了证明深度学习的潜力，首次参加ImageNet图像识别比赛，通过构建的CNN网络AlexNet一举夺得冠军，且碾压第二名(SVM方法)的分类性能。
+                                <i>Hinton</i> 课题组为了证明深度学习的潜力，首次参加ImageNet图像识别比赛，通过构建的CNN网络AlexNet一举夺得冠军，且碾压第二名(SVM方法)的分类性能。
+                                <img src="/images/blogs/2018/nn_alexnet.jpg" width="100%">
                                 <br><br><br>
                             </p>
                         </article>
@@ -616,10 +634,13 @@
                                         </g>
                                         <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-32" cx="12" cy="12" r="12" transform="translate(1069 264)" />
                                     </g>
-                                </svg>ImageNet</h4>
+                                </svg>Network In Network</h4>
                             <p class="timeintro top-to-bottom3"><br>
-                                2013，通过ImageNet图像识别比赛，深度学习的网络结构、训练方法、GPU硬件的不断进步，促使其在其他领域也在不断的征服战场。
-                                <br><br><br> </p>
+                                <i>Network In Network</i> 改进了传统的CNN网络，采用了少量的参数就松松击败了Alexnet网络。Alexnet网络参数大小是230M，采用这篇paper的算法才29M，减小了将近10倍。 
+                                <br><br>
+                                <img src="/images/blogs/2018/nn_nin.png" width="100%">
+                                <br><br><br> 
+                            </p>
                         </article>
                     
                     </div>
@@ -658,10 +679,15 @@
                                         </g>
                                         <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-42" cx="12" cy="12" r="12" transform="translate(1069 264)" />
                                     </g>
-                                </svg>ImageNet</h4>
+                                </svg>GoogLeNet、VGG</h4>
                             <p class="timeintro top-to-bottom4"><br>
-                                2014，通过ImageNet图像识别比赛，深度学习的网络结构、训练方法、GPU硬件的不断进步，促使其在其他领域也在不断的征服战场。
-                                <br><br><br> </p>
+                                在这一的ImageNet的比赛中，出现了 <i>GoogLeNet</i> 和 <i>VGG</i> 双雄争霸。 <br><br>
+                                GoogLeNet则做了很大胆的网络结构上的尝试，虽然深度有22层，但大小却比AlexNet小很多，GoogleNet参数为500万个，AlexNet参数个数是GoogleNet的12倍，因此在内存或计算资源有限时，GoogleNet是比较好的选择。而且从模型结果来看，GoogLeNet的性能却更加优越。                                
+                                <img src="/images/blogs/2018/GoogLeNet.png" width="100%">
+                                VGG 通过增加深度能有效地提升了性能；VGG16从头到尾只有3x3卷积与2x2池化，简洁优美；同时VGG中卷积可代替全连接，可适应各种尺寸的图片。
+                                <img src="/images/blogs/2018/nnvgg.png" width="100%">
+                                <br><br><br> 
+                            </p>
                         </article>
                     
                     </div>
@@ -700,9 +726,10 @@
                                         </g>
                                         <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-52" cx="12" cy="12" r="12" transform="translate(1069 264)" />
                                     </g>
-                                </svg>ImageNet</h4>
+                                </svg>DeepResidualNet</h4>
                             <p class="timeintro top-to-bottom5"><br>
-                                2015年，通过ImageNet图像识别比赛，深度学习的网络结构、训练方法、GPU硬件的不断进步，促使其在其他领域也在不断的征服战场。
+                                微软亚洲研究院的ResNet刷新多项记录，其进一步将CNN的深度拓展到上百层，其提出是CNN图像史上的一件里程碑事件。
+                                <img src="/images/blogs/2018/nnreanet.jpeg" width="100%">
                                 <br><br><br>
                             </p>
                         </article>
@@ -748,6 +775,8 @@
                                 2016年3月，由谷歌旗下DeepMind公司开发的AlphaGo与围棋世界冠军、职业九段棋手李世石进行围棋人机大战，以4比1的总比分获胜。
                                 <br><br>
                                 2016年末2017年初，AlphaGo在中国棋类网站上以”Master”为注册帐号与中日韩数十位围棋高手进行快棋对决，连续60局无一败绩。
+                                <br><br>
+                                <img src="/images/blogs/2018/AlphaGo.png" width="100%">
                                 <br><br><br>
                         </article>
                     </div>
@@ -791,6 +820,8 @@
                                 2017年5月，在中国乌镇围棋峰会上，AlphaGo与排名世界第一的世界围棋冠军柯洁对战，以3比0的总比分获胜。
                                 <br><br>
                                 2017年10月，DeepMind团队重磅发布AlphaGo Zero，再次震惊世人。相比之前的AlphaGo，该版本的AlphaGo Zero实现了在AI发展中非常有意义的一步——"无师自通"。
+                                <br><br>
+                                <img src="/images/blogs/2018/alpha0.jpeg" width="100%">
                                 <br><br><br>
                             </p>
                         </article>
@@ -831,9 +862,9 @@
                                         </g>
                                         <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-12" cx="12" cy="12" r="12" transform="translate(1069 264)" />
                                     </g>
-                                </svg>Google</h4>
+                                </svg>Boom</h4>
                             <p class="timeintro top-to-bottomendorange"><br />
-                                打电话
+                                Boom...
                                 <br><br><br>
                             </p>
                         </article>
@@ -849,7 +880,7 @@
                         }
                     </style>
                     <p>上一篇：无</p>
-                    <p>下一篇：<a href="/blogs/2018/ai/intro_nn.html">神经网络简介</a></p>
+                    <p>下一篇：<a href="/blogs/2018/ai/NN/mlp.html">神经网络简介-MLP</a></p>
                 </div>
 
 
