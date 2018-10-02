@@ -113,9 +113,9 @@
         <main>
             <section class="section_content">
                 <div id="blog_head">
-                    <div class="blog_tag green">Dev</div>
+                    <div class="blog_tag green">Dev-Pathology</div>
                     <h1 class="blog_title">在C#中调用Python</h1>
-                    <div class="blog_time">OCT 2, 2018</div>
+                    <div class="blog_time">OCT 2, 2018 by Charley Chai</div>
                     <hr />
                 </div>
                 <img src="/images/projects/swangeese/cspython.png" class="blog_image">
@@ -123,7 +123,7 @@
 
                     <p>本文介绍如何在Visual Studio 2017开发环境下，在WPF应用中使用C#来调用Python的配置方法。</p>
 
-                    <h3>准备工作</h3>
+                    <h3>基本步骤</h3>
 
 
                     <div class="timeline">
@@ -209,15 +209,8 @@
                                     </g>
                                 </svg>创建WPF项目</h4>
                             <p class="timeintro top-to-bottom1"><br />
-                                <i>Rosenblatt</i>发明的感知器算法，初次将MCP用于机器学习，他用定制硬件（如下图）的方法实现了感知机的想法，展示出它可以用来学习对20×20像素输入中的简单形状进行正确分类。该算法使用MCP模型对输入的多维数据进行二分类，且能够使用梯度下降法从训练样本中自动学习更新权值。1962年该方法被证明为能够收敛，理论与实践效果引起第一次神经网络的浪潮。
-                                <img src="/images/blogs/2018/nn_gzj.jpg" id="ddddd">
-                                <style>
-                                    #ddddd {
-                                        width: 50%;
-                                        margin: 0 25%;
-                                    }
-                                </style>
-                                <br><br>
+                                就仅仅是正常创建而已，不再赘述。                           
+                                <br><br><br>
                             </p>
                         </article>
                     
@@ -225,7 +218,7 @@
                     
                     <div class="timeline">
                     
-                        <h4 class="timetag">1969</h4>
+                        <h4 class="timetag">#003</h4>
                         <article>
                     
                             <h4><svg class="timecircle" viewBox="0 0 50 50">
@@ -257,10 +250,11 @@
                                         </g>
                                         <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-22" cx="12" cy="12" r="12" transform="translate(1069 264)" />
                                     </g>
-                                </svg>第一次寒冬</h4>
-                            <p class="timeintro top-to-bottom2"><br>
-                                美国数学家及人工智能先驱Minsky在其著作 <b><i>Perceptrons</i></b> 中证明感知器本质上是一种线性模型，由此宣判了感知器的死刑，神经网络的研究也陷入了近20年的停滞。
-                                <img src="/images/blogs/2018/nn_book.jpg" id="bookbbo">
+                                </svg>安装IronPython</h4>
+                            <p class="timeintro top-to-bottom2end"><br>
+                                使用Nuget搜索 <i>IronPython</i> 安装即可。
+                                <br><br>
+                                <img src="/images/projects/swangeese/installIronPy.png" width="100%">
                                 <style>
                                     #bookbbo {
                                         width: 50%;
@@ -275,6 +269,63 @@
                     
                 </div>
 
+                <div class="blog_content">
+                    <h3>测试</h3>
+                    <p><i>IronPython</i> 允许我们直接运行字符串的形式 Python 程序，也可以将引用一个 Python 文件，这里采用后者进行测试。</p>
+                    <p>在任一位置新建一个 <i>test.py</i> 文件，内容如下：</p>
+                    <pre>
+                        <code>
+def SayHello():
+    return "Hello world"
+
+def Add(a, b):
+    return a + b
+                        </code>
+                    </pre>
+                    <p>而对应的 C# 代码为：</p>
+                    <pre>
+                        <code>
+using IronPython.Hosting;
+
+namespace YourApp
+{
+
+    public partial class MainWindow:Window
+    {
+
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        private test()
+        {
+            var engine = Python.CreateEngine();
+            var scope = engine.CreateScope();
+            var source = engine.CreateScriptSourceFromFile("hello.py");
+            
+            source.Execute(scope);
+            var sayHello = scope.GetVariable<Func<object>>("SayHello");
+    
+            MessageBox.show(sayHello().ToString()); // Hello World 
+    
+            
+            var add = scope.GetVariable<Func<object, object, object>>("add");
+            var result1 = add(1, 2);
+            MessageBox.show(result1.ToString()); // 3
+
+            var result2 = add("hello ", "world");
+            MessageBox.show(result2.ToString()); // Hello World
+
+        }
+    }
+
+}
+                        </code>
+                    </pre>
+                    <p>由于我们配好了C#版的<i>OpenSlide</i>，所以此方案就此终止。</p>
+                </div>
+
 
                 <div class="blog_content">
                     <style>
@@ -282,8 +333,8 @@
                             text-align: left;
                         }
                     </style>
-                    <p>上一篇：<a href="/blogs/2018/Tools/LaTeX/Latex_using_vscode.html">在Visual Studio Code中使用LaTeX</a></p>
-                    <p>下一篇：<a href="/blogs/2018/Tools/LaTeX/latex_math.html">LaTeX基本知识</a></p>
+                    <p>上一篇：无</p>
+                    <p>下一篇：<a href="/blogs/2018/Tools/LaTeX/latex_math.html">.NET Framework 下使用C#版<i>OpenSlide</i></a></p>
                 </div>
 
 

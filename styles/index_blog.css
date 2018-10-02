@@ -86,15 +86,10 @@ main{
     color: rgb(36, 185, 199);
 }
 
-#class_nav > ul{
-    box-shadow: 5px 0 10px gray;
-}
-
 #Suggest{
     height: 4em;
     background: white;
     display: grid;
     grid-template-columns: 20% 60% 20%;
     margin: 2em 0;
-    box-shadow: 0 0 2px #AAA;
 }
