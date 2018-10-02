@@ -12,7 +12,7 @@ $(window).ready(function () {
         nav.height($(window).outerHeight());
         nav.slideToggle();
         expand = !expand;
-
+        
         if (expand) {
             $('html,body').animate({ scrollTop: 0 }, 500, function () {
                 $("#home").addClass("home");

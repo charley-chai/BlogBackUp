@@ -65,7 +65,6 @@ main{
 
 .highlight{
     background: #DDD;
-    color: #EA646F;
 }
 
 .highlight > h4{
@@ -74,18 +73,16 @@ main{
 
 .theory{
     background: #DDD;
-    color: #EA646F;
 }
 
 .theory > h4{
-    color: #EA646F;
+    color: #30A53D;
 }
 
 .practice{
     background: #DDD;
-    color: #EA646F;
 }
 
 .practice > h4{
-    color: #EA646F;
+    color: black;
 }
