@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/scripts/src/jquery.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
+    <title>Development Notes | SwanGeese Pathology</title>
+    <link rel="stylesheet" href="/styles/temp.css">
+    <link rel="stylesheet" href="/styles/blogs.css">
+    <link rel="stylesheet" href="/styles/article_blog.css">
+    <link rel="stylesheet" href="/styles/timeline.css">
+    <meta name="keywords" content="C# pathology swangeese python CharleyChai 博客 柴磊">
+    <meta name="description" content="如何在在C#中调用Python">
+    <meta name="author" content="Charley Chai">
+    <meta property="og:image" content="/images/logo.png">
+    <meta property="og:description" content="如何在在C#中调用Python">
+    <meta property="og:title" content="Development Notes | SwanGeese Pathology">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav id="xxxx">
+                <ul>
+                    <li class="frim" id="expand">
+                        <p>
+                            <img src="/images/expand.svg" class="logo">
+                        </p>
+                    </li>
+                    <li class="frim">
+                        <a href="/">
+                            <img src="/images/logo.svg" class="logo" id="logo">
+                        </a>
+                    </li>
+                    <li class="shift"><a href="/">Home</a></li>
+                    <li class="shift"><a href="/blogs">Blogs</a></li>
+                    <li class="shift"><a href="/notes">Courses</a></li>
+                    <li class="shift"><a href="/projects" class="hoster">Projects</a></li>
+                    <li class="shift"><a href="/hobbies">Hobbies</a></li>
+                    <li class="frim" id="search">
+                        <p>
+                            <img src="/images/search.svg" class="logo">
+                        </p>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="placeholder"></div>
+
+    <div id="sub_nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <hr color="#555" size=0.5>
+            <li><a href="/blogs">Blogs</a></li>
+            <hr color="#555" size=0.5>
+            <li><a href="/notes">Courses</a></li>
+            <hr color="#555" size=0.5>
+            <li><a href="/projects">Projects</a></li>
+            <hr color="#555" size=0.5>
+            <li><a href="/hobbies">Hobbies</a></li>
+        </ul>
+    </div>
+
+    <div id="top" class="content">
+        <nav id="class_nav">
+            <ul>
+                <li id="bloghost" class="frim"><a href="#">Notes</a></li>
+                <li class="shift"><a href="/blogs/classify/advanced.html">Muschel</a></li>
+                <li class="shift"><a href="/blogs/classify/network.html">Pathology</a></li>
+                <li class="shift"><a href="/blogs/classify/ai.html">Radiology</a></li>
+                <li class="shift"><a href="/blogs/classify/ui.html">HeyStickFigure</a></li>
+                <li class="frim" id="expandmore"><a href="#">
+                        <svg id="next" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                            <path d="M0 0h24v24H0z" fill="none" />
+                        </svg>
+                        <svg id="next1" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <defs>
+                                <style>
+                                    .cls-1 {
+                                        fill: none;
+                                    }
+                                </style>
+                            </defs>
+                            <g id="baseline-navigate_next-24px" transform="translate(24) rotate(90)">
+                                <path id="Path_1" data-name="Path 1" d="M10,6,8.59,7.41,13.17,12,8.59,16.59,10,18l6-6Z" />
+                                <path id="Path_2" data-name="Path 2" class="cls-1" d="M0,0H24V24H0Z" />
+                            </g>
+                        </svg>
+                    </a></li>
+            </ul>
+        </nav>
+
+        <div id="class_sub_nav">
+            <ul>
+                <li><a href="/blogs">Notes</a></li>
+                <hr color="#BBB" size=0.2>
+                <li><a href="/blogs/classify/advanced.html">Muschel</a></li>
+                <hr color="#BBB" size=0.2>
+                <li><a href="/blogs/classify/network.html">Pathology</a></li>
+                <hr color="#BBB" size=0.2>
+                <li><a href="/blogs/classify/ai.html">Radiology</a></li>
+                <hr color="#BBB" size=0.2>
+                <li><a href="/blogs/classify/ui.html">HeyStickFigure</a></li>
+            </ul>
+        </div>
+
+        <main>
+            <section class="section_content">
+                <div id="blog_head">
+                    <div class="blog_tag green">Dev</div>
+                    <h1 class="blog_title">在C#中调用Python</h1>
+                    <div class="blog_time">OCT 2, 2018</div>
+                    <hr />
+                </div>
+                <img src="/images/projects/swangeese/cspython.png" class="blog_image">
+                <div class="blog_content">
+
+                    <p>本文介绍如何在Visual Studio 2017开发环境下，在WPF应用中使用C#来调用Python的配置方法。</p>
+
+                    <h3>准备工作</h3>
+
+
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">#001</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-1,
+                                            .cls-4 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-1 {
+                                                stroke: #f23030;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-2 {
+                                                fill: #f23030;
+                                            }
+                    
+                                            .cls-3 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-1" transform="translate(1056 251)">
+                                            <circle class="cls-3" cx="25" cy="25" r="25" />
+                                            <circle class="cls-4" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-2" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>安装Python</h4>
+                            <p class="timeintro top-to-bottom"><br />
+                                首先，在Visual Studio 2017中安装 <a href="https://github.com/Microsoft/PTVS"><i>Python tools for Visual Studio</i></a>。
+                                <br><br>
+                                打开Visual Studio Installer，在 <b><i>Workloads</i></b> 项下面勾选 <i>Python development</i> 或者 <i>Data Science and analytical application</i>。
+                                <br><br>
+                                <img src="/images/projects/swangeese/installpy.PNG" width="100%">
+                                <br><br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+                    
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">#002</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-11,
+                                            .cls-14 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-11 {
+                                                stroke: #ffb134;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-12 {
+                                                fill: #ffb134;
+                                            }
+                    
+                                            .cls-13 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-11" transform="translate(1056 251)">
+                                            <circle class="cls-13" cx="25" cy="25" r="25" />
+                                            <circle class="cls-14" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-12" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>创建WPF项目</h4>
+                            <p class="timeintro top-to-bottom1"><br />
+                                <i>Rosenblatt</i>发明的感知器算法，初次将MCP用于机器学习，他用定制硬件（如下图）的方法实现了感知机的想法，展示出它可以用来学习对20×20像素输入中的简单形状进行正确分类。该算法使用MCP模型对输入的多维数据进行二分类，且能够使用梯度下降法从训练样本中自动学习更新权值。1962年该方法被证明为能够收敛，理论与实践效果引起第一次神经网络的浪潮。
+                                <img src="/images/blogs/2018/nn_gzj.jpg" id="ddddd">
+                                <style>
+                                    #ddddd {
+                                        width: 50%;
+                                        margin: 0 25%;
+                                    }
+                                </style>
+                                <br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+                    
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">1969</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-21,
+                                            .cls-24 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-21 {
+                                                stroke: #FAEE5D;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-22 {
+                                                fill: #FAEE5D;
+                                            }
+                    
+                                            .cls-23 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-21" transform="translate(1056 251)">
+                                            <circle class="cls-23" cx="25" cy="25" r="25" />
+                                            <circle class="cls-24" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-22" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>第一次寒冬</h4>
+                            <p class="timeintro top-to-bottom2"><br>
+                                美国数学家及人工智能先驱Minsky在其著作 <b><i>Perceptrons</i></b> 中证明感知器本质上是一种线性模型，由此宣判了感知器的死刑，神经网络的研究也陷入了近20年的停滞。
+                                <img src="/images/blogs/2018/nn_book.jpg" id="bookbbo">
+                                <style>
+                                    #bookbbo {
+                                        width: 50%;
+                                        margin: 0 25%;
+                                    }
+                                </style>
+                                <br><br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+                    
+                </div>
+
+
+                <div class="blog_content">
+                    <style>
+                        #bloglink {
+                            text-align: left;
+                        }
+                    </style>
+                    <p>上一篇：<a href="/blogs/2018/Tools/LaTeX/Latex_using_vscode.html">在Visual Studio Code中使用LaTeX</a></p>
+                    <p>下一篇：<a href="/blogs/2018/Tools/LaTeX/latex_math.html">LaTeX基本知识</a></p>
+                </div>
+
+
+    </div>
+
+
+    </section>
+    </main>
+
+
+
+
+    </div>
+
+    <div id="contact" class="content">
+        <p id="welcome">Welcome to join me to find and create bueautiful stuffs!</p>
+        <p id="cvia">Contact me via:</p>
+        <div id="mi_logos">
+            <img src="/images/facebook.svg" class="logos link">
+            <img src="/images/instagram.svg" class="logos link">
+            <img src="/images/twitter.svg" class="logos link">
+            <img src="/images/wechat.svg" class="logos link">
+            <img src="/images/weibo.svg" class="logos link">
+        </div>
+        <hr />
+        <p id="copyright">A project by Charley Chai</p>
+    </div>
+    </div>
+    <script src="/scripts/temp.js"></script>
+    <script src="/scripts/blogs.js"></script>
+    <link href="/styles/monokai.css" rel="stylesheet">
+    <script src="/scripts/src/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
