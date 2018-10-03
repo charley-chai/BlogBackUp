@@ -42,7 +42,7 @@
 }
 
 #NeuralNetworkCNN{
-    height: 60em;
+    height: 10em;
     background: whitesmoke;
     margin-top: 1em;
 }
@@ -57,4 +57,24 @@
     height: 40em;
     background: whitesmoke;
     margin-top: 1em;
+}
+
+
+.popUp { 
+    animation-duration:2s;
+    -webkit-animation-duration:2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both; 
+    animation-name: popUp;
+}
+ 
+@keyframes popUp { 
+    from {
+        margin-top: 10em;
+        opacity: 0.2;
+    }
+    to {
+        margin-top: 1em;
+        opacity: 1;
+    }
 }
