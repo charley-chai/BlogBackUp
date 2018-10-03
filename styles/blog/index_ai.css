@@ -1,0 +1,60 @@
+
+#HlArea{
+    height: 100em;
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+}
+
+#HlContentLeft{
+    margin: 0 3%;
+}
+
+#HlContentCenter{
+    margin: 0 3%;
+}
+
+#HlContentRight{
+    margin: 0 3%;
+}
+
+.highlight{
+    background: #DDD;
+}
+
+.highlight > h4{
+    color: #EA646F;
+}
+
+.theory{
+    background: #DDD;
+}
+
+.theory > h4{
+    color: #EC7352;
+}
+
+.practice{
+    background: #DDD;
+}
+
+.practice > h4{
+    color: rgb(36, 185, 199);
+}
+
+#NeuralNetworkCNN{
+    height: 60em;
+    background: whitesmoke;
+    margin-top: 1em;
+}
+
+#NeuralNetworkHistory{
+    height: 50em;
+    background: whitesmoke;
+    margin-top: 1em;
+}
+
+#RLIntro{
+    height: 40em;
+    background: whitesmoke;
+    margin-top: 1em;
+}

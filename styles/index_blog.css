@@ -19,26 +19,6 @@ main{
     margin-top: 1em;
 }
 
-#HlArea{
-    height: 100em;
-    display: grid;
-    grid-template-columns: 33% 34% 33%;
-}
-
-#HlContentLeft{
-    margin: 0 3%;
-}
-
-#HlContentCenter{
-    background: orange;
-    margin: 0 3%;
-}
-
-#HlContentRight{
-    background: gray;
-    margin: 0 3%;
-}
-
 .slideNavContent{
     display: grid;
     grid-template-columns: 2em auto;
@@ -62,34 +42,4 @@ main{
     text-align: left;
 }
 
-.highlight{
-    background: #DDD;
-}
 
-.highlight > h4{
-    color: #EA646F;
-}
-
-.theory{
-    background: #DDD;
-}
-
-.theory > h4{
-    color: #EC7352;
-}
-
-.practice{
-    background: #DDD;
-}
-
-.practice > h4{
-    color: rgb(36, 185, 199);
-}
-
-#Suggest{
-    height: 4em;
-    background: white;
-    display: grid;
-    grid-template-columns: 20% 60% 20%;
-    margin: 2em 0;
-}
