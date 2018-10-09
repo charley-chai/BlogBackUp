@@ -163,7 +163,7 @@
     color: rgb(69, 238, 187);
     margin: 0;
     text-align: left;
-    padding: 1px;
+    padding: 2px;
     width: auto;
     border: 1px solid rgb(69, 238, 187);
     border-radius: 3px;
@@ -174,7 +174,7 @@
     color: rgb(36, 185, 199);
     margin: 0;
     text-align: left;
-    padding: 1px;
+    padding: 2px;
     width: auto;
     border: 1px solid rgb(36, 185, 199);
     border-radius: 3px;
@@ -185,8 +185,12 @@
     color: orange;
     margin: 0;
     text-align: left;
-    padding: 1px;
+    padding: 2px;
     width: auto;
     border: 1px solid orange;
     border-radius: 3px;
+}
+
+#Pytorchintro{
+    background: white;
 }
