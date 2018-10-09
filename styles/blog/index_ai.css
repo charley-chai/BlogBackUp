@@ -29,6 +29,14 @@
     background: #DDD;
 }
 
+.tittle{
+    background: #DDD;
+}
+
+.tittle > h4{
+    color: rgb(69, 238, 187);
+}
+
 .theory > h4{
     color: orange;
 }
