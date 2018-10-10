@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/styles/temp.css">
     <link rel="stylesheet" href="/styles/blogs.css">
     <link rel="stylesheet" href="/styles/article_blog.css">
-    <link rel="stylesheet" href="/styles/timeline.css">
     <meta name="keywords" content="NN ML MLP python 神经网络 机器学习 历史 CharleyChai 博客 柴磊">
     <meta name="description" content="">
     <meta name="author" content="Charley Chai">
@@ -117,12 +116,40 @@
             <section class="section_content">
                 <div id="blog_head">
                     <div class="blog_tag purple">AI</div>
-                    <h1 class="blog_title">MLP介绍与实现</h1>
+                    <h1 class="blog_title">MLP原理介绍与代码实现</h1>
                     <div class="blog_time">SEP 27, 2018</div>
                     <hr />
                 </div>
                 <img src="/images/blogs/2018/aitop.png" class="blog_image">
 
+                <div class="blog_content">
+                    <h3>神经元</h3>
+                    <p>
+                        这里的神经元指的其实是一种模型，该模型将神经元简化为了三个过程：输入信号线性加权，求和，非线性激活，如图所示：
+                    </p>
+                    <img src="/images/blogs/2018/nn_mcp" width="50%" style="margin: 0 25%">
+                    <p>
+                        激活函数可以说是神经元模型里最重要的部分了，<a href="#">这里</a>有更详尽的叙述
+                    </p>
+                </div>
+
+                <div class="blog_content">
+                    <h3>MLP的结构</h3>
+                    <p>
+                        MLP是一种前向结构的ANN（Artificial Neural Network），它将一组输入向量映射到一组输出向量，由输入层、隐含层和输出层三大部分组成。如图所示：
+                    </p>
+                    <img src="/images/blogs/2018/mlp_construct.png" width="50%" style="margin: 0 25%">
+                    <p>
+                        图中的每一个圆都代表一个神经元，绿色的一组神经元组成输入层；紫色的两层神经元表示隐含层，这里我们注意到隐含层可以有多层；最右边的红色神经元就是输出层。
+                    </p>
+                    <p>
+                        而通常所说的训练就是通过各种有效方法帮助这些神经元找到合适的<b>权值</b>和<b>偏置</b>。
+                    </p>
+                </div>
+
+                <div class="blog_content">
+                    <h3></h3>
+                </div>
                 
 
 
@@ -134,6 +161,16 @@
                     </style>
                     <p>上一篇：无</p>
                     <p>下一篇：<a href="/blogs/2018/ai/NN/mlp.html">神经网络简介-MLP</a></p>
+                </div>
+
+                <div class="blog_content">
+                    <h3>参考：</h3>
+                    <ul class="reference">
+                        <li>
+                    <a href="https://www.researchgate.net/publication/266396438_A_Gentle_Introduction_to_Backpropagation">A Gentle
+                        Introduction to Backpropagation</a>
+                        </li>
+                    </ul>
                 </div>
 
 

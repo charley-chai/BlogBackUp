@@ -121,3 +121,7 @@ th, tr{
         font-size: 0.8em;
 
 }
+
+.reference > li{
+    list-style: decimal;
+}
