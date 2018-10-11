@@ -137,7 +137,11 @@
                     </p>
                     <img src="/images/blogs/2018/nn_mcp" width="50%" style="margin: 0 25%">
                     <p>
-                        激活函数可以说是神经元模型里最重要的部分了，<a href="#">这里</a>有更详尽的叙述
+                        激活函数可以说是神经元模型里最重要的部分了，<a href="#">这里</a>有更详尽的叙述。这里我们暂且使用 $Sigmoid$ 函数。
+                    </p>
+                    <img src="/images/blogs/2018/sigmoid.png" width="50%" style="margin: 0 25%">
+                    <p>
+                        $$ Sigmoid(x) = \frac{1}{1+e^{-x}} $$
                     </p>
                 </div>
 
@@ -182,7 +186,23 @@
                     <p>
                         经过上面的规定之后，我们将上一张图稍作修改，得到单隐层神经网络更一般的图形表示：
                     </p>
-                    
+                    <img src="/images/blogs/2018/mlp_normal.png" width="36%" style="margin:0 32%">
+                    <p>
+                        我们将由神经网络映射而来的输出称为假设（Hypothesis），这里记为 $\tilde{\boldsymbol {y}}$。对于一组训练数据 $(\boldsymbol {x_i, y_i})$，其对应的假设为 
+                        $\tilde{\boldsymbol {{y_i}}} = (\tilde{y_1^i}, \tilde{y_2^i}, ..., \tilde{y_l^i})$。而BP算法就是要根据这个<b>假设</b>和原始数据之间的误差来对权重和偏置进行更新。
+                    </p>
+                    <p>
+                        定义<b>误差函数</b> $E$，对于训练样本$(\boldsymbol {x_k, y_k})$ 有：
+                        $$ E_k = \frac{1}{2} \sum_{i = 1}^{l} {(\tilde{y_i^k} - y_i^k)^2}  $$
+                        而我们训练这个网络的目的就是要将这个E尽可能地降低。BP算法基于梯度下降（gradientdescent）策略，以 $E$ 的负梯度方向对参数进行调整。
+                        它采用这样的策略来对权重和偏置进行更新：
+                        $$ w \leftarrow w - \alpha \frac{\partial E}{\partial w} $$
+                        其中 $\alpha$ 称为更新步长，表示每一次迭代对权重和偏置的调整幅度。
+                    </p>
+                    <p>
+                        BP这种策略背后的数学原理其实也很好理解，我们可以把 $E$ 想象成一个参数为 $(w_{11}, w_{12}, ..., w_{1h}, ..., w_{2h}, ..., w_{dh}, ..., w_{11}^{'}, ..., w_{hl}^{'}, \theta_1, ..., \theta_l^{'})$ 的函数。这里提出函数梯度的概念。
+                                               
+                    </p>
                 </div>
                 
                 <div class="blog_content">
