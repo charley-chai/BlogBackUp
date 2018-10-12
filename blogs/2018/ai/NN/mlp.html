@@ -173,7 +173,7 @@
                 </div>
 
                 <div class="blog_content">
-                    <h3>BP算法</h3>
+                    <h3>梯度下降法</h3>
                     <p>
                         通过对前向传播的了解，我们知道：如果想要这个网络针对某一个任务表现出“智能”，那么就需要帮助此网络找到一组合适的权重和偏置。而BP（BackPropagation）算法可以在一定程度上帮到我们。
                     </p>
@@ -189,22 +189,79 @@
                     <img src="/images/blogs/2018/mlp_normal.png" width="36%" style="margin:0 32%">
                     <p>
                         我们将由神经网络映射而来的输出称为假设（Hypothesis），这里记为 $\tilde{\boldsymbol {y}}$。对于一组训练数据 $(\boldsymbol {x_i, y_i})$，其对应的假设为 
-                        $\tilde{\boldsymbol {{y_i}}} = (\tilde{y_1^i}, \tilde{y_2^i}, ..., \tilde{y_l^i})$。而BP算法就是要根据这个<b>假设</b>和原始数据之间的误差来对权重和偏置进行更新。
+                        $\tilde{\boldsymbol {{y_i}}} = (\tilde{y_1^i}, \tilde{y_2^i}, ..., \tilde{y_l^i})$。
                     </p>
                     <p>
                         定义<b>误差函数</b> $E$，对于训练样本$(\boldsymbol {x_k, y_k})$ 有：
                         $$ E_k = \frac{1}{2} \sum_{i = 1}^{l} {(\tilde{y_i^k} - y_i^k)^2}  $$
-                        而我们训练这个网络的目的就是要将这个E尽可能地降低。BP算法基于梯度下降（gradientdescent）策略，以 $E$ 的负梯度方向对参数进行调整。
+                        而我们训练这个网络的目的就是要将这个E尽可能地降低。梯度下降（gradientdescent）策略，以 $E$ 的负梯度方向对参数进行调整。
                         它采用这样的策略来对权重和偏置进行更新：
                         $$ w \leftarrow w - \alpha \frac{\partial E}{\partial w} $$
                         其中 $\alpha$ 称为更新步长，表示每一次迭代对权重和偏置的调整幅度。
                     </p>
                     <p>
-                        BP这种策略背后的数学原理其实也很好理解，我们可以把 $E$ 想象成一个参数为 $(w_{11}, w_{12}, ..., w_{1h}, ..., w_{2h}, ..., w_{dh}, ..., w_{11}^{'}, ..., w_{hl}^{'}, \theta_1, ..., \theta_l^{'})$ 的函数。这里提出函数梯度的概念。
-                                               
+                        这种策略背后的数学原理其实也很好理解，我们可以把 $E$ 想象成一个参数为 $(w_{11}, w_{12}, ..., w_{1h}, ..., w_{2h}, ..., w_{dh}, ..., w_{11}^{'}, ..., w_{hl}^{'}, \theta_1, ..., \theta_l^{'})$ 的函数。这里提一下<b>梯度</b>的概念。
+                        定义：
+                        $$ grad \ u = \nabla u = (\frac{\partial u}{\partial x_1}, \frac{\partial u}{\partial x_1}, ... ,\frac{\partial u}{\partial x_l}) $$   
+                        为函数 $u$ 的梯度，他表示的是函数在 $(x_1, x_2, ... , x_l)$ 处增长最快的方向。这样之后，就不难理解上述BP算法的更新策略了，就是沿着下降最快的方向去改变各个自变量，以尽快找到使 $E$ 达到最小值的权重和偏置。那么我们现在就剩下如何求梯度的问题了。
                     </p>
                 </div>
-                
+
+                <div class="blog_content">
+                    <h3>BP算法</h3>
+                    <p>最近比较忙，数学推导（其实就是偏导数的链式法则）等放假再来补充吧。。。呜呜呜😢</p>
+                    <p>再一个，上面的符号是自己瞎设的，可能也需要进行一些调整，不过对于理解BP和MLP，我觉的还是没有问题的。</p>
+                </div>
+
+                <hr>
+
+                <div class="blog_content">
+                    <h3>Tensorflow实现</h3>
+                    <p>我们以训练一个可以解决XOR问题的单隐含层MLP为例：</p>
+                    <pre>
+                        <code class="python">
+import numpy as np
+import tensorflow as tf
+
+# train data
+x_input = np.array([[0,0], [0,1], [1,0], [1,1]], dtype=np.float32)
+y_output = np.array([[0], [1], [1], [0]], dtype=np.float32)
+
+# build a single hidden layer MLP
+X = tf.placeholder(tf.float32)
+Y = tf.placeholder(tf.float32)
+
+# Weights and biases of hidden layer
+W_1 = tf.Variable(tf.random_normal([2,2]), name='weight1')
+b_1 = tf.Variable(tf.random_normal([2]), name='bias1')
+hidden_layer = tf.sigmoid(tf.matmul(X, W_1) + b_1)
+
+# Weights and biases of output layer
+W_2 = tf.Variable(tf.random_normal([2,1]), name='weight2')
+b_2 = tf.Variable(tf.random_normal([1]), name='bias2')
+hypothesis = tf.sigmoid(tf.matmul(hidden_layer, W_2) + b_2)
+
+# define loss funtion
+cost = -tf.reduce_mean(Y * tf.log(hypothesis) + (1 - Y) * tf.log(1 - hypothesis))
+train = tf.train.GradientDescentOptimizer(learning_rate=0.1).minimize(cost)
+
+# predict
+predict = tf.cast(hypothesis > 0.5, dtype=tf.float32)
+accuracy = tf.reduce_mean(tf.cast(tf.equal(predict, Y), dtype=tf.float32))
+
+# train
+with tf.Session() as sess:
+sess.run(tf.global_variables_initializer())
+    for step in range(10000):
+        sess.run(train, feed_dict={X: x_input, Y: y_output})
+        if step % 100 == 0:
+            print(step, sess.run(cost, feed_dict={X: x_input, Y: y_output}), sess.run([W_1, W_2]))
+    h, c, a = sess.run([hypothesis, predict, accuracy], feed_dict={X: x_input, Y: y_output})
+    print("\nHypothesis: ", h, "\nCorrect: ", c, "\nAccuracy: ", a)
+                        </code>
+                    </pre>                  
+                </div>
+            
                 <div class="blog_content">
                     <style>
                         #bloglink {
