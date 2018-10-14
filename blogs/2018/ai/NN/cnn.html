@@ -339,7 +339,7 @@
 
                     <div class="timeline">
                     
-                        <h4 class="timetag">2014</h4>
+                        <h4 class="timetag">2013</h4>
                         <article>
                     
                             <h4><svg class="timecircle" viewBox="0 0 50 50">
@@ -386,10 +386,9 @@
                     
                     </div>
 
-
                     <div class="timeline">
                     
-                        <h4 class="timetag">2015</h4>
+                        <h4 class="timetag">2014</h4>
                         <article>
                     
                             <h4><svg class="timecircle" viewBox="0 0 50 50">
@@ -424,11 +423,13 @@
                                 </svg>VGGNet</h4>
                             <p class="timeintro top-to-bottom5"><br>
                                 牛津大学<i>Visual Geometry Group</i>和<i>DeepMind</i>共同设计了VGGNet，通过反复堆叠 $3 \times 3$ 的小型卷积核和 $2 \times 2$ 的最大池化层构成了一个深度19层的CNN。
-                                VGGNet在ILSVRC 2014中获得分类项目的第二，定位项目的第一。其拓展性和泛化能力都很强，其训练好后的模型已开源，可以用来在特定任务上进行再训练，因而被广泛应用。
+                                VGGNet在ILSVRC 2014中获得分类项目的第二，定位项目的第一。其拓展性和泛化能力都很强，其训练好后的模型已<a href="http://www.robots.ox.ac.uk/~vgg/research/very_deep/">开源</a>，可以用来在特定任务上进行再训练，因而被广泛应用。
                                 <br><br>
                                 <img src="/images/blogs/2018/VGGNet_cons.png" width="100%">
                                 <br><br>   
-                                VGGNet有5段卷积，每一段内有2～3个卷积层，每一段的末尾用一个最大池化层来缩小图片尺寸。每一段内的卷积核数量一样，越往后的段的卷积核数量越多。                             
+                                VGGNet有5段卷积，每一段内有2～3个卷积层，每一段的末尾用一个最大池化层来缩小图片尺寸。每一段内的卷积核数量一样，越往后的段的卷积核数量越多。VGGNet充分说明，一个足够“深”的CNN，真的很有用。                          
+                                <br><br>
+                                论文链接：<i><a href="https://arxiv.org/pdf/1409.1556.pdf">Very Deep Convolutional Networks for Large-Scale Image Recognition</a></i>
                                 <br><br><br>
                             </p>
                         </article>
@@ -437,7 +438,7 @@
 
                     <div class="timeline">
                     
-                        <h4 class="timetag">2015</h4>
+                        <h4 class="timetag">2014</h4>
                         <article>
                     
                             <h4><svg class="timecircle" viewBox="0 0 50 50">
@@ -469,9 +470,75 @@
                                         </g>
                                         <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-62" cx="12" cy="12" r="12" transform="translate(1069 264)" />
                                     </g>
-                                </svg>GoogleNet</h4>
+                                </svg>GoogLeNet</h4>
                             <p class="timeintro top-to-bottom6"><br />
-                                
+                                GoogLeNet和VGG是ILSVRC 2014的双雄，在图像分类中GoogLeNet获得了第一名、VGG获得了第二名。这两者的共同之处就是都很“深”。GoogLeNet在网络结构上做了大胆的尝试，它可以说是第一个真正不使用通用方法的卷积神经网络架构。
+                                GoogLeNet在设计时重点考虑了内存和能量消耗，它虽然有22层，但是比起AlexNet和VGG却要小很多，它有500万个参数，而AlexNet的参数是GoogleNet的12倍，VGGNet参数又是AlexNet的3倍。
+                                <br><br>
+                                <img src="/images/blogs/2018/GoogLeNet.png" width="100%">
+                                <br><br>
+                                GoogLeNet的结构跟以往的CNN模型有很大不同，它不再是简单地按顺序进行计算，而将一些计算设计为同时进行。从上面的图中我们就可以窥见一斑。同时我们可以很轻易地观察到GoogLeNet里边重复出现的一个结构（如下图所示，称为Inception模型）。
+                                <br><br>
+                                <img src="/images/blogs/2018/inception.png" width="50%" style="margin: 0 25%">
+                                <br><br>
+                                在整个GoogLeNet架构中，一共使用了9个Inception模型。Inception的设计的初衷就是希望通过一个稀疏网络结构，但是能产生稠密的数据，这个模型由一个网络层中的网络（NIN）、一个中等大小的过滤卷积、一个大型的过滤卷积、一个操作池组成。在一个传统的卷积网络中的每一层中，无非是操作池或卷积操作，而Inception模型能让我们做到的就是并行地执行所有的操作。
+                                <br><br>
+                                论文链接：<i><a href="https://arxiv.org/abs/1409.4842">Going Deeper with Convolutions</a></i>
+                                <br><br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">2015</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-1,
+                                            .cls-4 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-1 {
+                                                stroke: #f23030;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-2 {
+                                                fill: #f23030;
+                                            }
+                    
+                                            .cls-3 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-1" transform="translate(1056 251)">
+                                            <circle class="cls-3" cx="25" cy="25" r="25" />
+                                            <circle class="cls-4" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-2" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>ResNet</h4>
+                            <p class="timeintro top-to-bottomendorange"><br/>
+                                微软亚洲研究院的ResNet在ILSVRC 2015上取得了惊人的3.6％的Top5误差率，这已经超过了人类（5%～10%）。ResNet模型的最大特点就是很深，达到了152层，它是残差学习理念的一大创新。下面感受一下它的“深”：
+                                <br><br>
+                                <img src="/images/blogs/2018/resnet.gif" width="50%" style="margin: 0 25%">
+                                <br><br>
+                                从前面的叙述中，我们可以发现新的模型在不断加“深”，而越深的网络越难以训练，往往会因为梯度爆炸，梯度消失，梯度弥散等问题而导致网络退化，而ResNet却有效地解决了这些问题，
+                                从在上面图中，我们可以看到它的结构中有很多重复的结构，我们把它拿出来仔细看（见下图）：
+                                <br><br>
+                                <img src="/images/blogs/2018/residualblock.png" width="50%" style="margin: 0 25%">
+                                <br><br>
+                                上面的结构叫做残差块（Residual Block）。这个模块有三层，两层卷积加上一层ReLu层，此外还有一个线将Input与Addition直接相连。其实，这个小模块得到的是原始输入和期望输出的差值。
+                                这样能够保证随着深度的提高，其特征图不会有太难以控制的变化，从而解决了网络退化的问题。
+                                <br><br>
+                                论文链接：<i><a href="https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a></i>
                                 <br><br><br>
                             </p>
                         </article>
@@ -479,8 +546,10 @@
                     </div>
 
 
+                </div>
 
-
+                <div class="blog_content">
+                    好嘞，至此，我们已经基本对CNN以及其发展有了一个较全面的了解，后面会有更多更详细的文章来更深入的探讨这些划时代的CNN模型。
                 </div>
 
 
@@ -490,15 +559,30 @@
                             text-align: left;
                         }
                     </style>
-                    <p>上一篇：无</p>
-                    <p>下一篇：<a href="/blogs/2018/ai/NN/mlp.html">神经网络简介-MLP</a></p>
+                    <p>上一篇：<a href="/blogs/2018/ai/NN/mlp.html">神经网络简介-MLP</a></p>
+                    <p>下一篇：<a href="#">深入CNN之LeNet-5</a></p>
                 </div>
 
                 <div class="blog_content">
                     <h3>参考：</h3>
                     <ul class="reference">
                         <li>
-
+                            <i><a href="https://my.oschina.net/u/876354/blog/1637819">大话CNN经典模型：GoogLeNet（从Inception v1到v4的演进）</a></i>
+                        </li>
+                        <li>
+                            <i><a href="https://blog.csdn.net/marsjhao/article/details/72955935">深度学习经典卷积神经网络之VGGNet</a></i>
+                        </li>
+                        <li>
+                            <i><a href="https://blog.csdn.net/edogawachia/article/details/79968926">classical CNN models : ZF Net 模型结构详解</a></i>
+                        </li>
+                        <li>
+                            <i><a href="https://blog.csdn.net/marsjhao/article/details/72953256">深度学习经典卷积神经网络之AlexNet</a></i>
+                        </li>
+                        <li>
+                            <i><a href="http://m.sohu.com/n/466820078/?pvid=000115_3w_a">计算机视觉和 CNN 发展十一座里程碑</a></i>
+                        </li>
+                        <li>
+                            <i><a href="https://zhuanlan.zhihu.com/p/39068853">CNN简史-知乎</a></i>
                         </li>
                     </ul>
                 </div>
