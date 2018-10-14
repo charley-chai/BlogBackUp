@@ -7,16 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="/scripts/src/jquery.min.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
-    <title>CNN介绍与实现</title>
+    <title>CNNs</title>
     <link rel="stylesheet" href="/styles/temp.css">
     <link rel="stylesheet" href="/styles/blogs.css">
     <link rel="stylesheet" href="/styles/article_blog.css">
+    <link rel="stylesheet" href="/styles/timeline.css">
     <meta name="keywords" content="NN ML CNN tensorflow keras python 神经网络 机器学习 历史 CharleyChai 博客 柴磊">
     <meta name="description" content="">
     <meta name="author" content="Charley Chai">
     <meta property="og:image" content="/images/logo.png">
     <meta property="og:description" content="NN ML CNN tensorflow keras python 神经网络 机器学习 历史 CharleyChai 博客 柴磊">
-    <meta property="og:title" content="CNN介绍与实现">
+    <meta property="og:title" content="CNNs">
     <script type="text/x-mathjax-config">
           MathJax.Hub.Config({
             extensions: ["tex2jax.js"],
@@ -124,17 +125,123 @@
             <section class="section_content">
                 <div id="blog_head">
                     <div class="blog_tag purple">AI</div>
-                    <h1 class="blog_title">CNN原理介绍与代码实现</h1>
+                    <h1 class="blog_title">CNN简史</h1>
                     <div class="blog_time">OCT 02, 2018</div>
                     <hr />
                 </div>
                 <img src="/images/blogs/2018/cnntop.png" class="blog_image">
 
                 <div class="blog_content">
-                    <h3>首先我们来详细介绍一下CNN的发展历史</h3>
-                    
-                </div>
+                    <p>在这篇文章中，主要来介绍一下CNN的发展历史，在稍后的文章中将会展开来叙说这些一次又一次带给我们惊喜的模型。</p>
 
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">1962</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-1,
+                                            .cls-4 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-1 {
+                                                stroke: #f23030;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-2 {
+                                                fill: #f23030;
+                                            }
+                    
+                                            .cls-3 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-1" transform="translate(1056 251)">
+                                            <circle class="cls-3" cx="25" cy="25" r="25" />
+                                            <circle class="cls-4" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-2" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>感受野的提出</h4>
+                            <p class="timeintro top-to-bottom"><br />
+                                <i>Hubel</i>和<i>Wiesel</i>通过对猫大脑中视觉皮层的研究，他们在论文<i><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1359523/">Receptive fields, binocular interaction and functional architecture in the cat's visual cortex</a></i>中提出了<b>感受野</b>（Receptive fields）的概念，即每个神经元不会对整个图像作出反应，它们仅仅处理某个有限的区域。由此开启了人类对就视觉的科学性研究。
+                                <br><br>
+                                <img src="/images/blogs/2018/cnn_receptivefield.png" width="50%" style="margin: 0 25%">
+                                <br><br>
+                                他们在研究中发现当他们切换幻灯片的时候，猫视觉皮层的神经元被激活了；经过深入研究，他们发现视觉皮层的神经元是一列一列组织起来的，而每一列
+                                的神经元仅对某一种特定的“形状”（可以理解为我们眼睛捕捉到的简单线条组合）产生兴奋。并且，他们由此获得1981年诺贝尔生理学及医学奖。
+                                <br><br>
+                                <img src="/images/blogs/2018/cnn_cat.png" width="50%" style="margin: 0 25%">
+                                <br><br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">1980</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-11,
+                                            .cls-14 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-11 {
+                                                stroke: #ffb134;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-12 {
+                                                fill: #ffb134;
+                                            }
+                    
+                                            .cls-13 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-11" transform="translate(1056 251)">
+                                            <circle class="cls-13" cx="25" cy="25" r="25" />
+                                            <circle class="cls-14" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-12" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>神经认知机的提出</h4>
+                            <p class="timeintro top-to-bottom1"><br />
+                                收到<i>Hubel</i>等人研究成果的启发，日本科学家<i>福岛邦彦</i>于1980年发表论文<i><a href="https://link.springer.com/article/10.1007%2FBF00344251">Neocognitron: A self-organizing neural network model for a mechanism of pattern recognition unaffected by shift in position</a></i>，提出了<b>神经认知机</b>（Neocognitron）的概念。
+                                <br><br>
+                                <img src="/images/blogs/2018/cnn_neocognnitron.jpg" width="60%" style="margin: 0 20%">
+                                <br><br>
+                                上图为神经感知机的结构示意图，其结构从简单细胞到超复杂细胞与生物结构一一对应，将脑神经用计算机进行模拟；同时这里使用很多现代CNN的结构，如：过滤器，ReLu激活函数，用平均池化层来下采样等。但是改结构使用基于WTA（Winner Take All）的无监督学习，缺乏实用性。
+                                <br><br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                </div>
 
 
                 <div class="blog_content">
