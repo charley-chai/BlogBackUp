@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/scripts/src/jquery.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
+    <title>Brief History of R-CNN</title>
+    <link rel="stylesheet" href="/styles/temp.css">
+    <link rel="stylesheet" href="/styles/blogs.css">
+    <link rel="stylesheet" href="/styles/article_blog.css">
+    <link rel="stylesheet" href="/styles/timeline.css">
+    <meta name="keywords" content="NN ML RCNN CNN tensorflow keras python 神经网络 机器学习 历史 CharleyChai 博客 柴磊">
+    <meta name="description" content="Brief History of R-CNN">
+    <meta name="author" content="Charley Chai">
+    <meta property="og:image" content="/images/logo.png">
+    <meta property="og:description" content="NN ML CNN tensorflow keras python 神经网络 机器学习 历史 CharleyChai 博客 柴磊">
+    <meta property="og:title" content="Brief History of R-CNN">
+    <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX","output/HTML-CSS"],
+            tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+          });
+        </script>
+    <script type="text/javascript" src="/scripts/src/MathJax/MathJax.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav id="xxxx">
+                <ul>
+                    <li class="frim" id="expand">
+                        <p>
+                            <img src="/images/expand.svg" class="logo">
+                        </p>
+                    </li>
+                    <li class="frim">
+                        <a href="/">
+                            <img src="/images/logo.svg" class="logo" id="logo">
+                        </a>
+                    </li>
+                    <li class="shift"><a href="/">Home</a></li>
+                    <li class="shift"><a href="/blogs" class="hoster">Blogs</a></li>
+                    <li class="shift"><a href="/notes">Courses</a></li>
+                    <li class="shift"><a href="/projects">Projects</a></li>
+                    <li class="shift"><a href="/hobbies">Hobbies</a></li>
+                    <li class="frim" id="search">
+                        <p>
+                            <img src="/images/search.svg" class="logo">
+                        </p>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="placeholder"></div>
+
+    <div id="sub_nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <hr color="#555" size=0.5>
+            <li><a href="/blogs">Blogs</a></li>
+            <hr color="#555" size=0.5>
+            <li><a href="/notes">Courses</a></li>
+            <hr color="#555" size=0.5>
+            <li><a href="/projects">Projects</a></li>
+            <hr color="#555" size=0.5>
+            <li><a href="/hobbies">Hobbies</a></li>
+        </ul>
+    </div>
+
+    <div id="top" class="content">
+        <nav id="class_nav">
+            <ul>
+                <li id="bloghost" class="frim"><a href="/blogs">Blogs</a></li>
+                <li class="shift"><a href="/blogs/classify/advanced.html">Advanced</a></li>
+                <li class="shift"><a href="/blogs/classify/network.html">Network</a></li>
+                <li class="shift"><a href="/blogs/classify/ai.html" class="host">AI</a></li>
+                <li class="shift"><a href="/blogs/classify/ui.html">UI/UX</a></li>
+                <li class="shift"><a href="/blogs/classify/tools.html">Tools</a></li>
+                <li class="frim" id="expandmore"><a href="#">
+                        <svg id="next" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                            <path d="M0 0h24v24H0z" fill="none" />
+                        </svg>
+                        <svg id="next1" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <defs>
+                                <style>
+                                    .cls-1 {
+                                        fill: none;
+                                    }
+                                </style>
+                            </defs>
+                            <g id="baseline-navigate_next-24px" transform="translate(24) rotate(90)">
+                                <path id="Path_1" data-name="Path 1" d="M10,6,8.59,7.41,13.17,12,8.59,16.59,10,18l6-6Z" />
+                                <path id="Path_2" data-name="Path 2" class="cls-1" d="M0,0H24V24H0Z" />
+                            </g>
+                        </svg>
+                    </a></li>
+            </ul>
+        </nav>
+
+        <div id="class_sub_nav">
+            <ul>
+                <li><a href="/blogs">Blogs</a></li>
+                <hr color="#BBB" size=0.2>
+                <li><a href="/blogs/classify/advanced.html">Advanced</a></li>
+                <hr color="#BBB" size=0.2>
+                <li><a href="/blogs/classify/network.html">Network</a></li>
+                <hr color="#BBB" size=0.2>
+                <li><a href="/blogs/classify/ai.html">AI</a></li>
+                <hr color="#BBB" size=0.2>
+                <li><a href="/blogs/classify/ui.html">UI/UX</a></li>
+                <hr color="#BBB" size=0.2>
+                <li><a href="/blogs/classify/tools.html" class="host">Tools</a></li>
+            </ul>
+        </div>
+
+        <main>
+            <section class="section_content">
+                <div id="blog_head">
+                    <div class="blog_tag purple">AI</div>
+                    <h1 class="blog_title">R-CNN简史</h1>
+                    <div class="blog_time">OCT 05, 2018</div>
+                    <hr />
+                </div>
+
+                <div class="blog_content">
+                    <h3>目标检测</h3>
+                    什么是R-CNN呢？首先从计算机视觉（Computer Vision）说起。在计算机视觉领域中最常见的任务为：
+                    <ul class="CVtask">
+                        <style>
+                            .CVtask > li{
+                                list-style: armenian;
+                            }
+                        </style>
+                        <li>
+                            语义分割（semantic segmentation）
+                        </li>
+                        <li>
+                            目标检测（object detection）
+                        </li>
+                        <li>
+                            目标识别（object recognition）
+                        </li>
+                        <li>
+                            实例分割（instance segmentation）
+                        </li>
+                    </ul>
+                    而我们这里将要接触的R-CNN就是为了解决<b>目标检测</b>的问题。所谓目标检测就是：给定一张图像，找出出所有的目标并标注出相应的类别。
+                    由于物体的尺寸有大有小，摆放的角度、姿态等多种多样不定，物体可以出现在图片的任何地方；此外，物体的种类不可谓不繁杂。所以，这个任务其实是相当复杂的。
+                    <br><br>
+                    <table width="80%" border="0" cellspacing="0" cellpadding="0" style="margin: 0 10%">
+                        <tr>
+                            <td align="center"><img src="/images/blogs/2018/od_intro.jpg" width="100%"></td>
+                        </tr>
+                        <tr>
+                            <td align="center"><span class="imageTags"><abbr class="imagetriangle">$\triangle$</abbr> 目标检测的例子</span></td>
+                        </tr>
+                    </table>
+                    <br>
+                    目前的目标检测算法分成3类：
+                    <ul class="CVtask">
+                        <li>
+                            <b>传统的目标检测算法</b>：Cascade + HOG/DPM + Haar/SVM
+                        </li>
+                        <li>
+                            <b>候选区域/窗 + 深度学习分类</b>：通过提取候选区域，并对相应区域进行以深度学习方法为主的分类的方案，如：
+                            <ul id="rcnn">
+                                <style>
+                                    #rcnn > li{
+                                        list-style: decimal;
+                                    }
+                                </style>
+                                <li>
+                                    R-CNN（Selective Search + CNN + SVM）
+                                </li>
+                                <li>
+                                    SPP-net（ROI Pooling）
+                                </li>
+                                <li>
+                                    Fast R-CNN（Selective Search + CNN + ROI）
+                                </li>
+                                <li>
+                                    Faster R-CNN（RPN + CNN + ROI）
+                                </li>
+                                ......
+                            </ul>
+                        </li>
+                        <li>
+                            <b>基于深度学习的回归方法</b>：YOLO、SSD、DenseBox 等
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="blog_content">
+                    <h3>传统的目标检测算法</h3>
+                    <p>
+                        要完成目标检测，CNN已经可以完成图像识别的任务，而我们做一些额外的工作来完成定位任务即可。这里介绍两个思路：
+                    </p>
+                    <h4>#01 看做回归问题</h4>
+
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">#001</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-1,
+                                            .cls-4 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-1 {
+                                                stroke: #f23030;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-2 {
+                                                fill: #f23030;
+                                            }
+                    
+                                            .cls-3 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-1" transform="translate(1056 251)">
+                                            <circle class="cls-3" cx="25" cy="25" r="25" />
+                                            <circle class="cls-4" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-2" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>滑动窗口</h4>
+                            <p class="timeintro top-to-bottom"><br />
+                                使用不同尺度的滑动窗口选定图像的某一区域为候选区域。
+                                <br><br>
+                                <img src="/images/blogs/2018/od_scan.webp" width="40%" style="margin: 0 30%">
+                                <br><br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+                    
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">#002</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-11,
+                                            .cls-14 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-11 {
+                                                stroke: #ffb134;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-12 {
+                                                fill: #ffb134;
+                                            }
+                    
+                                            .cls-13 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-11" transform="translate(1056 251)">
+                                            <circle class="cls-13" cx="25" cy="25" r="25" />
+                                            <circle class="cls-14" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-12" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>提取特征</h4>
+                            <p class="timeintro top-to-bottom1"><br />
+                                从对应的候选区域提取如Harr HOG LBP LTP等一类或者多类特征。
+                                <br><br>
+                                <img src="/images/blogs/2018/od_hog.png" width="100%">   
+                                <span class="imageTags" width="100%"><abbr class="imagetriangle">$\quad \triangle$</abbr>一个HOG的例子</span>
+                                <br><br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+                    
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">#003</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-21,
+                                            .cls-24 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-21 {
+                                                stroke: #FAEE5D;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-22 {
+                                                fill: #FAEE5D;
+                                            }
+                    
+                                            .cls-23 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-21" transform="translate(1056 251)">
+                                            <circle class="cls-23" cx="25" cy="25" r="25" />
+                                            <circle class="cls-24" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-22" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>分类判断</h4>
+                            <p class="timeintro top-to-bottom2"><br>
+                                使用Adaboost SVM 等分类算法对对应的候选区域进行分类，判断是否属于待检测的目标。
+                                <br><br>
+                                <img src="/images/blogs/2018/od_calc_score.png" width="100%">
+                                <br><br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+                    
+                </div>
+
+
+                <div class="blog_content">
+                    <h3>候选区域/窗 + 深度学习分类的目标检测算法</h3>
+                    <p>下面按照时间顺序简单介绍一下在目标检测领域表现很好的R-CNN的发展过程。</p>
+
+                    <div class="timeline">
+
+                        <h4 class="timetag">2013</h4>
+                        <article>
+
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-1,
+                                            .cls-4 {
+                                                fill: none;
+                                            }
+
+                                            .cls-1 {
+                                                stroke: #f23030;
+                                                stroke-width: 5px;
+                                            }
+
+                                            .cls-2 {
+                                                fill: #f23030;
+                                            }
+
+                                            .cls-3 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-1" transform="translate(1056 251)">
+                                            <circle class="cls-3" cx="25" cy="25" r="25" />
+                                            <circle class="cls-4" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-2" cx="12" cy="12" r="12"
+                                            transform="translate(1069 264)" />
+                                    </g>
+                                </svg>RCNN</h4>
+                            <p class="timeintro top-to-bottom"><br />
+                                <i>Ross Girshick</i>
+                                <br><br>
+                                论文链接：<i><a href="https://arxiv.org/abs/1311.2524">Rich feature hierarchies for accurate object detection and semantic segmentation</a></i>
+                                <br><br><br>
+                            </p>
+                        </article>
+
+                    </div>
+
+                    <div class="timeline">
+
+                        <h4 class="timetag">2015</h4>
+                        <article>
+
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-11,
+                                            .cls-14 {
+                                                fill: none;
+                                            }
+
+                                            .cls-11 {
+                                                stroke: #ffb134;
+                                                stroke-width: 5px;
+                                            }
+
+                                            .cls-12 {
+                                                fill: #ffb134;
+                                            }
+
+                                            .cls-13 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-11" transform="translate(1056 251)">
+                                            <circle class="cls-13" cx="25" cy="25" r="25" />
+                                            <circle class="cls-14" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-12" cx="12" cy="12" r="12"
+                                            transform="translate(1069 264)" />
+                                    </g>
+                                </svg>Fast R-CNN</h4>
+                            <p class="timeintro top-to-bottom1"><br />
+                                <i>Ross Girshick</i>
+                                <br><br>
+                                <br><br>
+                                论文链接：<i><a href="https://arxiv.org/abs/1504.08083">Fast RCNN</a></i>
+                                <br><br><br>
+                            </p>
+                        </article>
+
+                    </div>
+
+                    <div class="timeline">
+
+                        <h4 class="timetag">2015</h4>
+                        <article>
+
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-21,
+                                            .cls-24 {
+                                                fill: none;
+                                            }
+
+                                            .cls-21 {
+                                                stroke: #FAEE5D;
+                                                stroke-width: 5px;
+                                            }
+
+                                            .cls-22 {
+                                                fill: #FAEE5D;
+                                            }
+
+                                            .cls-23 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-21" transform="translate(1056 251)">
+                                            <circle class="cls-23" cx="25" cy="25" r="25" />
+                                            <circle class="cls-24" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-22" cx="12" cy="12" r="12"
+                                            transform="translate(1069 264)" />
+                                    </g>
+                                </svg>Faster R-CNN</h4>
+                            <p class="timeintro top-to-bottom2"><br>
+                                <i>任少卿</i>（中科大校友😉）
+                                <br><br>
+                                <br><br>
+                                论文链接：<i><a href="#">Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks</a></i>
+                                <br><br><br>
+                            </p>
+                        </article>
+
+                    </div>
+
+                    <div class="timeline">
+
+                        <h4 class="timetag">2017</h4>
+                        <article>
+
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-31,
+                                            .cls-34 {
+                                                fill: none;
+                                            }
+
+                                            .cls-31 {
+                                                stroke: #25DD73;
+                                                stroke-width: 5px;
+                                            }
+
+                                            .cls-32 {
+                                                fill: #25DD73;
+                                            }
+
+                                            .cls-33 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-31" transform="translate(1056 251)">
+                                            <circle class="cls-33" cx="25" cy="25" r="25" />
+                                            <circle class="cls-34" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-32" cx="12" cy="12" r="12"
+                                            transform="translate(1069 264)" />
+                                    </g>
+                                </svg>Mask R-CNN</h4>
+                            <p class="timeintro top-to-bottomend"><br>
+                                <i>何凯明</i>
+                                <br><br>
+                                <br><br>
+                                论文链接：<i><a href="https://arxiv.org/abs/1703.06870">Mask R-CNN</a></i>
+                                <br><br><br> </p>
+                        </article>
+
+                    </div>
+
+                </div>
+
+                <div class="blog_content">
+                    <style>
+                        #bloglink {
+                            text-align: left;
+                        }
+                    </style>
+                    <p>上一篇：<a href="/blogs/2018/ai/NN/mlp.html">神经网络简介-MLP</a></p>
+                    <p>下一篇：<a href="#">深入CNN之LeNet-5</a></p>
+                </div>
+
+                <div class="blog_content">
+                    <h3>参考：</h3>
+                    <ul class="reference">
+                        <li>
+                            <i><a href="https://my.oschina.net/u/876354/blog/1637819">大话CNN经典模型：GoogLeNet（从Inception
+                                    v1到v4的演进）</a></i>
+                        </li>
+                        <li>
+                            <i><a href="https://blog.csdn.net/marsjhao/article/details/72955935">深度学习经典卷积神经网络之VGGNet</a></i>
+                        </li>
+                        <li>
+                            <i><a href="https://blog.csdn.net/edogawachia/article/details/79968926">classical CNN
+                                    models : ZF Net 模型结构详解</a></i>
+                        </li>
+                        <li>
+                            <i><a href="https://blog.csdn.net/marsjhao/article/details/72953256">深度学习经典卷积神经网络之AlexNet</a></i>
+                        </li>
+                        <li>
+                            <i><a href="http://m.sohu.com/n/466820078/?pvid=000115_3w_a">计算机视觉和 CNN 发展十一座里程碑</a></i>
+                        </li>
+                        <li>
+                            <i><a href="https://zhuanlan.zhihu.com/p/39068853">CNN简史-知乎</a></i>
+                        </li>
+                    </ul>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <div id="contact" class="content">
+        <p id="welcome">Welcome to join me to find and create bueautiful stuffs!</p>
+        <p id="cvia">Contact me via:</p>
+        <div id="mi_logos">
+            <img src="/images/facebook.svg" class="logos link">
+            <img src="/images/instagram.svg" class="logos link">
+            <img src="/images/twitter.svg" class="logos link">
+            <img src="/images/wechat.svg" class="logos link">
+            <img src="/images/weibo.svg" class="logos link">
+        </div>
+        <hr />
+        <p id="copyright">A project by Charley Chai</p>
+    </div>
+    <script src="/scripts/temp.js"></script>
+    <script src="/scripts/blogs.js"></script>
+    <link href="/styles/monokai.css" rel="stylesheet">
+    <script src="/scripts/src/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

@@ -210,3 +210,12 @@ div{
 .hidden{
     display: none !important;
 }
+
+.imageTags{
+  font-size: 0.7em;
+  text-align: center；
+}
+
+.imagetriangle{
+  font-size: 0.8em;
+}
