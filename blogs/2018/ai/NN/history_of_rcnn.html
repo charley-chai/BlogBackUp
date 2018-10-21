@@ -393,7 +393,7 @@
                                 <img src="/images/blogs/2018/r-cnn_process.png" width="100%">
                                 <br><br>
                                 但是，RCNN有严重的速度瓶颈，因为每次都要对同一图像中有巨大重叠的候选区域分别提取特征，在特征提取过程中有极大的重复计算。
-                                而且在特征提取过程中，候选区域的大小并不一致，在RCNN中将这些区域拉伸为统一大小，这导致候选区域失真。
+                                而且在特征提取过程中，候选区域的大小并不一致，在RCNN中将这些区域拉伸为统一大小，这导致候选区域失真。独立的分类器和回归器需要大量特征作为训练样本。
                                 <br><br>
                                 论文链接：<i><a href="https://arxiv.org/abs/1311.2524">Rich feature hierarchies for accurate object detection and semantic segmentation</a></i>
                                 <br><br><br>
@@ -439,10 +439,11 @@
                                     </g>
                                 </svg>Fast R-CNN</h4>
                             <p class="timeintro top-to-bottom1"><br />
-                                针对R-CNN的上述缺点，<i>Ross Girshick</i>又提出了改进版本——Fast R-CNN。其工作步骤为：
-                                
+                                针对R-CNN的上述缺点，<i>Ross Girshick</i>又提出了改进版本——Fast R-CNN。它将整张图像归一化后直接送入深度网络。在邻接时，才加入候选框信息，在末尾的少数几层处理每个候选框。将类别判断和位置精调统一用深度网络实现，不再需要额外存储。
                                 <br><br>
-
+                                其工作步骤如下：
+                                <br><br>
+                                <img src="/images/blogs/2018/frcnn.png" width="100%">
                                 <br><br>
                                 论文链接：<i><a href="https://arxiv.org/abs/1504.08083">Fast RCNN</a></i>
                                 <br><br><br>
@@ -488,7 +489,7 @@
                                     </g>
                                 </svg>Faster R-CNN</h4>
                             <p class="timeintro top-to-bottom2"><br>
-                                <i>任少卿</i>（中科大校友😉）
+                                <i>任少卿</i>（中科大校友😉）等人将Fast R-CNN进一步改进，提出了更强的Faster R-CNN。在结构上，Faster R-CNNN将特征抽取(feature extraction)，proposal提取，bounding box regression(rect refine)，classification都整合在了一个网络中，使得综合性能有较大提高，在检测速度方面尤为明显。 
                                 <br><br>
                                 <br><br>
                                 论文链接：<i><a href="#">Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks</a></i>
@@ -567,17 +568,16 @@
                             <i><a href="https://blog.csdn.net/marsjhao/article/details/72955935">深度学习经典卷积神经网络之VGGNet</a></i>
                         </li>
                         <li>
-                            <i><a href="https://blog.csdn.net/edogawachia/article/details/79968926">classical CNN
-                                    models : ZF Net 模型结构详解</a></i>
+                            <i><a href="https://blog.csdn.net/u011746554/article/details/74999010">CNN目标检测（一）：Faster RCNN详解</a></i>
                         </li>
                         <li>
-                            <i><a href="https://blog.csdn.net/marsjhao/article/details/72953256">深度学习经典卷积神经网络之AlexNet</a></i>
+                            <i><a href="https://blog.csdn.net/shenxiaolu1984/article/details/51152614">【目标检测】Faster RCNN算法详解</a></i>
                         </li>
                         <li>
-                            <i><a href="http://m.sohu.com/n/466820078/?pvid=000115_3w_a">计算机视觉和 CNN 发展十一座里程碑</a></i>
+                            <i><a href="https://blog.csdn.net/shenxiaolu1984/article/details/51036677">【目标检测】Fast RCNN算法详解</a></i>
                         </li>
                         <li>
-                            <i><a href="https://zhuanlan.zhihu.com/p/39068853">CNN简史-知乎</a></i>
+                            <i><a href="https://link.jianshu.com/?t=https%3A%2F%2Fblog.csdn.net%2Fshenxiaolu1984%2Farticle%2Fdetails%2F51066975">【目标检测】RCNN算法详解</a></i>
                         </li>
                     </ul>
                 </div>
