@@ -206,8 +206,6 @@
                     <p>
                         要完成目标检测，CNN已经可以完成图像识别的任务，而我们做一些额外的工作来完成定位任务即可。这里介绍两个思路：
                     </p>
-                    <h4>#01 看做回归问题</h4>
-
                     <div class="timeline">
                     
                         <h4 class="timetag">#001</h4>
@@ -386,9 +384,13 @@
                                         <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-2" cx="12" cy="12" r="12"
                                             transform="translate(1069 264)" />
                                     </g>
-                                </svg>RCNN横空出世</h4>
+                                </svg>R-CNN横空出世</h4>
                             <p class="timeintro top-to-bottom"><br />
-                                <i>Ross Girshick</i>
+                                <i>Ross Girshick</i>设计的R-CNN（Region CNN）是利用深度学习进行目标检测的开山之作。经典的目标检测算法使用滑动窗法依次判断所有可能的区域，而R-CNN则预先提取一系列较可能是物体的候选区域，之后仅在这些候选区域上提取特征，进行判断。
+                                <br><br>
+                                其工作的步骤如图所示：
+                                <br><br>
+                                <img src="/images/blogs/2018/r-cnn_process.png" width="100%">
                                 <br><br>
                                 论文链接：<i><a href="https://arxiv.org/abs/1311.2524">Rich feature hierarchies for accurate object detection and semantic segmentation</a></i>
                                 <br><br><br>
