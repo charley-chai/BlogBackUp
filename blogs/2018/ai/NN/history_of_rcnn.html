@@ -386,14 +386,15 @@
                                     </g>
                                 </svg>R-CNN横空出世</h4>
                             <p class="timeintro top-to-bottom"><br />
-                                <i>Ross Girshick</i>设计的R-CNN（Region CNN）是利用深度学习进行目标检测的开山之作。经典的目标检测算法使用滑动窗法依次判断所有可能的区域，而R-CNN则预先提取一系列较可能是物体的候选区域，之后仅在这些候选区域上提取特征，进行判断。
+                                <i>Ross Girshick</i>设计的R-CNN（Region CNN）是利用深度学习进行目标检测的开山之作。经典的目标检测算法使用滑动窗法依次判断所有可能的区域，而R-CNN则预先提取一系列较可能是物体的候选区域，之后仅在这些候选区域上提取特征，进行判断，最终得到的结果是：图像中每个物体的Bounding Box+标签。
                                 <br><br>
                                 其工作的步骤如图所示：
                                 <br><br>
                                 <img src="/images/blogs/2018/r-cnn_process.png" width="100%">
                                 <br><br>
-                                但是，RCNN有严重的速度瓶颈，因为每次都要对同一图像中有巨大重叠的候选区域分别提取特征，在特征提取过程中有极大的重复计算。
-                                而且在特征提取过程中，候选区域的大小并不一致，在RCNN中将这些区域拉伸为统一大小，这导致候选区域失真。独立的分类器和回归器需要大量特征作为训练样本。
+                                但是，RCNN有严重的速度瓶颈，因为每次都要对同一图像中有巨大重叠的候选区域分别提取特征，在特征提取过程中有极大的重复计算。<br>
+                                而且在特征提取过程中，候选区域的大小并不一致，在RCNN中将这些区域拉伸为统一大小，这导致候选区域失真。独立的分类器和回归器需要大量特征作为训练样本。<br>
+                                CNN提取图像特征、分类器预测类别、回归模型tighten bounding box的边界都是分别训练的，这也导致流程不易训练。
                                 <br><br>
                                 论文链接：<i><a href="https://arxiv.org/abs/1311.2524">Rich feature hierarchies for accurate object detection and semantic segmentation</a></i>
                                 <br><br><br>
@@ -439,7 +440,7 @@
                                     </g>
                                 </svg>Fast R-CNN</h4>
                             <p class="timeintro top-to-bottom1"><br />
-                                针对R-CNN的上述缺点，<i>Ross Girshick</i>又提出了改进版本——Fast R-CNN。它将整张图像归一化后直接送入深度网络。在邻接时，才加入候选框信息，在末尾的少数几层处理每个候选框。将类别判断和位置精调统一用深度网络实现，不再需要额外存储。
+                                针对R-CNN的上述缺点，<i>Ross Girshick</i>又提出了改进版本——Fast R-CNN。他发现，每张图像的proposed regions总是朴素重叠的，于是将整张图像归一化后直接送入CNN计算特征图。RoIPool分享整幅图像的CNN前向计算给不同的regions。将CNN、分类和边界线性回归的训练融合到一个单独的网络中实现，不再需要额外存储。
                                 <br><br>
                                 其工作步骤如下：
                                 <br><br>
@@ -489,8 +490,11 @@
                                     </g>
                                 </svg>Faster R-CNN</h4>
                             <p class="timeintro top-to-bottom2"><br>
-                                <i>任少卿</i>（中科大校友😉）等人将Fast R-CNN进一步改进，提出了更强的Faster R-CNN。在结构上，Faster R-CNNN将特征抽取(feature extraction)，proposal提取，bounding box regression(rect refine)，classification都整合在了一个网络中，使得综合性能有较大提高，在检测速度方面尤为明显。 
+                                经过上述的改进，Fast R-CNN仍然存在一个瓶颈——region proposer。微软研究人员<i>Shaoqing Ren</i>（中科大校友😉）等人将Fast R-CNN进一步改进，提出一种Faster R-CNN的方法，使得region proposal非常高效。在结构上，Faster R-CNNN将特征抽取(feature extraction)，proposal提取，bounding box regression(rect refine)，classification都整合在了一个网络中，解决了Fast R-CNN的瓶颈问题，使得综合性能有较大提高，在检测速度方面尤为明显。 
                                 <br><br>
+                                Faster RCNN首先使用一组基础的conv+relu+pooling层提取image的feature maps；RPN网络用于生成region proposals；Roi Pooling层收集输入的feature maps和proposals，综合这些信息后提取proposal feature maps，送入后续全连接层判定目标类别；Classification层利用proposal feature maps计算proposal的类别，同时再次bounding box regression获得检测框最终的精确位置。
+                                <br><br>
+                                <img src="/images/blogs/2018/faster-rcnn" width="50%" style="margin: 0 25%">
                                 <br><br>
                                 论文链接：<i><a href="#">Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks</a></i>
                                 <br><br><br>
@@ -536,8 +540,17 @@
                                     </g>
                                 </svg>Mask R-CNN</h4>
                             <p class="timeintro top-to-bottomend"><br>
-                                <i>何凯明</i>
+                                至此，我们可以快速定位图像中不同目标的bounding boxes了，那么如何达到如图所示的像素级的目标检测呢？
                                 <br><br>
+                                <img src="/images/blogs/2018/mask-rcnn-exam" width="100%">
+                                <br><br>
+                                Facebook Research的<i>Kaiming He</i>团队提出了Mask-RCNN。Maks R-CNN在Faster R-CNN的基础上增加一个分支，用于输出一个二值掩膜（Binary Mask），判断给定像素是否属于物体。
+                                <br><br>
+                                其结构如图所示，在原来Faster R-CNN的基础上增加了Mask（如图其中黑色部分为原来的Faster-RCNN，红色部分为在Faster网络上的修改）。
+                                <br><br>
+                                <img src="/images/blogs/2018/mask_rcnn.png" width="100%">
+                                <br><br>
+                                Mask R-CNN采用RoIAlign的方法对RoIPool进行调整使其更精确对齐。生成这些二值掩膜（Binary Mask）之后，Mask R-CNN结合Faster R-CNN中生成的分类和bounding box，生成精确的分割结果。
                                 <br><br>
                                 论文链接：<i><a href="https://arxiv.org/abs/1703.06870">Mask R-CNN</a></i>
                                 <br><br><br> </p>
@@ -561,11 +574,10 @@
                     <h3>参考：</h3>
                     <ul class="reference">
                         <li>
-                            <i><a href="https://my.oschina.net/u/876354/blog/1637819">大话CNN经典模型：GoogLeNet（从Inception
-                                    v1到v4的演进）</a></i>
+                            <i><a href="https://zhuanlan.zhihu.com/p/26652657">CNN图像分割简史：从R-CNN到Mask R-CNN（译）</a></i>
                         </li>
                         <li>
-                            <i><a href="https://blog.csdn.net/marsjhao/article/details/72955935">深度学习经典卷积神经网络之VGGNet</a></i>
+                            <i><a href="https://javaduqing.github.io/2018/04/13/%E3%80%90%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E3%80%91Mask%20RCNN%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/">【3】Mask-RCNN 网络的理解</a></i>
                         </li>
                         <li>
                             <i><a href="https://blog.csdn.net/u011746554/article/details/74999010">CNN目标检测（一）：Faster RCNN详解</a></i>
