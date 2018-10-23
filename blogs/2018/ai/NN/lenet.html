@@ -132,9 +132,8 @@
 
                 <div class="blog_content">
                     <p>论文链接：<i><a href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf">Gradient-Based Learning Applied to Document Recognition</a></i></p>
-                    <h3>CNN 的两大法宝</h3>
                 </div>
-                
+
                 <style>
                     h5{
                         color: gray;
@@ -142,6 +141,7 @@
                 </style>
 
                 <div class="blog_content">
+                    <h3>CNN 的两大法宝</h3>
                     <p>其实在前面对CNN的简介中，我们已经说到，CNN就是到人们对视觉皮质层的研究成果的启发而设计出来的，CNN的精髓正是从视觉皮质层的特点而来的。</p>
                     <h4>#1 局部连接</h4>
                     <p>
@@ -165,7 +165,31 @@
 
                 <div class="blog_content">
                     <h4>#2 权值共享</h4>
+                    <p>
+                        但是如果这样之后，其实参数还是有很多的。还以1000X1000的图像为例，如果我们仅仅采用局部连接的方法，假设第一个隐含层的每个神经元只与输入的10X10的像素点连接，那么这样依然有近100X100组参数，而每组参数又有100个，参数还是有很很多的。
+                        而所谓参数共享就是让同一个隐含层中的神经元参数都相同，这样的话，其实我们仅仅需要100个参数而已，可以在参考上图。
+                    </p>
                     
+                </div>
+
+
+                <div class="blog_content">
+                    <h3>卷积操作</h3>
+                    <p>
+                        卷积操作可以说是CNN的核心了，它也正是得名于此，也正式卷积操作，让CNN得以拥有局部连接和权值共享这两件法宝。至于卷积操作到底是什么样子的呢？先看一个图吧。
+                    </p>
+                    <img src="/images/blogs/2018/conv_demo.gif" width="70%" style="margin: 0 15%">
+                    <p>
+                        卷积操作的目的其实就是为了从原始数据中提取出所谓特征。假设说我们有一张6X6黑白图片，其像素信息为：
+                        <img src="/images/blogs/2018/cnn_sample_img.png" width="40%" style="margin: 0 30%">
+                        <br><br>
+                        然后，这里我们有两个3X3的滤波器(Filter)或者称为卷积核(kernel)：
+                        <img src="/images/blogs/2018/cnn_filter.png" width="60%" style="margin: 0 20%">
+                    </p>
+                    <p>
+                        所谓卷积操作就是使用这些卷积核，按照上面动图的规则来进行计算，我们就可以得到下面的结果（由于圆形组成的矩阵）：
+                        <img src="/images/blogs/2018/cnn_filter_rsl.png" width="70%" style="margin: 0 15%">
+                    </p>
                 </div>
 
                 
