@@ -132,96 +132,43 @@
 
                 <div class="blog_content">
                     <p>论文链接：<i><a href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf">Gradient-Based Learning Applied to Document Recognition</a></i></p>
-                    <h3>神经元</h3>
+                    <h3>CNN 的两大法宝</h3>
+                </div>
+                
+                <style>
+                    h5{
+                        color: gray;
+                    }
+                </style>
+
+                <div class="blog_content">
+                    <p>其实在前面对CNN的简介中，我们已经说到，CNN就是到人们对视觉皮质层的研究成果的启发而设计出来的，CNN的精髓正是从视觉皮质层的特点而来的。</p>
+                    <h4>#1 局部连接</h4>
                     <p>
-                        这里的神经元指的其实是一种模型，该模型将神经元简化为了三个过程：输入信号线性加权，求和，非线性激活，如图所示：
+                        这里提出一个概念——<b>局部感受野</b>，它由<i>Hubel</i>和<i>Wiesel</i>等人在研究生物视觉时率先提出。所谓局部感受野，也就是说他们发现视觉神经元并不会对眼睛看到的所有图像有反应，而仅仅处理某个有限的区域。
+                        这一事实，一定程度上启发了CNN的结构设计。而且，这也符合我们的一般认知：人对外界的认知一般是从局部到全局的，而图像的空间联系也是局部的像素联系较为紧密，而距离较远的像素相关性则较弱。
                     </p>
-                    <img src="/images/blogs/2018/nn_mcp" width="50%" style="margin: 0 25%">
+                    <h5>$\star $ 全连接神经网络的局限性</h5>
                     <p>
-                        激活函数可以说是神经元模型里最重要的部分了，<a href="#">这里</a>有更详尽的叙述。这里我们暂且使用 $Sigmoid$ 函数。
+                        拿图像识别这种任务来说，如果我们使用全连接深度神经网络来做这个事情。例如我们要训练出一个全连接深度神经网络，它可以对1000X1000大小的图像进行识别，那么就仅仅输入层就要又1000000个神经元，相应的我们这个网络的隐含层还要足够的“宽度”和“深度”。
+                        可想而知，我们需要多么巨大的参数，这无疑给网络训练速度和预测速度的提升带来巨大的阻碍，而且很容易出现过拟合；同时，我们将二维图像简单地展开成一维图像，已经破坏了原始图像中的一些空间信息。CNN采用局部连接的方法来解决上面的问题。
                     </p>
-                    <img src="/images/blogs/2018/sigmoid.png" width="50%" style="margin: 0 25%">
                     <p>
-                        $$ Sigmoid(x) = \frac{1}{1+e^{-x}} $$
+                        如下图所示，左为全连接，右为局部连接，易见参数极大地减少。
                     </p>
+                    <img src="/images/blogs/2018/full_conv.jpg" width="100%">
+                    <p>
+                        再看下面这张图，采用局部连接可以免除一些因为平移或者旋转带来的干扰。
+                    </p>
+                    <img src="/images/blogs/2018/cnn_local" width="100%">
                 </div>
 
                 <div class="blog_content">
-                    <h3>MLP的结构</h3>
-                    <p>
-                        MLP是一种前向结构的ANN（Artificial Neural Network），它将一组输入向量映射到一组输出向量，由输入层、隐含层和输出层三大部分组成。如图所示：
-                    </p>
-                    <img src="/images/blogs/2018/mlp_construct.png" width="50%" style="margin: 0 25%">
-                    <p>
-                        图中的每一个圆都代表一个神经元，绿色的一组神经元组成输入层；紫色的两层神经元表示隐含层，这里我们注意到隐含层可以有多层；最右边的红色神经元就是输出层。
-                    </p>
-                    <p>
-                        而通常所说的训练就是通过各种有效方法帮助这些神经元找到合适的<b>权值</b>和<b>偏置</b>，使之对输入的映射达到我们的预期。
-                    </p>
+                    <h4>#2 权值共享</h4>
+                    
                 </div>
 
-                <div class="blog_content">
-                    <h3>前向传播</h3>
-                    <p>当我们给了一个MLP一组输入数据之后，这个网络就会根据一定规则一层一层地向前传播并最终输出一个结果，这个过程就是前向传播。</p>
-                    <p>这里使用一个简单的模型，它有一个输入层，一个隐含层和一个输出层：</p>
-                    <img src="/images/blogs/2018/mlp_forward.png" width="36%" style="margin:0 32%">
-                    <p>如图所示，对于神经元 $h3$ 它的输入为 $x1, x2, x3$，同时每个输入分别对应权重 $w_{13}, w_{23}, w_{33}$，神经元还有自己的偏置 $\theta_3$
-                        和激活函数 $f(x)$。这样他对于后一层的输出就是
-                        $$ y_{h_3} = f(\sum_{i=1}^3{w_{i3}x_i} - \theta_3) $$
-                    </p>
-                    <p>
-                        接着，后一层的又将它前一层的输出作为自己的输入进行类似的计算，一直到结果输出。
-                    </p>
-                </div>
-
-                <div class="blog_content">
-                    <h3>梯度下降法</h3>
-                    <p>
-                        通过对前向传播的了解，我们知道：如果想要这个网络针对某一个任务表现出“智能”，那么就需要帮助此网络找到一组合适的权重和偏置。而BP（BackPropagation）算法可以在一定程度上帮到我们。
-                    </p>
-                    <p>
-                        我们给定训练集 ${ \mathcal D = \{ (\boldsymbol {x_1, y_1}), (\boldsymbol {x_2, y_2}),..., (\boldsymbol
-                        {x_m, y_m})\}} $，其中，$\boldsymbol{x_i} \in \mathbb {R}^d, \boldsymbol{y_i} \in \mathbb {R}^l$
-                        这里表示的意思是，我们有 $m$ 个训练样本，其中作为输入的 $\boldsymbol {x_i}$ 是一个 $d$ 维的向量，也即有 $d$ 个特征；作为输出的 $\boldsymbol
-                        {y_i}$ 是一个 $l$ 维的向量。对应的我们将上面的神经网络一般化为：输入层有 $d$ 个神经元，
-                        输出层有 $l$ 个神经元，隐含层的神经元个数设为 $h$。将输出层中的第 $i$ 个神经元到 隐含层的第 $j$ 个神经元的权重表示为 $w_{ij}$；类似地将隐含层到输出层的权重表示为
-                        $w_{ij}^{'}$；将隐含层的第 $i$ 个神经元的偏置记为 $\theta_i$，
-                        将输出层的第 $i$ 个神经元的偏置记为 $\theta_i^{'}$。
-                    </p>
-                    <p>
-                        经过上面的规定之后，我们将上一张图稍作修改，得到单隐层神经网络更一般的图形表示：
-                    </p>
-                    <img src="/images/blogs/2018/mlp_normal.png" width="36%" style="margin:0 32%">
-                    <p>
-                        我们将由神经网络映射而来的输出称为假设（Hypothesis），这里记为 $\tilde{\boldsymbol {y}}$。对于一组训练数据 $(\boldsymbol {x_i,
-                        y_i})$，其对应的假设为
-                        $\tilde{\boldsymbol {{y_i}}} = (\tilde{y_1^i}, \tilde{y_2^i}, ..., \tilde{y_l^i})$。
-                    </p>
-                    <p>
-                        定义<b>误差函数</b> $E$，对于训练样本$(\boldsymbol {x_k, y_k})$ 有：
-                        $$ E_k = \frac{1}{2} \sum_{i = 1}^{l} {(\tilde{y_i^k} - y_i^k)^2} $$
-                        而我们训练这个网络的目的就是要将这个E尽可能地降低。梯度下降（gradientdescent）策略，以 $E$ 的负梯度方向对参数进行调整。
-                        它采用这样的策略来对权重和偏置进行更新：
-                        $$ w \leftarrow w - \alpha \frac{\partial E}{\partial w} $$
-                        其中 $\alpha$ 称为更新步长，表示每一次迭代对权重和偏置的调整幅度。
-                    </p>
-                    <p>
-                        这种策略背后的数学原理其实也很好理解，我们可以把 $E$ 想象成一个参数为 $(w_{11}, w_{12}, ..., w_{1h}, ..., w_{2h}, ..., w_{dh},
-                        ..., w_{11}^{'}, ..., w_{hl}^{'}, \theta_1, ..., \theta_l^{'})$ 的函数。这里提一下<b>梯度</b>的概念。
-                        定义：
-                        $$ grad \ u = \nabla u = (\frac{\partial u}{\partial x_1}, \frac{\partial u}{\partial x_1}, ...
-                        ,\frac{\partial u}{\partial x_l}) $$
-                        为函数 $u$ 的梯度，他表示的是函数在 $(x_1, x_2, ... , x_l)$
-                        处增长最快的方向。这样之后，就不难理解上述BP算法的更新策略了，就是沿着下降最快的方向去改变各个自变量，以尽快找到使 $E$ 达到最小值的权重和偏置。那么我们现在就剩下如何求梯度的问题了。
-                    </p>
-                </div>
-
-                <div class="blog_content">
-                    <h3>BP算法</h3>
-                    <p>最近比较忙，数学推导（其实就是偏导数的链式法则）等放假再来补充吧。。。呜呜呜😢</p>
-                    <p>再一个，上面的符号是自己瞎设的，可能也需要进行一些调整，不过对于理解BP和MLP，我觉的还是没有问题的。</p>
-                </div>
-
+                
                 <hr>
 
                 <div class="blog_content">
@@ -229,44 +176,6 @@
                     <p>我们以训练一个可以解决XOR问题的单隐含层MLP为例：</p>
                     <pre>
                         <code class="python">
-import numpy as np
-import tensorflow as tf
-
-# train data
-x_input = np.array([[0,0], [0,1], [1,0], [1,1]], dtype=np.float32)
-y_output = np.array([[0], [1], [1], [0]], dtype=np.float32)
-
-# build a single hidden layer MLP
-X = tf.placeholder(tf.float32)
-Y = tf.placeholder(tf.float32)
-
-# Weights and biases of hidden layer
-W_1 = tf.Variable(tf.random_normal([2,2]), name='weight1')
-b_1 = tf.Variable(tf.random_normal([2]), name='bias1')
-hidden_layer = tf.sigmoid(tf.matmul(X, W_1) + b_1)
-
-# Weights and biases of output layer
-W_2 = tf.Variable(tf.random_normal([2,1]), name='weight2')
-b_2 = tf.Variable(tf.random_normal([1]), name='bias2')
-hypothesis = tf.sigmoid(tf.matmul(hidden_layer, W_2) + b_2)
-
-# define loss funtion
-cost = -tf.reduce_mean(Y * tf.log(hypothesis) + (1 - Y) * tf.log(1 - hypothesis))
-train = tf.train.GradientDescentOptimizer(learning_rate=0.1).minimize(cost)
-
-# predict
-predict = tf.cast(hypothesis > 0.5, dtype=tf.float32)
-accuracy = tf.reduce_mean(tf.cast(tf.equal(predict, Y), dtype=tf.float32))
-
-# train
-with tf.Session() as sess:
-    sess.run(tf.global_variables_initializer())
-    for step in range(10000):
-        sess.run(train, feed_dict={X: x_input, Y: y_output})
-        if step % 100 == 0:
-            print(step, sess.run(cost, feed_dict={X: x_input, Y: y_output}), sess.run([W_1, W_2]))
-    h, c, a = sess.run([hypothesis, predict, accuracy], feed_dict={X: x_input, Y: y_output})
-    print("\nHypothesis: ", h, "\nCorrect: ", c, "\nAccuracy: ", a)
                         </code>
                     </pre>
                 </div>
@@ -284,9 +193,11 @@ with tf.Session() as sess:
                 <div class="blog_content">
                     <h3>参考：</h3>
                     <ul class="reference">
-                        <li>
-
-                        </li>
+                        <li><i><a href="https://blog.csdn.net/d5224/article/details/68928083">卷积神经网络Lenet-5详解</a></i></li>
+                        <li><i><a href="https://en.wikipedia.org/wiki/Convolutional_neural_network">Convolutional neural network - wikipedia</a></i></li>
+                        <li><i><a href="https://blog.csdn.net/xzy_thu/article/details/69808817">李宏毅机器学习课程笔记4：CNN、Why Deep、Semi-supervised</a></i></li>
+                        <li><i><a href="https://arxiv.org/pdf/1603.07285.pdf">A guide to convolution arithmetic for deep learning</a></i></li>
+                        <li><i><a href="http://www.jeyzhang.com/cnn-learning-notes-1.html">卷积神经网络(CNN)学习笔记1：基础入门</a></i></li>
                     </ul>
                 </div>
 
