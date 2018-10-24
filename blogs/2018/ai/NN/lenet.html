@@ -132,6 +132,7 @@
 
                 <div class="blog_content">
                     <p>论文链接：<i><a href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf">Gradient-Based Learning Applied to Document Recognition</a></i></p>
+                    <p>⚠️：文章中的部分图片修改自台湾大学<a href="http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML17.html">李宏毅</a>老师的PPT</p>
                 </div>
 
                 <style>
@@ -148,7 +149,6 @@
                         这里提出一个概念——<b>局部感受野</b>，它由<i>Hubel</i>和<i>Wiesel</i>等人在研究生物视觉时率先提出。所谓局部感受野，也就是说他们发现视觉神经元并不会对眼睛看到的所有图像有反应，而仅仅处理某个有限的区域。
                         这一事实，一定程度上启发了CNN的结构设计。而且，这也符合我们的一般认知：人对外界的认知一般是从局部到全局的，而图像的空间联系也是局部的像素联系较为紧密，而距离较远的像素相关性则较弱。
                     </p>
-                    <h5>$\star $ 全连接神经网络的局限性</h5>
                     <p>
                         拿图像识别这种任务来说，如果我们使用全连接深度神经网络来做这个事情。例如我们要训练出一个全连接深度神经网络，它可以对1000X1000大小的图像进行识别，那么就仅仅输入层就要又1000000个神经元，相应的我们这个网络的隐含层还要足够的“宽度”和“深度”。
                         可想而知，我们需要多么巨大的参数，这无疑给网络训练速度和预测速度的提升带来巨大的阻碍，而且很容易出现过拟合；同时，我们将二维图像简单地展开成一维图像，已经破坏了原始图像中的一些空间信息。CNN采用局部连接的方法来解决上面的问题。
@@ -175,6 +175,7 @@
 
                 <div class="blog_content">
                     <h3>卷积操作</h3>
+                    <h4>$\star$ 基本操作</h4>
                     <p>
                         卷积操作可以说是CNN的核心了，它也正是得名于此，也正式卷积操作，让CNN得以拥有局部连接和权值共享这两件法宝。至于卷积操作到底是什么样子的呢？先看一个图吧。
                     </p>
@@ -187,19 +188,63 @@
                         <img src="/images/blogs/2018/cnn_filter.png" width="60%" style="margin: 0 20%">
                     </p>
                     <p>
-                        所谓卷积操作就是使用这些卷积核，按照上面动图的规则来进行计算，我们就可以得到下面的结果（由于圆形组成的矩阵）：
+                        所谓卷积操作就是使用这些卷积核，按照上面动图的规则来进行计算，我们就可以得到下面的结果（由圆形组成的矩阵），称之为<b>特征图</b>(Feature Map)：
                         <img src="/images/blogs/2018/cnn_filter_rsl.png" width="70%" style="margin: 0 15%">
+                        <br><br>
+                        这里的操作称为一次卷积操作：
+                        $$ result = \sum_{i = 0, j = 0}^{i = 2, j = 2} selectedPiexl_{ij} \times kernel_{ij} .$$
                     </p>
+                    <h4>$\star$ 卷积的作用</h4>
+                    <p>
+                        那么，卷积操作的意义何在呢？它主要用来提取某种特征。还是回想一下之前介绍过的<i>Hubel</i>等人发现视觉皮质层内的一些视觉神经元它们仅仅对图像中的某一些特征才起反应。
+                        而我们的这里的卷积就是在模拟这样一种特性，看下图：
+                        <img src="/images/blogs/2018/cnn_filter_use.png" width="70%" style="margin: 0 15%">
+                    </p>
+                    <p>
+                        我们观察这个3X3的卷积核中的数字，可以发现其对角线上的元素的值最大为1，而其他地方为-1，如果我们认为这个卷积每进行一次卷积操作得到的数值值越大表示该卷积越喜欢这一块区域。
+                        那么显然我们这个卷积核最喜欢的区域就是：对角线为1其余地方为0的3X3的区域。这次再看上面的图，就很容易理解为什么得到的特征图中用蓝框框住的元素的值是最大的了。
+                        我们其实可以看到，一个卷积核他只对图中的某一个特征(斜线，数线，某种特定颜色等等)感兴趣。但是我们如果要对一张图片进行分析时，往往需要综合很多东西，所以我们其实就需要多个卷积核共同工作。
+                        就像下面这样：
+                    </p>
+                    <img src="/images/blogs/2018/cnn_multifilter.png" width="70%" style="margin: 0 15%">
+                    <p>
+                        而CNN的一个主要的任务就是从训练集中“学习出”这些卷积核，来让自己有从图中提取合适的特征的能力。例如，经过训练之后，有些卷积核可以提取出图中的边缘信息，有的可以提取出图中的水平方向的线条，再比如在一些彩色图像中，有的卷积核可以提取出图片中的某种颜色等。这是一个具体的例子：
+                    </p>
+                    <img src="/images/blogs/2018/cnn_filter_ops.gif" width="70%" style="margin: 0 15%">
+                    <h4>$\star$ 彩色图像的卷积核</h4>
+                    <p>
+                        注意到，我们上边一直都是以黑白图像为例来说明的，其对应的卷积核都是二维的。而对于彩色图像，这个图像的数据往往是一个三维的数组(每个像素对应有RGB三个颜色通道)：
+                    </p>
+                    <img src="/images/blogs/2018/color_img.png" width="70%" style="margin: 0 15%">
+                    <p>
+                        这个时候对应的卷积核就也是三维的了，对于更高维的数据，卷积核的维度也相应地改变。
+                    </p>
+                    <h4>$\star$ 进行卷积的路径</h4>
+                    <p>
+                        CNN不仅适用于图像识别，它在语音识别等领域也有很有效的效果。在不同的应用场景，卷积操作的路径也是不一样的：在图像识别中，我们前面已经看到他会按照从左到右，再从上到下的顺序“扫描整张图片”；但是在语音识别时，它只用按照下面的方式在采集到的音频数据上从上到下进行一次“扫描”就可以了，这里不进行详细解读。
+                    </p>
+                    <img src="/images/blogs/2018/cnn_voice.png" width="70%" style="margin: 0 15%">
                 </div>
 
+                <div class="blog_content">
+                    <h3>池化操作</h3>
+                    <p>
+
+                    </p>
+
+                </div>
                 
                 <hr>
 
                 <div class="blog_content">
-                    <h3>Tensorflow实现</h3>
-                    <p>我们以训练一个可以解决XOR问题的单隐含层MLP为例：</p>
+                    <h3>代码实现</h3>
+                    这里我们来实现LeNet-5
+                    <h4>网络设计</h4>
+                    <h3>Keras实现</h3>
                     <pre>
                         <code class="python">
+from keras.model import S
+import tensroflow
                         </code>
                     </pre>
                 </div>
@@ -217,6 +262,7 @@
                 <div class="blog_content">
                     <h3>参考：</h3>
                     <ul class="reference">
+                        <li><i><a href="http://www.hackcv.com/index.php/archives/104/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io">什么是卷积神经网络？为什么它们很重要？</a></i></li>
                         <li><i><a href="https://blog.csdn.net/d5224/article/details/68928083">卷积神经网络Lenet-5详解</a></i></li>
                         <li><i><a href="https://en.wikipedia.org/wiki/Convolutional_neural_network">Convolutional neural network - wikipedia</a></i></li>
                         <li><i><a href="https://blog.csdn.net/xzy_thu/article/details/69808817">李宏毅机器学习课程笔记4：CNN、Why Deep、Semi-supervised</a></i></li>
