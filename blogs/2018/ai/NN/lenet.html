@@ -651,7 +651,7 @@ import tensroflow
                     <blockquote>
                         <img src="/images/blogs/2018/cnn_lenet5.png" width="100%">
                         <h4><i>B. LeNet-5</i></h4>
-                        <p>
+                        <p style="line-height: 1.5">
                             This section describes in more details the architecture of LeNet-5, the Convolutional Neural Network used in the experimennts.
                             LeNet-5 comprises 7 layers, not counting the input, all of which contain trainable parameters (weights).
                             The input is a 32x32 piexl image.
@@ -682,8 +682,46 @@ import tensroflow
                             The rationale behind the connection scheme in talbe I is the following. The first six C3 feature maps take input from every contiguous subsets of three feature maps in S2.
                             The next six take input from every contiguous subsets of four.
                             The next three take input from some discontinuous subsets of four. 
-                            Finally the last one takes input 
-                        </p>
+                            Finally the last one takes input from all S2 feature maps. Layer C3 has 1,516 trainable parameters and 151,600 connections.
+                            <br><br>
+                            Layer S4 is a sub-sampling layer with 16 feature maps of size 5x5. Each unit in each feature map is connected to a 2x2 neighborhood in the corresponding fature map in C3, in a similar way as C1 and C2. Layer S4 has 32 trainable parameters and 2,000 connections.  
+                            <br><br>
+                            Layer C5 is a convolutional layer with 120 feature maps. Each unit is connected to a 5x5 neighborhood on all 16 of S4's feature maps.
+                            Here, because the size of S4 is also 5x5, the size of C5's feature maps is 1x1: this amounts to a full connection between S4 and C5. 
+                            C5 is labeled as a convolutional layer, instead of a fully-connected layer, because if LeNet-5 input were made bigger with wvwrything else kept constant, the feature map dimension would be larger than 1x1.
+                            This process of dynamically increasing the size of a convolutional network is described in the section Section VII.
+                            Layer C5 has 48,120 trainable connections.
+                            <br><br>  
+                            Layer F6, contains 84 unit (the reason for this number comes from the design of output layer, explained below) and is fully connected to C5. It has 10,164 trainable parameters.
+                            <br><br>
+                            As in classical neural networks, units in layers up to F6 computer a dot product between their innput vector annd their weight vector, to which a bias is added. This weighted sum, denoted $a_i$ for unit $i$, is then passed through a sigmoid squashing function to produce the state of unit $i$, denoted by $x_i$:
+                            $$ x_i = f(a_i) $$
+                            Then squashing function is scaled hyperbolic tangent:
+                            $$ f(a) = A tanh(Sa) $$
+                            Where $A$ is the amplitude of the function and S determines its slope at origin.
+                            The funtion $f$ is odd, with horizontal asymptotes as $+A$ and $-A$. The constant $A$ is chosen to be 1.7159. The rationale for this choice of a squashing function is given in Appendix A.
+                            <br><br>
+                            Finally, the output layer layer is composed of Euclidean Radial Basis Function units (RBF), one for each class, with 84 inputs each.
+                            The outputs of each RBF unit $y_i$ is computed as following:
+                            $$ y_i = \sum_{j}{(x_j - w_{ij})^2}. $$
+                            In other words, each output RBF unit computes the Euclidean diatance between its input vector and its parameter vector. The further away is the input vector and its parameter vector.
+                            The further away is the input from the parameter vector, the larger is the RBF output. The output of a particular RBF can be interpreted as a penalty term measuring the fit between the input pattern and a model of the class associated with the RBF. 
+                            In probabilistic terms, the RBF output can be interpreted as the unnormalized negative log-likelihood of a Gaussian distribution in the space of cinfigurations of layer F6. 
+                            Given an input pattern the loss function should be designed so as to get thhe configuration of F6 as close as possible to the pattern's desired class.
+                            The parameter vectors of these units were chosen by hand and kept fixed (at least initially). 
+                            The components of those parameters vectors were set to -1 or +1. While they could have been chosen at random with equal probabilities for -1 and  +1, or even chosen to form an error correcting code as suggested by [47], they were instead designed to represent a stylized image of the corresponding character class drawn on a 7x12 bitmap (hense the number 84). 
+                            Such a representation is not particularly useful for recognizing isolated digits, but it is quite useful for recognizing strings of characters taken from the full printable ASCII set.
+                            The rationale is that characters that are similar, and therefore confusale, such as uppercase O, lowercase O, and zero, or lowercase l, digit 1, square brackets, and uppercase I, will have similar output codes.
+                            This is particularly useful if the system is combined with a linguistic post-processor that can correct such sonfusions.
+                            Because the codes for confusable classes are similar, the output of the corresponding RBFs for anambiguous character will be similar, and the post-processor will be able to pick the appropriate interpretation. Figure 3 gives the output codesd for the full ASCII set.
+                            <br><br>
+                            Another reason for using such distributed codes, rather than the more common "1 of N" code (also called place code, or grand-mother cell code) for the output is that non distributed codes tend to behave badly when the number of classes id larger than a few dozens.
+                            The reason is that output units in a non-distributed code must be off most of the time. This is quite difficult to achieve with sigmoid units. 
+                            Yet another reason is that the classifiers are often used to not only recognize character, but also to reject non-character. RBFs with distributed codes are more appropriate for that purpose because unlike sigmoids, they are activated within a well circumscribed region of their input space that non-typical pattern are more likely to fall outside of.
+                            <br><br>
+                            The parameter vector of the RBFs play the role of target vectors for layer F6. 
+                            It is worth pointing out that the components of those vectors are -1 or +1, which is well within the range of the rigmoid of F6, and therefore prevents those sigmoids from getting saturated. In fact, +1 and -1 are the points of maximum curvature of the sigmoids. This forces the F6 units of maximum... 
+                         </p>
 
                         <br><br>
                         <i style="color: black">Cite from "Gradient-Based Learning Applied to Document Recognition"</i>
