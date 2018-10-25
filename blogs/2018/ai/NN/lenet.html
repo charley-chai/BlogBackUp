@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/styles/temp.css">
     <link rel="stylesheet" href="/styles/blogs.css">
     <link rel="stylesheet" href="/styles/article_blog.css">
+    <link rel="stylesheet" href="/styles/timeline.css">
     <meta name="keywords" content="NN ML CNN LeNet-5 lua torch pytorch python 神经网络 机器学习 历史 CharleyChai 博客 柴磊">
     <meta name="description" content="">
     <meta name="author" content="Charley Chai">
@@ -262,13 +263,6 @@
                 </div>
 
                 <div class="blog_content">
-                    <h3>利用梯度下降进行训练</h3>
-                    <p>
-                        寒假来填坑😢。。。
-                    </p>
-                </div>
-
-                <div class="blog_content">
                     <h3>LeNet-5</h3>
                     <p>
                         经过上面的一大堆啰嗦，我们应该已经对CNN里边的卷积和池化操作有了一定的了解，下面就开始进入正题吧——LeNet-5。
@@ -284,12 +278,355 @@
                     <p>
                         不算上输入的话，LeNet-5是一个7层的神经网络，从前到后分别是：
                     </p>
-                    <ul class="reference">
-                        <li>输入层：32X32的黑白手写图像</li>
-                        <li>C1层：选择6个5X5卷积核(Filter)，得到6个28X28的特征图(Feature Map)</li>
-                        <li>S2层：对C1层的特征图进行最大池化(Max Pooling)操作，选择2X2的窗口大小，得到6个14X14的特征图</li>
-                        <li>C3层：</li>
-                    </ul>
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">#001</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-1,
+                                            .cls-4 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-1 {
+                                                stroke: #f23030;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-2 {
+                                                fill: #f23030;
+                                            }
+                    
+                                            .cls-3 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-1" transform="translate(1056 251)">
+                                            <circle class="cls-3" cx="25" cy="25" r="25" />
+                                            <circle class="cls-4" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-2" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>C1层(卷积层)</h4>
+                            <p class="timeintro top-to-bottom"><br />
+                                输入：32X32的图片 <br>
+                                卷积核大小：5X5 <br>
+                                卷积核个数：6 <br>
+                                输出的特征图的大小：6X28X28 <br>
+                                可训练参数： (5X5+1)X6 // 每个Filter有5X5+1个参数，共有六个Filter<br>
+                                <br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+                    
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">#002</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-11,
+                                            .cls-14 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-11 {
+                                                stroke: #ffb134;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-12 {
+                                                fill: #ffb134;
+                                            }
+                    
+                                            .cls-13 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-11" transform="translate(1056 251)">
+                                            <circle class="cls-13" cx="25" cy="25" r="25" />
+                                            <circle class="cls-14" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-12" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>S2层(池化层)</h4>
+                            <p class="timeintro top-to-bottom1"><br />
+                                输入：28X28X6的Feature Map <br>
+                                窗口大小：2X2 <br>
+                                输出的特征图的大小：14X14X6 <br>
+                                可训练的参数：(1+1)X6 // 区域大小为2X2，加上一个权重和一个偏置，而一共有6个这样的Max Pooling
+                                <br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+                    
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">#003</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-21,
+                                            .cls-24 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-21 {
+                                                stroke: #FAEE5D;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-22 {
+                                                fill: #FAEE5D;
+                                            }
+                    
+                                            .cls-23 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-21" transform="translate(1056 251)">
+                                            <circle class="cls-23" cx="25" cy="25" r="25" />
+                                            <circle class="cls-24" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-22" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>C3层(卷积层)</h4>
+                            <p class="timeintro top-to-bottom2"><br>
+                                输入：14X14X6 <br>
+                                卷积核大小：5X5 <br>
+                                卷积核个数：16 <br>
+                                输出的特征图的大小：10X10X16 <br>
+                                可训练参数： 6X(3X5X5+1 + 6X(4X5X5+1) + 3X(4X5X5+1) + 1X(6X5X5+1) <br><br>
+                                ⚠️1：这里需要注意的是，C3中得到的每个Feature Map会和S2中输出的6个Feature Map或者几个Feature Map相连，即这一层的Feature Map提取的是上一层若干Feature Map的组合特征。
+                                但是，这里并不是把S2的每一个Feature Map连接都到S3的每一个Feature Map上，为什么呢？因为这样的话，不同的Feature Map会有不同的输入，从而使C3层的不同Feature Map提取出不同的特征。
+                                <br><br>
+                                ⚠️2：C3的前6个Feature Map以S2中的3个相邻的Feature Map子集为输入；接下来的6个Feature Map以S2中相邻的4个Feature Map作为输入；接下来的3个以不相邻的4个Feature Map子集作为输入；最后一个将S2中所有的Feature Map作为输入。
+                                <br>第一种连接方式如图：<br><br><br>
+                                <img src="/images/blogs/2018/lenet_c3s2" width="50%" style="margin: 0 25%">
+                                <br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+                    
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">#004</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-31,
+                                            .cls-34 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-31 {
+                                                stroke: #25DD73;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-32 {
+                                                fill: #25DD73;
+                                            }
+                    
+                                            .cls-33 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-31" transform="translate(1056 251)">
+                                            <circle class="cls-33" cx="25" cy="25" r="25" />
+                                            <circle class="cls-34" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-32" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>S4层(池化层)</h4>
+                            <p class="timeintro top-to-bottom3"><br>
+                                输入：10X10X16的Feature Map <br>
+                                窗口大小：2X2 <br>
+                                输出的特征图的大小：5X5X16 <br>
+                                可训练的参数：(1+1)X16 <br>
+                                <br><br> 
+                            </p>
+                        </article>
+                    
+                    </div>
+                    
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">#005</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-41,
+                                            .cls-44 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-41 {
+                                                stroke: #30A4F8;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-42 {
+                                                fill: #30A4F8;
+                                            }
+                    
+                                            .cls-43 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-41" transform="translate(1056 251)">
+                                            <circle class="cls-43" cx="25" cy="25" r="25" />
+                                            <circle class="cls-44" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-42" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>C5层(卷积层)</h4>
+                            <p class="timeintro top-to-bottom4"><br>
+                                输入：5X5X16 <br>
+                                卷积核大小：5X5 <br>
+                                卷积核个数：120 <br>
+                                输出的特征图的大小：1X1X120 <br>
+                                可训练参数： (5X5X16+1)X120 <br>
+                                <br>
+                                ⚠️：这里每个单元与S4层的全部的16个5*5的邻域相连，即S4与C5之间是全连接
+                                <br>
+                                <br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+                    
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">#006</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-51,
+                                            .cls-54 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-51 {
+                                                stroke: #08FDE1;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-52 {
+                                                fill: #08FDE1;
+                                            }
+                    
+                                            .cls-53 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-51" transform="translate(1056 251)">
+                                            <circle class="cls-53" cx="25" cy="25" r="25" />
+                                            <circle class="cls-54" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-52" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>F6层(全连接层)</h4>
+                            <p class="timeintro top-to-bottom5"><br>
+                                输入：120维向量 <br>
+                                输出：84维向量 <br>
+                                可训练参数：(120+1)X84 //全连接
+                                <br><br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+                    
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">#007</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-61,
+                                            .cls-64 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-61 {
+                                                stroke: #6630F8;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-62 {
+                                                fill: #6630F8;
+                                            }
+                    
+                                            .cls-63 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-61" transform="translate(1056 251)">
+                                            <circle class="cls-63" cx="25" cy="25" r="25" />
+                                            <circle class="cls-64" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-62" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>输出层</h4>
+                            <p class="timeintro top-to-bottom6end"><br />
+                                该层也是全连接层，共有10个节点，分别代表数字0到9。如果节点i的值为0，则网络识别的结果是数字i。<br><br>
+                                ⚠️1：这一层采用的是(高斯)径向基函数核(Radial basis function kernel, RBF)的连接方式。假设其输入为$\vec{x}$，则RBF输出o是：<br><br>
+                                $$ o = || \vec{x} - \vec{w} ||^2 $$
+                                <br>
+                                ⚠️2：每个RBF中的$\vec{w}$的值由其对应的i的编码是人为确定的，且被设计成7X12的标准格式(这下子终于知道为什么上一层是84个了)。RBF输出越接近于0，即输入$\vec{w}$越接近于i的编码。
+                                <br><br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+                </div>
+
+                <div class="blog_content">
+                    <h4>$\star$ 整体效果</h4>
+                    <p>
+                        经过上面的啰嗦，相信大家对LeNet-5的细节已经略有掌握了。下面放一张预测的效果图：
+                        <br><br>
+                        <img src="/images/blogs/2018/lenet_exam" width="80%" style="margin: 0 10%">
+                    </p>
+                </div>
+
+                <div class="blog_content">
+                    <h3>如何训练LeNet-5</h3>
+                    <p>
+                        寒假来填坑😢。。。
+                    </p>
                 </div>
                 
                 <hr>
@@ -306,6 +643,8 @@ import tensroflow
                         </code>
                     </pre>
                 </div>
+
+
 
                 <div class="blog_content">
                     <style>
@@ -327,9 +666,9 @@ import tensroflow
                         <li><i><a href="https://blog.csdn.net/xzy_thu/article/details/69808817">李宏毅机器学习课程笔记4：CNN、Why Deep、Semi-supervised</a></i></li>
                         <li><i><a href="https://arxiv.org/pdf/1603.07285.pdf">A guide to convolution arithmetic for deep learning</a></i></li>
                         <li><i><a href="http://www.jeyzhang.com/cnn-learning-notes-1.html">卷积神经网络(CNN)学习笔记1：基础入门</a></i></li>
+                        <li><i><a href="https://blog.csdn.net/sinat_24143931/article/details/78958931">LeNet-5网络模型详解</a></i></li>
                     </ul>
                 </div>
-
             </section>
         </main>
     </div>
