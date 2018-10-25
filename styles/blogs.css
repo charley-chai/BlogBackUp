@@ -377,3 +377,7 @@ ul li{
   color: black;
 }
 
+.paperReference{
+  color: #999999;
+  border-left: 10px solid rgb(238,240,244);
+}

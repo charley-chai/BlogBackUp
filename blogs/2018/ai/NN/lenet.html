@@ -625,7 +625,6 @@
                 <div class="blog_content">
                     <h3>如何训练LeNet-5</h3>
                     <p>
-                        寒假来填坑😢。。。
                     </p>
                 </div>
                 
@@ -642,6 +641,54 @@ from keras.model import S
 import tensroflow
                         </code>
                     </pre>
+                </div>
+
+                <div class="blog_content">
+                    <h3>原论文的叙述</h3>
+                </div>
+
+                <div class="blog_content paperReference">
+                    <blockquote>
+                        <img src="/images/blogs/2018/cnn_lenet5.png" width="100%">
+                        <h4><i>B. LeNet-5</i></h4>
+                        <p>
+                            This section describes in more details the architecture of LeNet-5, the Convolutional Neural Network used in the experimennts.
+                            LeNet-5 comprises 7 layers, not counting the input, all of which contain trainable parameters (weights).
+                            The input is a 32x32 piexl image.
+                            This is significantly larger than the largest character in the database (at most 20x20 piexl centered in a 28x28 field).
+                            The reason is that it is desirable that potential distinctive features such as stroke end-point or cornor can appear <i>in the center of </i> the receptice field of the highest-level feature detecture.
+                            In LetNet-5 the set of centers of the receptive fields of the last convolutional layer (C3, see blow) from 20x20 area in the center of the 32x32 input.
+                            The values of the input piexl are normalized so that the background level (white) corresponds to a value of -0.1 and the foreground (black) corresponds to 1.175.
+                            This makes the mean input roughly 0, and the variance roughly 1 which accelerate learning.
+                            <br><br>
+                            In the following, convolutional layers are labeled Cx, sub-sampling layers are labeled Sx, and fully-connected layers are lebeled Fx, where x is the layer index.
+                            <br><br>
+                            Layer C1 is a convolutional layer with 6 feature maps. Each unit in each feature map is connected to a 5x5 neighborhood in the input.
+                            The size of the feature maps is 28x28 which prevents connection from the input from falling off the boundary.
+                            C1 contains 156 trainable parameters, and 122,304 connections.
+                            <br><br>
+                            Layer S2 is a sub-sampling layer withh 6 feature maps of size 14x14.
+                            Each unit in each feature map is connected to a 2x2 neighborhood in the corresponding feature map in C1.
+                            The four inputs to a unit in S2 are added, then multiplied by a trainable coefficient, and added to a trainable bias.
+                            The result is passed through a sigmoidal fucntion.
+                            The 2x2 receptive fields a non-overlapping, therefore feature maps in S2 have half the number of rows and columns as feature maps in C1.
+                            Layer S2 has 12 trainable parameters and 5,880 connections.
+                            <br><br>
+                            Layer C3 is a convolutional layer with 16 feature maps. Each unit in each feature map is connected to several 5x5 neighborhoods at identical locations in a subset of S2's feature maps.
+                            Table I shows the set of S2 feature maps combined by each C3 feature maps. Why not connect every S2 feature map to every C3 feature map? The reason is twofold. 
+                            First, a non-complete connection scheme keeps the number of connections within reasonale bounds.
+                            More importantly, is forces a break of symmetry in the network.
+                            Diffferent feature maps are forced to extract different (hopefully complementary) features because they get different sets of inputs.
+                            The rationale behind the connection scheme in talbe I is the following. The first six C3 feature maps take input from every contiguous subsets of three feature maps in S2.
+                            The next six take input from every contiguous subsets of four.
+                            The next three take input from some discontinuous subsets of four. 
+                            Finally the last one takes input 
+                        </p>
+
+                        <br><br>
+                        <i style="color: black">Cite from "Gradient-Based Learning Applied to Document Recognition"</i>
+                        <br>
+                    </blockquote>
                 </div>
 
 
