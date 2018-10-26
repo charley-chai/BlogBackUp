@@ -276,7 +276,7 @@
                     </p>
                     <img src="/images/blogs/2018/cnn_lenet5.png" width="100%">
                     <p>
-                        不算上输入的话，LeNet-5是一个7层的神经网络，从前到后分别是：
+                        不算上输入层的话，LeNet-5是一个7层的神经网络，从前到后分别是：
                     </p>
                     <div class="timeline">
                     
@@ -314,12 +314,12 @@
                                     </g>
                                 </svg>C1层(卷积层)</h4>
                             <p class="timeintro top-to-bottom"><br />
-                                输入：32X32的图片 <br>
-                                卷积核大小：5X5 <br>
-                                卷积核个数：6 <br>
-                                输出的特征图的大小：6X28X28 <br>
-                                可训练参数： (5X5+1)X6 // 每个Filter有5X5+1个参数，共有六个Filter<br>
+                                C1层有6个28x28的特征图组成，每个特征图中的任一个元素与该层的输入中一个5x5的区域相连接。如图所示：
                                 <br><br>
+                                <img src="/images/blogs/2018/lenet_c1.png" width="80%" style="margin: 0 10%">
+                                <br><br>
+                                C1层一共有$(5\times 5+1) \times 6 = 156$个可训练的参数，而且一共有$(5 \times 5 + 1) \times 28 \times 28 \times 6 = 122,304$个连接。
+                                <br><br><br>
                             </p>
                         </article>
                     
@@ -361,11 +361,12 @@
                                     </g>
                                 </svg>S2层(池化层)</h4>
                             <p class="timeintro top-to-bottom1"><br />
-                                输入：28X28X6的Feature Map <br>
-                                窗口大小：2X2 <br>
-                                输出的特征图的大小：14X14X6 <br>
-                                可训练的参数：(1+1)X6 // 区域大小为2X2，加上一个权重和一个偏置，而一共有6个这样的Max Pooling
+                                S2层是一个池化层，由6个14x14的特征图组成，每一个特征图中元素都与C1层中对应的特征图中一个2x2的相邻区域相连。这里的池化操作为：将4个输入相加，乘上一个可训练的系数，加上一个可训练的偏置，最后经过一个$Sigmoid$函数。
                                 <br><br>
+                                <img src="/images/blogs/2018/lenet_s2.png" width="80%" style="margin: 0 10%">
+                                <br><br>
+                                S2层一共有$(1 + 1) \times 6 = 12$个可训练的参数，而且一共有$(2 \times 2 + 1) \times 14 \times 14 \times 6 = 5,880$个连接。
+                                <br><br><br>
                             </p>
                         </article>
                     
@@ -407,18 +408,18 @@
                                     </g>
                                 </svg>C3层(卷积层)</h4>
                             <p class="timeintro top-to-bottom2"><br>
-                                输入：14X14X6 <br>
-                                卷积核大小：5X5 <br>
-                                卷积核个数：16 <br>
-                                输出的特征图的大小：10X10X16 <br>
-                                可训练参数： 6X(3X5X5+1 + 6X(4X5X5+1) + 3X(4X5X5+1) + 1X(6X5X5+1) <br><br>
-                                ⚠️1：这里需要注意的是，C3中得到的每个Feature Map会和S2中输出的6个Feature Map或者几个Feature Map相连，即这一层的Feature Map提取的是上一层若干Feature Map的组合特征。
-                                但是，这里并不是把S2的每一个Feature Map连接都到S3的每一个Feature Map上，为什么呢？因为这样的话，不同的Feature Map会有不同的输入，从而使C3层的不同Feature Map提取出不同的特征。
+                                C3层由16个10x10的特征图组成，与C1的最大区别是，这里每个特征图中的元素会与S2层中若干个特征图中处于相同位置的5x5的区域相连，如图所示：
                                 <br><br>
-                                ⚠️2：C3的前6个Feature Map以S2中的3个相邻的Feature Map子集为输入；接下来的6个Feature Map以S2中相邻的4个Feature Map作为输入；接下来的3个以不相邻的4个Feature Map子集作为输入；最后一个将S2中所有的Feature Map作为输入。
-                                <br>第一种连接方式如图：<br><br><br>
                                 <img src="/images/blogs/2018/lenet_c3s2" width="50%" style="margin: 0 25%">
                                 <br><br>
+                                而其具体的连接方案如下表所示：
+                                <br><br>
+                                <img src="/images/blogs/2018/lenet_c3.png" width="80%" style="margin: 0 10%">
+                                <br><br>
+                                具体来说，C3层中首先会将得到的对应的卷积结果相加，然后再进行类似C1层的加偏置的操作，从而得到一个元素。按照上表中的规则连接，C3层一共有$6 \times (3 \times 25 + 1) + 9 \times (4 \times 25 + 1) + 1 \times (6 \times 25 + 1) = 1,516$个可训练的参数，一共有$151,600$个连接。
+                                <br><br>
+                                ⚠️另外，值得说的一点是，为什么要采用上面的连接方案，而不是“全”连接？首先，不完全的连接可以减少参数和连接数；其次，我们知道每个特征图对应的就是卷积核从输入中提取出的不同的特征，采取这种不对称的连接，可以使本层的特征图对应的不同的更高级的特征。
+                                <br><br><br>
                             </p>
                         </article>
                     
@@ -460,11 +461,8 @@
                                     </g>
                                 </svg>S4层(池化层)</h4>
                             <p class="timeintro top-to-bottom3"><br>
-                                输入：10X10X16的Feature Map <br>
-                                窗口大小：2X2 <br>
-                                输出的特征图的大小：5X5X16 <br>
-                                可训练的参数：(1+1)X16 <br>
-                                <br><br> 
+                                S4层是一个池化层，他由16个5x5的特征图构成，其操作和S2层相同。其共有$32$和可训练的参数和$2000$个连接。
+                                <br><br><br> 
                             </p>
                         </article>
                     
@@ -506,15 +504,10 @@
                                     </g>
                                 </svg>C5层(卷积层)</h4>
                             <p class="timeintro top-to-bottom4"><br>
-                                输入：5X5X16 <br>
-                                卷积核大小：5X5 <br>
-                                卷积核个数：120 <br>
-                                输出的特征图的大小：1X1X120 <br>
-                                可训练参数： (5X5X16+1)X120 <br>
-                                <br>
-                                ⚠️：这里每个单元与S4层的全部的16个5*5的邻域相连，即S4与C5之间是全连接
-                                <br>
+                                C5是一个类似C3的卷积层，由120个1x1的特征图组成。但是，与C3层不同的是，这里的连接是一种“全”连接，即每个特征图中的元素与S4层中每个特征图都连接。
                                 <br><br>
+                                S2层一共有$120 \times(5\times 5 \times 16 + 1 ) = 48,120$个可训练的参数。
+                                <br><br><br>
                             </p>
                         </article>
                     
@@ -556,9 +549,9 @@
                                     </g>
                                 </svg>F6层(全连接层)</h4>
                             <p class="timeintro top-to-bottom5"><br>
-                                输入：120维向量 <br>
-                                输出：84维向量 <br>
-                                可训练参数：(120+1)X84 //全连接
+                                F6就是一个简单的全连接层，它由84个神经元构成，每个神经元将C5层中的特征图的值乘上权重相加，加上偏置再经过$Sigmoid$函数。
+                                <br><br>
+                                F6层共有$84 \times (120 + 1) = 10,164$个可训练的参数。
                                 <br><br><br>
                             </p>
                         </article>
