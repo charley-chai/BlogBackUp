@@ -549,9 +549,18 @@
                                     </g>
                                 </svg>F6层(全连接层)</h4>
                             <p class="timeintro top-to-bottom5"><br>
-                                F6就是一个简单的全连接层，它由84个神经元构成，每个神经元将C5层中的特征图的值乘上权重相加，加上偏置再经过$Sigmoid$函数。
+                                F6就是一个简单的全连接层，它由84个神经元构成。和传统的全连接一样每个神经元将C5层中的特征图的值乘上相应的权重并相加，再加上对应的偏置再经过$tanh$激活函数。
+                                <br><br>
+                                <img src="/images/blogs/2018/lenet_f6.png" width="80%" style="margin: 0 10%">
                                 <br><br>
                                 F6层共有$84 \times (120 + 1) = 10,164$个可训练的参数。
+                                <br><br>
+                                ⚠️：$tanh$函数：
+                                $$ f(a) = A tanh(Sa) $$
+                                其中A是函数的振幅，S相当于斜率。$f(a)$是奇函数，这里取$A = 1.7159$。下图是tanh(a)的函数图像：<br><br>
+                                <img src="/images/blogs/2018/lenet_tanh.png" width="70%" style="margin: 0 15%">
+                                <br><br>
+                                ⚠️：至于为什么要是84这个数字母，在介绍输出层时会解释。
                                 <br><br><br>
                             </p>
                         </article>
@@ -593,12 +602,18 @@
                                         <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-62" cx="12" cy="12" r="12" transform="translate(1069 264)" />
                                     </g>
                                 </svg>输出层</h4>
-                            <p class="timeintro top-to-bottom6end"><br />
-                                该层也是全连接层，共有10个节点，分别代表数字0到9。如果节点i的值为0，则网络识别的结果是数字i。<br><br>
-                                ⚠️1：这一层采用的是(高斯)径向基函数核(Radial basis function kernel, RBF)的连接方式。假设其输入为$\vec{x}$，则RBF输出o是：<br><br>
-                                $$ o = || \vec{x} - \vec{w} ||^2 $$
-                                <br>
-                                ⚠️2：每个RBF中的$\vec{w}$的值由其对应的i的编码是人为确定的，且被设计成7X12的标准格式(这下子终于知道为什么上一层是84个了)。RBF输出越接近于0，即输入$\vec{w}$越接近于i的编码。
+                            <p class="timeintro top-to-bottom6end" id="output"><br />
+                                输出层由10个欧几里得径向基函数核(Euclidean Radial Basis Function, RBF)构成，每个核对应0-9中的一个类别。输出值最小的那个核对应的$i$就是这个模型识别出来的数字。<br><br>
+                                ⚠️1：RBF核的输出
+                                $$ y_i = \sum_j{(x_j - w_{ij})^2}.$$
+                                其中，$x_i \in \vec{X} = \{ x_1, ... , x_i, ... x_{84} \}$，$\vec{X}$就是F6层中的神经元的输出组成的向量。
+                                而$w_{ij} \in \vec{w_i} = \{ w_{i1}, ... , w_{ij}, ... x_{i84} \}$，是数字$i$对应的RBF核保有的一个常向量。
+                                即，RBF核的输出就是输入向量$\vec{X}$和$\vec{w_i}$的欧几里得距离。
+                                <br><br>
+                                ⚠️2：RBF核保有的常向量$\vec{w_i}$中的元素是+1或者-1，这些向量被人为设定为可以表示绘制在7x12位图上的字符(0—9)，这也就解释了为什么要将F6层设定为84个神经元。至于为什么要这么设计？主要是为了保证该模型在被拓展应用到识别ASCII码时，该模型可以正确区别例如0和大小写O，这种容易混淆的字符。
+                                <br><br>
+                                下图是RBF核保有的常向量对应的bitmap字符：
+                                <img src="/images/blogs/2018/lenet_rbf.png" width="80%" style="margin: 0 10%">
                                 <br><br><br>
                             </p>
                         </article>
@@ -607,9 +622,9 @@
                 </div>
 
                 <div class="blog_content">
-                    <h4>$\star$ 整体效果</h4>
+                    <h4>$\star$ 一个直观的效果</h4>
                     <p>
-                        经过上面的啰嗦，相信大家对LeNet-5的细节已经略有掌握了。下面放一张预测的效果图：
+                        一个输入数据在经过这个模型的过程中，在各个层的样子可以参看下图：
                         <br><br>
                         <img src="/images/blogs/2018/lenet_exam" width="80%" style="margin: 0 10%">
                     </p>
@@ -617,6 +632,7 @@
 
                 <div class="blog_content">
                     <h3>如何训练LeNet-5</h3>
+                    要知道，经过上面的讨论我们知道LeNet-5中有很多待训练的参数，也只有这些参数收敛到了合理的值时，它才能发挥它识别手写数字的功能。
                     <p>
                     </p>
                 </div>
@@ -700,7 +716,7 @@ import tensroflow
                             In other words, each output RBF unit computes the Euclidean diatance between its input vector and its parameter vector. The further away is the input vector and its parameter vector.
                             The further away is the input from the parameter vector, the larger is the RBF output. The output of a particular RBF can be interpreted as a penalty term measuring the fit between the input pattern and a model of the class associated with the RBF. 
                             In probabilistic terms, the RBF output can be interpreted as the unnormalized negative log-likelihood of a Gaussian distribution in the space of cinfigurations of layer F6. 
-                            Given an input pattern the loss function should be designed so as to get thhe configuration of F6 as close as possible to the pattern's desired class.
+                            Given an input pattern the loss function should be designed so as to get the configuration of F6 as close as possible to the pattern's desired class.
                             The parameter vectors of these units were chosen by hand and kept fixed (at least initially). 
                             The components of those parameters vectors were set to -1 or +1. While they could have been chosen at random with equal probabilities for -1 and  +1, or even chosen to form an error correcting code as suggested by [47], they were instead designed to represent a stylized image of the corresponding character class drawn on a 7x12 bitmap (hense the number 84). 
                             Such a representation is not particularly useful for recognizing isolated digits, but it is quite useful for recognizing strings of characters taken from the full printable ASCII set.
