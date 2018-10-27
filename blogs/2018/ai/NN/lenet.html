@@ -613,6 +613,7 @@
                                 ⚠️2：RBF核保有的常向量$\vec{w_i}$中的元素是+1或者-1，这些向量被人为设定为可以表示绘制在7x12位图上的字符(0—9)，这也就解释了为什么要将F6层设定为84个神经元。至于为什么要这么设计？主要是为了保证该模型在被拓展应用到识别ASCII码时，该模型可以正确区别例如0和大小写O，这种容易混淆的字符。
                                 <br><br>
                                 下图是RBF核保有的常向量对应的bitmap字符：
+                                <br><br>
                                 <img src="/images/blogs/2018/lenet_rbf.png" width="80%" style="margin: 0 10%">
                                 <br><br><br>
                             </p>
@@ -646,8 +647,47 @@
                     <h3>Keras实现</h3>
                     <pre>
                         <code class="python">
-from keras.model import S
-import tensroflow
+import numpy as np
+import keras
+from keras.datasets import mnist
+from keras.utils import np_utils
+from keras.models import Sequential
+
+(X_train, y_train), (X_test, y_test) = mnist.load_data()
+
+
+X_train = X_train.reshape(-1, 28, 28, 1)
+X_test = X_test.reshape(-1, 28, 28, 1)
+X_train = X_train / 255
+X_test = X_test / 255
+y_train = np_utils.to_categorical(y_train, num_classes=10)
+y_test = np_utils.to_categorical(y_test, num_classes=10)
+
+
+model = Sequential()
+model.add(keras.layers.Conv2D(input_shape=(28, 28, 1), kernel_size=(5,5), filters=20, activation='relu'))
+model.add(keras.layers.MaxPool2D(pool_size=(2,2), strides=2, padding='same'))
+
+model.add(keras.layers.Conv2D(kernel_size=(5,5), filters=50, activation='relu', padding='same'))
+model.add(keras.layers.MaxPool2D(pool_size=(2,2), strides=2, padding='same'))
+
+model.add(keras.layers.Flatten())
+model.add(keras.layers.Dense(500, activation='relu'))
+model.add(keras.layers.Dense(10, activation='softmax'))
+model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
+
+
+print('Training')
+model.fit(X_train, y_train, epochs=2, batch_size=32)
+
+
+print('Testing')
+loss, accuracy = model.evaluate(X_test, y_test)
+
+
+print('loss', loss)
+print('accuracy', accuracy)
+
                         </code>
                     </pre>
                 </div>
