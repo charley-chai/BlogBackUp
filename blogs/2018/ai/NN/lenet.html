@@ -643,8 +643,8 @@
                 <div class="blog_content">
                     <h3>代码实现</h3>
                     这里我们来实现LeNet-5
-                    <h4>网络设计</h4>
-                    <h3>Keras实现</h3>
+                    <h4>Keras实现</h4>
+                    <p>这里使用的是一个简化版的LeNet-5，经过两次卷积和Max Pooling之后，将得到的结果展开为一维，再经过一个Softmax。</p>
                     <pre>
                         <code class="python">
 import numpy as np
@@ -694,9 +694,27 @@ print('accuracy', accuracy)
 
                 <div class="blog_content">
                     <h3>原论文的叙述</h3>
+                    <button id="ref_invoke" res="0">展开</button>
+                    <script>
+                        $(window).ready(function () {
+                            $("#reference").slideToggle();
+                        });
+                        $("#ref_invoke").click(function(){
+                            var i = $("#ref_invoke").attr("res");
+                            if (i == 0){
+                                $("#ref_invoke").text("隐藏");
+                                $("#ref_invoke").attr("res", 1);
+                            }
+                            else{
+                                $("#ref_invoke").text("展开");
+                                $("#ref_invoke").attr("res", 0);
+                            }
+                            $("#reference").slideToggle();
+                        });
+                    </script>
                 </div>
 
-                <div class="blog_content paperReference">
+                <div class="blog_content paperReference" id="reference">
                     <blockquote>
                         <img src="/images/blogs/2018/cnn_lenet5.png" width="100%">
                         <h4><i>B. LeNet-5</i></h4>
@@ -778,8 +796,6 @@ print('accuracy', accuracy)
                     </blockquote>
                 </div>
 
-
-
                 <div class="blog_content">
                     <style>
                         #bloglink {
@@ -801,6 +817,7 @@ print('accuracy', accuracy)
                         <li><i><a href="https://arxiv.org/pdf/1603.07285.pdf">A guide to convolution arithmetic for deep learning</a></i></li>
                         <li><i><a href="http://www.jeyzhang.com/cnn-learning-notes-1.html">卷积神经网络(CNN)学习笔记1：基础入门</a></i></li>
                         <li><i><a href="https://blog.csdn.net/sinat_24143931/article/details/78958931">LeNet-5网络模型详解</a></i></li>
+                        <li><i><a href="https://www.jianshu.com/p/d39e9e75a410">Keras入门与LeNet的实现</a></i></li>
                     </ul>
                 </div>
             </section>
