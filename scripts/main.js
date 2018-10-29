@@ -6,6 +6,10 @@ $(window).ready(function(){
 
   $(document.body).height($(window).height());
 
+  $(".curr_album").click(function () {
+    $(".curr_album").toggleClass("turn_big");
+  });
+
   $("#expand").click(function(){
     $("#xxxx").toggleClass("nav_active");
     var nav = $("#sub_nav");
