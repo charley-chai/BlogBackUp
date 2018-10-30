@@ -73,10 +73,11 @@ nav p:hover{
 }
 
 #song_word{
-  padding: 2em; 
+  padding: 0em; 
   height: 100%;
   color: white;
   font-size: 2em;
+  line-height: 1.3em;
   text-align: center;
 }
 
@@ -305,12 +306,6 @@ footer{
   transform: scale(1.05);
 }
 
-#sl{
-  width: 100%;
-  height: auto;
-  text-align: center;
-}
-
 #sub_nav{
   display: none;
 }
@@ -505,36 +500,20 @@ footer{
   }
 }
 
+#sl{
+  width: 20%;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  margin: 0 auto;
+  box-shadow: 0 0 5px 2px #000;
+}
 
 .play{
-    width: 20%;
+    width: 100%;
     border-radius: 50%;
-    overflow: hidden;
-    position: absolute;
-    top: 50%;
-    right: 10%;
-    margin: 0 auto;
-    box-shadow: 0 0 5px 2px #000;
-}
-
-.curr_album{
-    width: 7%;
-    border-radius: 50%;
-    overflow: hidden;
-    position: absolute;
-    top: 62.6%;
-    right: 16.5%;
-    margin: 0 auto;
-    box-shadow: 0 0 5px 2px #000;
-}
-
-.turn_big{
-    width: 20%;
-    border-radius: 50%;
-    overflow: hidden;
-    position: absolute;
-    top: 50%;
-    right: 10%;
+    overflow: hidden;    
     margin: 0 auto;
     box-shadow: 0 0 5px 2px #000;
 }
