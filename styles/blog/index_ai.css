@@ -205,3 +205,15 @@ body{
 #Pytorchintro{
     background: white;
 }
+
+@media only screen and (max-width: 1000px){
+    #leftNav{
+        visibility: collapse;
+    }
+
+    #HlArea{
+        height: 100em;
+        display: grid;
+        grid-template-columns: 100%;
+    }
+}
