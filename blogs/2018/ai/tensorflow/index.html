@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/styles/temp.css">
     <link rel="stylesheet" href="/styles/blogs.css">
     <link rel="stylesheet" href="/styles/article_blog.css">
+    <link rel="stylesheet" href="/styles/prism.css">
     <meta name="keywords" content="NN ML MLP python 神经网络 机器学习 历史 CharleyChai 博客 柴磊">
     <meta name="description" content="">
     <meta name="author" content="Charley Chai">
@@ -131,6 +132,19 @@
                 <img src="/images/blogs/2018/tftop.png" class="blog_image">
 
                 <div class="blog_content">
+                    <h3>什么是深度学习框架</h3>
+                    <p>
+                        深度学习框架其实就是一个工具集合，即库。简单的说，如果我们不借助这些框架来搭建自己的深度神经网络，那么我们就要从那个底层开始去重现例如卷积，池化以及梯度下降这些功能，这将是一个及其耗费经历的工程。
+                        而现在，我们有了机器学习框架，这些框架已经将深度神经网络中的一些基本的操作封装起来了，我们需要做的仅仅是调用这些框架已经封装好的方法就好了。这会极大地提高我们的开发效率，同时也让我们的代码质量更高。
+                        <br><br>
+                        最近比较常见的深度学习框架有：Google的Tensorflow，Facebook的PyTorch，UCB的Caffe，Microsoft的CNTK等。它们其实就是一个包含了各种数学工具的库，这些工具就像一大堆各种各样的积木，而我们要做的就是选择合适的积木来搭建我们自己的网络。
+                        <br><br>
+                        <img src="/images/blogs/2018/juggle.jpg" width="50%" style="margin: 0 25%">
+                    </p>
+                </div>
+
+
+                <div class="blog_content">
                     <h3>Tensorflow简介</h3>
                     <p>
                         TensorFlow最初是由Google Brain Team的研究人员开发的，并于2015年底正式在GitHub上开源。它是一个利用<b>计算流图</b>来进行数值计算的库。
@@ -191,8 +205,7 @@
     </div>
     <script src="/scripts/temp.js"></script>
     <script src="/scripts/blogs.js"></script>
-    <link href="/styles/monokai.css" rel="stylesheet">
-    <script src="/scripts/src/highlight.min.js"></script>
+    <script src="/scripts/src/prism.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 </body>
 

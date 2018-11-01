@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/styles/temp.css">
     <link rel="stylesheet" href="/styles/blogs.css">
     <link rel="stylesheet" href="/styles/article_blog.css">
+    <link rel="stylesheet" href="/styles/prism.css">
     <meta name="keywords" content="LaTeX VScode CharleyChai 博客 柴磊">
     <meta name="description" content="这是我的LaTe系列博客的第二篇文章,主要介绍LaTeX的基本使用.">
     <meta name="author" content="Charley Chai">
@@ -129,7 +130,7 @@
                     </p>
                     <p>首先呢，拿出上篇文章最后的那一段测试代码：</p>
                     <pre>
-                        <code lang="latex">
+                        <code class="language-latex">
 \documentclass[UTF8]{ctexart}
 \begin{document}
 Hello world!
@@ -157,7 +158,7 @@ Hello world!
                     <p>一个LaTeX的文件分为两部分：导言和正文。<code class="code">\begin{document}、\end{document}</code>之间的内容是正文，而导语部分位于
                     <code class="code">\begin{document}</code>之前，这部分通常是定义文章的格式、作者、标题等信息。</p>
                     <pre>
-                        <code>
+                        <code class="language-latex">
 \documentclass[UTF8]{ctexart}
 \title{LaTeX Hello World}
 \author{Charley Chai}
@@ -188,7 +189,7 @@ Hello world!
                     <h4><code class="code">\documentclass</code>命令</h4>
                     <p>\documentclass命令是用于设置LaTex文件所生成文档的格式。其格式为：</p>
                     <pre>
-                        <code>
+                        <code class="language-latex">
 \documentclass[option]{class}
                         </code>
                     </pre>
@@ -244,7 +245,7 @@ Hello world!
                     <h4><code class="code">\usepackage</code>命令</h4>
                     <p>\usepackage命令设置在编译LaTex文件时要导入的扩展包</p>
                     <pre>
-                        <code>
+                        <code class="language-latex">
 \usepackage{packagename}
                         </code>
                     </pre>
@@ -252,7 +253,7 @@ Hello world!
                     <h4>设置基本信息</h4>
                     <p>要设置文章的基本信息，其语法为：</p>
                     <pre>
-                        <code>
+                        <code class="language-latex">
 \title{LaTeX Hello World}
 \author{Charley Chai}
 \date{\today}
@@ -263,7 +264,7 @@ Hello world!
                     <p>LaTeX是区分大小写的。</p>
                     <p>在LaTeX中，添加注释的语法为</p>
                     <pre>
-                        <code>
+                        <code class="language-latex">
 %this is a comment                                    
                         </code>
                     </pre>
@@ -274,7 +275,7 @@ Hello world!
                     <p>当我们看一本书的时候，可以看到它有封面，目录，正文等等部分组成。下面我们按着一本书中的必要组成部分，依次用LaTeX来实现。</p>
                     <h4>封面</h4>
                     <pre>
-                        <code>
+                        <code class="language-latex">
 \begin{titlepage}
 \maketitle
 \end{titlepage}
@@ -283,14 +284,14 @@ Hello world!
                     上面的命令会将我们的在导言区设置的题目、作者、时间等信息显示出来。
                     <h4>目录</h4>
                     <pre>
-                        <code>
+                        <code class="language-latex">
 \tableofcontents
                         </code>
                     </pre>
                     <p>这个命令就会在文章的对应部分生成整个文章的目录。</p>
                     <h4>页码</h4>
                     <pre>
-                        <code>
+                        <code class="language-latex">
 \pagenumbering{digit type}
                         </code>
                     </pre>
@@ -323,14 +324,14 @@ Hello world!
                     </table>
                     <p>如果某一页我们不想标页码的话（比如封面），可以使用</p>
                     <pre>
-                        <code>
+                        <code class="language-latex">
 \thispagestyle{empty}                            
                         </code>
                     </pre>
                     <h4>章节和段落</h4>
                     <p>我们文章的主要部分就是这一部分了，我们先看一个完整的例子吧：</p>
                     <pre>
-                        <code>
+                        <code class="language-latex">
 \documentclass{article}
 \title{USTC}
 \begin{document}
@@ -466,8 +467,7 @@ Hello world!
     </div>
     <script src="/scripts/temp.js"></script>
     <script src="/scripts/blogs.js"></script>
-    <link href="/styles/monokai.css" rel="stylesheet">
-    <script src="/scripts/src/highlight.min.js"></script>
+    <script src="/scripts/src/prism.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 </body>
 

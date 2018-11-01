@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/styles/blogs.css">
     <link rel="stylesheet" href="/styles/article_blog.css">
     <link rel="stylesheet" href="/styles/timeline.css">
+    <link rel="stylesheet" href="/styles/prism.css">
     <meta name="keywords" content="NN ML CNN LeNet-5 lua torch pytorch python 神经网络 机器学习 历史 CharleyChai 博客 柴磊">
     <meta name="description" content="">
     <meta name="author" content="Charley Chai">
@@ -646,7 +647,7 @@
                     <h4>Keras实现</h4>
                     <p>这里使用的是一个简化版的LeNet-5，经过两次卷积和Max Pooling之后，将得到的结果展开为一维，再经过一个Softmax。</p>
                     <pre>
-                        <code class="python">
+                        <code class="language-python">
 import numpy as np
 import keras
 from keras.datasets import mnist
@@ -839,8 +840,7 @@ print('accuracy', accuracy)
     </div>
     <script src="/scripts/temp.js"></script>
     <script src="/scripts/blogs.js"></script>
-    <link href="/styles/monokai.css" rel="stylesheet">
-    <script src="/scripts/src/highlight.min.js"></script>
+    <script src="/scripts/src/prism.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 </body>
 
