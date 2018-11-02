@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/styles/blogs.css">
     <link rel="stylesheet" href="/styles/article_blog.css">
     <link rel="stylesheet" href="/styles/prism.css">
+    <link rel="stylesheet" href="/styles/timeline.css">
     <meta name="keywords" content="NN ML MLP python 神经网络 机器学习 历史 CharleyChai 博客 柴磊">
     <meta name="description" content="">
     <meta name="author" content="Charley Chai">
@@ -134,8 +135,9 @@
                 <div class="blog_content">
                     <h3>什么是深度学习框架</h3>
                     <p>
-                        深度学习框架其实就是一个工具集合，即库。简单的说，如果我们不借助这些框架来搭建自己的深度神经网络，那么我们就要从那个底层开始去重现例如卷积，池化以及梯度下降这些功能，这将是一个及其耗费经历的工程。
-                        而现在，我们有了机器学习框架，这些框架已经将深度神经网络中的一些基本的操作封装起来了，我们需要做的仅仅是调用这些框架已经封装好的方法就好了。这会极大地提高我们的开发效率，同时也让我们的代码质量更高。
+                        深度学习框架其实就是一个工具集合，即库。简单的说，如果我们不借助这些框架来搭建自己的深度神经网络，那么我们就要从那个底层开始去重新实现像卷积，池化以及梯度下降这些功能，这将是一个及其耗费经历的工作。
+                        <br><br>
+                        而现在，我们有了机器学习框架，这些框架已经将深度神经网络中的一些基本的操作封装起来了，我们需要做的仅仅是调用这些框架已经封装好的方法。这会极大地提高我们的开发效率，同时也让我们的代码质量更高。
                         <br><br>
                         最近比较常见的深度学习框架有：Google的Tensorflow，Facebook的PyTorch，UCB的Caffe，Microsoft的CNTK等。它们其实就是一个包含了各种数学工具的库，这些工具就像一大堆各种各样的积木，而我们要做的就是选择合适的积木来搭建我们自己的网络。
                         <br><br>
@@ -147,16 +149,298 @@
                 <div class="blog_content">
                     <h3>Tensorflow简介</h3>
                     <p>
-                        TensorFlow最初是由Google Brain Team的研究人员开发的，并于2015年底正式在GitHub上开源。它是一个利用<b>计算流图</b>来进行数值计算的库。
+                        TensorFlow是从Google Brain Team的开发的DistBelief发展而来的，并于2015年底正式在GitHub上开源。它是一个基于<b>计算流图</b>，可用于大规模分布式数值计算的开源框架。
+                    </p>
+                    <p>
+                        在TensorFlow中，用<b>结点</b>(nodes)和<b>线</b>(edges)构成的有向图来描述数学计算。其中，节点一般用来表示某种数学操作，数据输入(feed in)的起点，输出(push out)的终点或读取/写入的常量(persistent variable)的终点。线表示节点之间的输入或输出关系，这些数据线可以"输运"<b>张量</b>(tensor)。
+                    </p>
+                    <p>
+                        张量从图中流过的直观图像就是这个工具取名为<b><i>Tensorflow</i></b>的原因。一旦输入端的所有张量准备好，节点将被分配到各种计算设备完成异步并行地执行运算。
+                    </p>
+                    <img src="/images/blogs/2018/tensor_flow.gif" width="40%" style="margin: 0 30%">
+                    <p>
+                        TensorFlow是目前应用最为广泛的机器学习库，其在GitHub上的活跃度远超其他同类库(截止到2018年9月)。
+                    </p>
+                    <img src="/images/blogs/2018/activity_on_github_ml.jpg" width="80%" style="margin: 0 10%">
+                </div>
+
+                <div class="blog_content">
+                    <h3>TensorFlow的发展</h3>
+                    <h4>TensorFlow发展的动力</h4>
+                    <p>
+                        TensorFlow之所以可以不断更迭，不断完善，来自于Google的不但支持以及众多社区开发者的贡献。下面展示了一个以TensorFlow为核心的依赖关系图。(图自知乎)
+                    </p>
+                    <img src="/images/blogs/2018/tensorflow_structure.png" width="80%" style="margin:0 10%">
+                    <h4>版本回顾</h4>
+
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">2011</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-1,
+                                            .cls-4 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-1 {
+                                                stroke: #f23030;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-2 {
+                                                fill: #f23030;
+                                            }
+                    
+                                            .cls-3 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-1" transform="translate(1056 251)">
+                                            <circle class="cls-3" cx="25" cy="25" r="25" />
+                                            <circle class="cls-4" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-2" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>Google开始开发DistBelief</h4>
+                            <p class="timeintro top-to-bottom"><br>
+                                DistBelief系统在Google内部获得了巨大的成功。<br><br>
+                                基于DistBelief的ImageNet图像分类系统Inception模型(GoogLeNet)赢得了ILSVRC 14的分类冠军；基于DistBelief，谷歌在海量的非标注YouTube视屏中习得了“猫”的概念，并在谷歌图片中开创了图片搜索的功能；
+                                使用DistBelief训练的语音识别模型成功将语音识别的错误率降低了25%。
+                                <br><br>
+                                <img src="/images/blogs/2018/inception.png" width="50%" style="margin: 0 25%">
+                                <br><br>
+                                累计超过50个Google的团队就已经在他们的产品中部署了基于DistBelief的深度神经网络，这包括：Google搜索、Google语音搜索、广告、Google
+                                相册、Google地图、Google街景、Google翻译和YouTube等，同时Google的科学家Geoffrey Hinton和Jeff
+                                Dean领导研究人员对该框架进行优化，从而形成了Google的第二代机器学习系统——TensorFlow。<br><br>
+                                <img src="/images/blogs/2018/google_products.png" width="80%" style="margin: 0 10%">
+                                <br><br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+                    
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">2015</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-11,
+                                            .cls-14 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-11 {
+                                                stroke: #ffb134;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-12 {
+                                                fill: #ffb134;
+                                            }
+                    
+                                            .cls-13 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-11" transform="translate(1056 251)">
+                                            <circle class="cls-13" cx="25" cy="25" r="25" />
+                                            <circle class="cls-14" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-12" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>Google开源TensorFlow</h4>
+                            <p class="timeintro top-to-bottom1"><br />
+                                
+                                <br><br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+                    
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">2016</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-21,
+                                            .cls-24 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-21 {
+                                                stroke: #FAEE5D;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-22 {
+                                                fill: #FAEE5D;
+                                            }
+                    
+                                            .cls-23 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-21" transform="translate(1056 251)">
+                                            <circle class="cls-23" cx="25" cy="25" r="25" />
+                                            <circle class="cls-24" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-22" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>发布TensorFlow 0.8.0， 0.9.0，0.12.0</h4>
+                            <p class="timeintro top-to-bottom2"><br>
+                                2016年4月，Google发布0.8.0版本，开始支持本地分布式运行。
+                                2016年6月，更新至0.9.0版本，开始支持IOS。
+                                在微软的帮助下，2016年12月，Google发布0.12.0版本，开始支持Windows系统。
+
+                                <br><br><br>
+                            </p>
+                        </article>
+                    
+                    </div>
+                    
+
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">2017</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-31,
+                                            .cls-34 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-31 {
+                                                stroke: #25DD73;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-32 {
+                                                fill: #25DD73;
+                                            }
+                    
+                                            .cls-33 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-31" transform="translate(1056 251)">
+                                            <circle class="cls-33" cx="25" cy="25" r="25" />
+                                            <circle class="cls-34" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-32" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>发布TensorFlow 1.0</h4>
+                            <p class="timeintro top-to-bottom3"><br>
+                                2017年2月15日晚，谷歌在加州山景城举办史上第一届TensorFlow 开发者峰会。在揭幕的 TensorFlow 开发者峰会上，谷歌正式发布了 TensorFlow1.0 版本。
+                                <br><br><br> </p>
+                        </article>
+                    
+                    </div>
+                    
+                    <div class="timeline">
+                    
+                        <h4 class="timetag">2018</h4>
+                        <article>
+                    
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-41,
+                                            .cls-44 {
+                                                fill: none;
+                                            }
+                    
+                                            .cls-41 {
+                                                stroke: #30A4F8;
+                                                stroke-width: 5px;
+                                            }
+                    
+                                            .cls-42 {
+                                                fill: #30A4F8;
+                                            }
+                    
+                                            .cls-43 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-41" transform="translate(1056 251)">
+                                            <circle class="cls-43" cx="25" cy="25" r="25" />
+                                            <circle class="cls-44" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-42" cx="12" cy="12" r="12" transform="translate(1069 264)" />
+                                    </g>
+                                </svg>TensorFlow.js</h4>
+                            <p class="timeintro top-to-bottom4end"><br>
+                                <br><br><br> </p>
+                        </article>
+                    
+                    </div>
+
+                </div>
+
+
+                                
+                <div class="blog_content">
+                    <h3>TensorFlow的架构</h3>
+                    <h4>概述</h4>
+                    <p>
+                        TensorFlow的系统结构以C API为界，将整个系统分为「前端」和「后端」两个子系统：
                     </p>
                 </div>
                 
                 <div class="blog_content">
-                    <h3>Tensorflow安装</h3>
+                    <h3>Tensorflow的安装</h3>
+                    <p>
+                        仅支持CPU的版本：
+                    </p>
+<pre>
+    <code class="language-bash">
+pip install tensorflow
+    </code>
+</pre>
+                    <p>
+                    支持GUDA-GPU的版本：(事先安装CUDA)
+                    </p>
+<pre>
+    <code class="language-bash">
+pip install tensorflow-gpu
+    </code>
+</pre>
                 </div>
+
+                <style>
+                    #codeAsHeader{
+                        color: green;
+                        font-size: 1.5em;
+                        font-family: monospace;
+                    }
+                </style>
 
                 <div class="blog_content">
                     <h3>Tensorflow使用</h3>
+                    <h4 id="codeAsHeader">import tensorflow as tf</h4>
                 </div>
 
                 <div class="blog_content">
@@ -180,9 +464,12 @@
                 <div class="blog_content">
                     <h3>参考：</h3>
                     <ul class="reference">
-                        <li>
-                            <li><a href="http://www.infoq.com/cn/articles/introduction-of-tensorflow-part01">深入浅出Tensorflow（一）：深度学习及TensorFlow简介</a></li>
-                        </li>
+                        <li><i><a href="https://blog.csdn.net/s_sunnyy/article/details/68484281">TensorFlow架构与设计：概述</a></i></li>
+                        <li><i><a href="https://zhuanlan.zhihu.com/p/25646408">『深度长文』Tensorflow代码解析（一）</a></i></li>
+                        <li><i><a href="https://zhuanlan.zhihu.com/p/45146355">2018年最热门的深度学习框架？这份科学的排行榜可以告诉你</a></i></li>
+                        <li><i><a href="https://github.com/tensorflow/tensorflow">TensorFlow-Github</a></i></li>
+                        <li><i><a href="https://zh.wikipedia.org/wiki/TensorFlow">TensorFlow-wiki</a></i></li>
+                        <li><i><a href="http://www.infoq.com/cn/articles/introduction-of-tensorflow-part01">深入浅出Tensorflow（一）：深度学习及TensorFlow简介</a></i></li>
                     </ul>
                 </div>
 

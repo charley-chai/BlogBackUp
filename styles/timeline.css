@@ -127,6 +127,22 @@
     border-right: 0;
 }
 
+.top-to-bottom4end {
+    border-width: 0.2em;
+    border-style: solid;
+    -webkit-border-image: 
+      -webkit-gradient(linear, 0 0, 0 100%, from(#30A4F8), to(#ffffff)) 1 100%;
+    -webkit-border-image: 
+      -webkit-linear-gradient(#30A4F8, #ffffff) 1 100%;
+    -moz-border-image:
+      -moz-linear-gradient(#30A4F8, #ffffff) 1 100%;    
+    -o-border-image:
+      -o-linear-gradient(#30A4F8, #ffffff) 1 100%;
+    border-image:
+      linear-gradient(to bottom, #30A4F8, #ffffff) 1 100%;
+    border-right: 0;
+}
+
 .top-to-bottom5 {
     border-width: 0.2em;
     border-style: solid;
