@@ -421,8 +421,25 @@
                     <h3>TensorFlow的架构</h3>
                     <h4>概述</h4>
                     <p>
-                        TensorFlow的系统结构以C API为界，将整个系统分为「前端」和「后端」两个子系统：
+                        TensorFlow的系统结构以<b>C API</b>为界，将整个系统分为<b>前端</b>和<b>后端</b>两个子系统。前段(Front End)提供编程模型，负责构造计算图；后端(Exec System)提供运行时环境，负责执行计算图。下图展示了它的整体结构：
                     </p>
+                    <img src="/images/blogs/2018/tensorflow_back_front.png" width="80%" style="margin: 0 10%">
+                    <p>
+                        详细来说，我们应该注意以下四部分：
+                    </p>
+                    <ul id="backfront">
+                        <style>
+                            #backfront > li{
+                                list-style: outside;
+                            }
+                        </style>
+                        <li>
+                            <h4><i>Client</i></h4>
+                            <p>
+                                Client是一个支持多语言的编程环境(C++, Python, Java, JavasCript...)。它提供基于计算图的编程模型，供用户实现各种模型。Client通过<b>Session</b>连接TensorFlow后端的<b>运行时</b>。
+                            </p>
+                        </li>
+                    </ul>
                 </div>
                 
                 <div class="blog_content">
