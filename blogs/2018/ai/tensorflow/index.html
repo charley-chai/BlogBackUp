@@ -454,7 +454,7 @@
                         <li>
                             <h4><i>OpKernels</i></h4>
                             <p>
-                                这些OpKernels以Tensor为处理对象，依赖网络通信和设备内存分配，实现了各种Tensor操作或计算。Opkernels不仅包含MatMul等计算操作，还包含Queue等非计算操作，这些将在第5章Kernels模块详细介绍。
+                                这些OpKernels以Tensor为处理对象，依赖网络通信和设备内存分配，实现了各种Tensor操作或计算。Opkernels不仅包含MatMul等计算操作，还包含Queue等非计算操作。
                             </p>
                         </li>
                         <li>
@@ -465,9 +465,17 @@
                         </li>
                     </ul>
                 </div>
+
+                <div class="blog_content">
+                    <h3>代码组织</h3>
+                    <img src="/images/blogs/2018/tensorflow_codes.jpeg" width="60%" style="margin: 0 20%">
+                </div>
                 
                 <div class="blog_content">
                     <h3>Tensorflow的安装</h3>
+                    <p>
+                        这里只介绍通过Python-Pip安装：
+                    </p>
                     <p>
                         仅支持CPU的版本：
                     </p>
@@ -477,7 +485,7 @@ pip install tensorflow
     </code>
 </pre>
                     <p>
-                    支持GUDA-GPU的版本：(事先安装CUDA)
+                    支持GUDA-GPU的版本：(需要事先安装CUDA)
                     </p>
 <pre>
     <code class="language-bash">
@@ -489,14 +497,17 @@ pip install tensorflow-gpu
                 <style>
                     #codeAsHeader{
                         color: green;
-                        font-size: 1.5em;
+                        font-size: 1.2em;
                         font-family: monospace;
                     }
                 </style>
 
                 <div class="blog_content">
-                    <h3>Tensorflow使用</h3>
+                    <h3>Tensorflow的基本使用</h3>
                     <h4 id="codeAsHeader">import tensorflow as tf</h4>
+                    <p>
+                        
+                    </p>
                 </div>
 
                 <div class="blog_content">
