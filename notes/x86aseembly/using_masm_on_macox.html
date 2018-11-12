@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/scripts/src/jquery.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
+    <title>Using MASM on macOS</title>
+    <link rel="stylesheet" href="/styles/temp.css">
+    <link rel="stylesheet" href="/styles/blogs.css">
+    <link rel="stylesheet" href="/styles/article_blog.css">
+    <link rel="stylesheet" href="/styles/timeline.css">
+    <link rel="stylesheet" href="/styles/prism.css">
+    <meta name="keywords" content="MASM x86 Assembly intel macOS CharleyChai 博客 柴磊">
+    <meta name="description" content="">
+    <meta name="author" content="Charley Chai">
+    <meta property="og:image" content="/images/logo.png">
+    <meta property="og:description" content="MASM x86 Assembly intel macOS CharleyChai 博客 柴磊">
+    <meta property="og:title" content="Using MASM on macOS">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav id="xxxx">
+                <ul>
+                    <li class="frim" id="expand">
+                        <p>
+                            <img src="/images/expand.svg" class="logo">
+                        </p>
+                    </li>
+                    <li class="frim">
+                        <a href="/">
+                            <img src="/images/logo.svg" class="logo" id="logo">
+                        </a>
+                    </li>
+                    <li class="shift"><a href="/">Home</a></li>
+                    <li class="shift"><a href="/blogs">Blogs</a></li>
+                    <li class="shift"><a href="/notes" class="hoster">Courses</a></li>
+                    <li class="shift"><a href="/projects">Projects</a></li>
+                    <li class="shift"><a href="/hobbies">Hobbies</a></li>
+                    <li class="frim" id="search">
+                        <p>
+                            <img src="/images/search.svg" class="logo">
+                        </p>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="placeholder"></div>
+
+    <div id="sub_nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <hr color="#555" size=0.5>
+            <li><a href="/blogs">Blogs</a></li>
+            <hr color="#555" size=0.5>
+            <li><a href="/notes">Courses</a></li>
+            <hr color="#555" size=0.5>
+            <li><a href="/projects">Projects</a></li>
+            <hr color="#555" size=0.5>
+            <li><a href="/hobbies">Hobbies</a></li>
+        </ul>
+    </div>
+
+    <div id="top" class="content">
+        <style>
+            #stable_title{
+                font-weight: bold;
+            }
+        </style>
+        <nav id="class_nav">
+                <li id="bloghost" class="frim"><a href="/blogs">Notes</a></li>
+                <li class="shift"><a href="#" id="stable_title"> >_ 在macOS上使用MASM</a></li>
+                <li class="frim" id="expandmore"><a href="#">
+                        <svg id="next" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                            <path d="M0 0h24v24H0z" fill="none" />
+                        </svg>
+                        <svg id="next1" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <defs>
+                                <style>
+                                    .cls-1 {
+                                        fill: none;
+                                    }
+                                </style>
+                            </defs>
+                            <g id="baseline-navigate_next-24px" transform="translate(24) rotate(90)">
+                                <path id="Path_1" data-name="Path 1" d="M10,6,8.59,7.41,13.17,12,8.59,16.59,10,18l6-6Z" />
+                                <path id="Path_2" data-name="Path 2" class="cls-1" d="M0,0H24V24H0Z" />
+                            </g>
+                        </svg>
+                </a></li>
+            </ul>
+        </nav>
+
+        <div id="class_sub_nav">
+            <ul>
+                <li><a href="/blogs">Notes</a></li>
+                <hr color="#BBB" size=0.2>
+            </ul>
+        </div>
+
+        <main>
+            <section class="section_content">
+                <div id="blog_head">
+                    <div class="blog_tag purple">CS, USTC</div>
+                    <h1 class="blog_title">在macOS上使用MASM</h1>
+                    <div class="blog_time">NOV 12, 2018</div>
+                    <hr />
+                </div>
+                <img src="/images/notes/ustc/asm_cover.jpg" class="blog_image">
+
+                <div class="blog_content">
+                    <p>
+                        <br><br>
+                        刚过了双十一，一大堆实验就就就来了😢。经历了很多坑之后，终于可以在Mac上使用MASM来对汇编语言进行调试了🤪！就顺便记录一下。
+                        <br><br>
+                        下面分几个步骤来“讲”一下下。
+                    </p>
+                </div>
+
+                <div class="blog_content">
+
+                    <div class="timeline">
+
+                        <h4 class="timetag">#000</h4>
+                        <article>
+
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-1,
+                                            .cls-4 {
+                                                fill: none;
+                                            }
+
+                                            .cls-1 {
+                                                stroke: #f23030;
+                                                stroke-width: 5px;
+                                            }
+
+                                            .cls-2 {
+                                                fill: #f23030;
+                                            }
+
+                                            .cls-3 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-1" transform="translate(1056 251)">
+                                            <circle class="cls-3" cx="25" cy="25" r="25" />
+                                            <circle class="cls-4" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-2" cx="12" cy="12" r="12"
+                                            transform="translate(1069 264)" />
+                                    </g>
+                                </svg>准备工作</h4>
+                            <p class="timeintro top-to-bottom"><br />
+                                这里我使用的工具有：VS Code，DOSBox和MASM。<b style="text-decoration: underline">可点击下文中的链接进行下载</b><br><br>
+                                其中<a href="https://code.visualstudio.com/" target="_blank">VS Code</a>主要是用来进行写汇编语言的编辑器。其实你可以使用其他任何形似的编辑器，比如：sublime text，emacs，vim等等。
+                                <br><br>
+                                而<a href="https://www.dosbox.com/" target="_blank">DOSBox</a>就是一个跨平台的应用程序，他可以模拟出一个32位置的DOS环境，这样我们就可以在其中使用如MASM这样的程序进行汇编语言的调试了。<a href="https://zh.wikipedia.org/wiki/DOSBox" target="_blank">点击</a>了解更多。
+                                <br><br>
+                                <a href="http://www.mediafire.com/file/mm7cjztce9efj4w/8086.zip">MASM</a>是Microsoft Macro Assembler的缩写，它是微软为x86微处理器家族，所写的一套宏汇编器。它最初是用来发展在MS-DOS上面运行的软件。
+                                <br><br><br>
+                            </p>
+                        </article>
+
+                    </div>
+
+                    <div class="timeline">
+
+                        <h4 class="timetag">#001</h4>
+                        <article>
+
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-11,
+                                            .cls-14 {
+                                                fill: none;
+                                            }
+
+                                            .cls-11 {
+                                                stroke: #ffb134;
+                                                stroke-width: 5px;
+                                            }
+
+                                            .cls-12 {
+                                                fill: #ffb134;
+                                            }
+
+                                            .cls-13 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-11" transform="translate(1056 251)">
+                                            <circle class="cls-13" cx="25" cy="25" r="25" />
+                                            <circle class="cls-14" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-12" cx="12" cy="12" r="12"
+                                            transform="translate(1069 264)" />
+                                    </g>
+                                </svg>安装DOSBox</h4>
+                            <p class="timeintro top-to-bottom1"><br />
+                                这就是我们下载下来的DOSBox安装包：<br>
+                                <img src="/images/notes/ustc/dosboxinstall.png" width="30%" style="margin: 0 35%"> <br><br>
+                                接着无脑安装就行了。<br><br>
+                                运行DOSBox，是这样的结果：<br>
+                                <img src="/images/notes/ustc/dosbox.png" width="100%">
+                                <br><br>
+                                下面，我们就可以在这里进行汇编语言的汇编，链接以及调试了。
+                                <br><br><br>
+                            </p>
+                        </article>
+
+                    </div>
+
+                    <div class="timeline">
+
+                        <h4 class="timetag">#002</h4>
+                        <article>
+
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-21,
+                                            .cls-24 {
+                                                fill: none;
+                                            }
+
+                                            .cls-21 {
+                                                stroke: #FAEE5D;
+                                                stroke-width: 5px;
+                                            }
+
+                                            .cls-22 {
+                                                fill: #FAEE5D;
+                                            }
+
+                                            .cls-23 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-21" transform="translate(1056 251)">
+                                            <circle class="cls-23" cx="25" cy="25" r="25" />
+                                            <circle class="cls-24" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-22" cx="12" cy="12" r="12"
+                                            transform="translate(1069 264)" />
+                                    </g>
+                                </svg>在DOSBox中使用MASM</h4>
+                            <p class="timeintro top-to-bottom2"><br>
+                                我们将下载的MASM包解压之后，可以看到里边有好几个文件：<br><br>
+                                <img src="/images/notes/ustc/masmfiles.png" width="100%">
+                                我们将使用其中的<b>MASM.EXE</b>汇编我们编写的<b>.asm</b>源程序，生成<b>.obj</b>目标文件；<b>LINK.EXE</b>连接目标文件，生成可执行的<b>.exe</b>文件。而<b>TD.EXE</b>、<b>DEBUG.EXE</b>等用来调试。
+                                <br><br>
+                                将解压后得到的文件夹放在一个合适的路径下，这里我放在了<code class="language-bash"> /~ </code> 下，并将文件重命名为<i style="background: rgb(184, 182, 182)"> dosbox </i>
+                                <br><br>
+                                接下来，在DOSBox中，使用命令：
+                                <br><br>
+                                <code class="language-bash">mount c ~/dosbox</code>
+                                <br><br>
+                                这操作就是将DOS中的“C盘”挂载到dosbox这个文件夹下面：
+                                <br>
+                                <img src="/images/notes/ustc/dosbox_mount.png" width="100%">
+                                <br><br>
+                                这个时候在使用命令 <code class="language-bash"> c: </code>就进入到了dosbox目录下。这个时候，我们将编写好的汇编程序放到该目录下面，就可以使用MSAM进行汇编、链接以及调试了。
+                                <br><br><br>
+                            </p>
+                        </article>
+
+                    </div>
+
+                    <div class="timeline">
+
+                        <h4 class="timetag">#003</h4>
+                        <article>
+
+                            <h4><svg class="timecircle" viewBox="0 0 50 50">
+                                    <defs>
+                                        <style>
+                                            .cls-31,
+                                            .cls-34 {
+                                                fill: none;
+                                            }
+
+                                            .cls-31 {
+                                                stroke: #25DD73;
+                                                stroke-width: 5px;
+                                            }
+
+                                            .cls-32 {
+                                                fill: #25DD73;
+                                            }
+
+                                            .cls-33 {
+                                                stroke: none;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Group_1" data-name="Group 1" transform="translate(-1056 -251)">
+                                        <g id="Ellipse_1" data-name="Ellipse 1" class="cls-31" transform="translate(1056 251)">
+                                            <circle class="cls-33" cx="25" cy="25" r="25" />
+                                            <circle class="cls-34" cx="25" cy="25" r="22.5" />
+                                        </g>
+                                        <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-32" cx="12" cy="12" r="12"
+                                            transform="translate(1069 264)" />
+                                    </g>
+                                </svg>Hello World</h4>
+                            <p class="timeintro top-to-bottom3end"><br>
+                                <a href="#code">汇编程序</a><br><br>
+                                汇编：<br><br>
+                                <code class="language-bash">
+                                    MASM hellowolrd.asm,,,,
+                                </code><br><br>
+                                链接：<br><br>
+                                <code class="language-bash">
+                                    LINK hellowolrd.obj,,,,,
+                                </code><br><br>
+                                运行：<br><br>
+                                <code class="language-bash">
+                                    hellowolrd.exe
+                                </code>
+                                <br><br>
+                                至于如何调试，见下一篇文章。
+                                <br><br><br> </p>
+                        </article>
+
+                    </div>
+                </div>
+
+
+                <pre id="code">
+                    <code class="lang-wasm">
+assume cs:code,ds:data
+
+data segment
+    str1 db 'hello world12345678$'
+data ends
+
+code segment
+
+start:
+    mov ax,data
+    mov ds,ax
+
+    mov dx,offset str1
+
+    mov ah,09h
+    int 21h
+
+    mov ah,4ch
+    int 21h
+code ends
+end
+                    </code>
+                </pre>
+
+
+
+                <div class="blog_content">
+                    <style>
+                        #bloglink {
+                            text-align: left;
+                        }
+                    </style>
+                    <p>上一篇：无</p>
+                    <p>下一篇：<a href="#">使用MASM调试汇编程序</a></p>
+                </div>
+
+
+    </div>
+
+
+    </section>
+    </main>
+
+
+
+
+    </div>
+
+    <div id="contact" class="content">
+        <p id="welcome">Welcome to join me to find and create bueautiful stuffs!</p>
+        <p id="cvia">Contact me via:</p>
+        <div id="mi_logos">
+            <img src="/images/facebook.svg" class="logos link">
+            <img src="/images/instagram.svg" class="logos link">
+            <img src="/images/twitter.svg" class="logos link">
+            <img src="/images/wechat.svg" class="logos link">
+            <img src="/images/weibo.svg" class="logos link">
+        </div>
+        <hr />
+        <p id="copyright">A project by Charley Chai</p>
+    </div>
+    </div>
+    <script src="/scripts/temp.js"></script>
+    <script src="/scripts/blogs.js"></script>
+    <script src="/scripts/src/prism.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

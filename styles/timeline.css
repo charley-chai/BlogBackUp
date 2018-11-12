@@ -110,6 +110,22 @@
     border-right: 0;
 }
 
+.top-to-bottom3end {
+    border-width: 0.2em;
+    border-style: solid;
+    -webkit-border-image: 
+      -webkit-gradient(linear, 0 0, 0 100%, from(#25DD73), to(#ffffff)) 1 100%;
+    -webkit-border-image: 
+      -webkit-linear-gradient(#25DD73, #ffffff) 1 100%;
+    -moz-border-image:
+      -moz-linear-gradient(#25DD73, #ffffff) 1 100%;    
+    -o-border-image:
+      -o-linear-gradient(#25DD73, #ffffff) 1 100%;
+    border-image:
+      linear-gradient(to bottom, #25DD73, #ffffff) 1 100%;
+    border-right: 0;
+}
+
 
 .top-to-bottom4 {
     border-width: 0.2em;
