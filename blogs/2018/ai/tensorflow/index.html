@@ -508,9 +508,9 @@ pip install tensorflow-gpu
                     <p>
                         我们在使用TensorFlow时，其流程一般为：
                     </p>
-                    <ul id="tfstep">
+                    <ul class="tfstep">
                         <style>
-                            #tfstep > li{
+                            .tfstep > li{
                                 list-style: decimal;
                             }
                         </style>
@@ -554,7 +554,7 @@ sess = tf.Session()
 result = sess.run(product)
 
 # 返回值 'result' 是一个 numpy `ndarray` 对象.
-print result
+print(result)
 # ==> [[ 12.]]
 
 # 任务完成, 需要关闭会话以释放资源。
@@ -565,8 +565,20 @@ sess.close()
 
                 <div class="blog_content">
                     <h3>Tensorboard</h3>
-                    Tensorboard是tensorflow内置的一个可视化工具，它通过将tensorflow程序输出的日志文件的信息可视化使得tensorflow程序的理解、调试和优化更加简单高效。
-                    <h4>使用</h4>
+                    <p>
+                        Tensorboard是tensorflow内置的一个可视化工具，它通过将tensorflow程序输出的日志文件的信息可视化使得tensorflow程序的理解、调试和优化更加简单高效。
+                    </p>
+                    <p>
+                        它目前可以支持记录和显示的数据类型有：
+                    </p>
+                    <ul class="tfstep">
+                        <li>标量</li>
+                        <li>计算图</li>
+                        <li>向量</li>
+                        <li>图片</li>
+                        <li>音频等</li>
+                    </ul>
+                    <h4>一个实例</h4>
                     首先我们需要在自己的程序中加入下面的语句，它将TensorBoard需要用到的日志文件保存到本地。
                     <pre>
                         <code class="language-python">
@@ -574,12 +586,18 @@ writer = tf.summary.FileWriter('/path/to/logs', tf.get_default_graph())
 writer.close()
                         </code>
                     </pre>
-                </div>
 
-                <div class="blog_content">
-                    <h3>Jupyter Notebook</h3>
+                    <h4>总结：基本使用</h4>
+                    <p>
+                        首先，确定你想从自己构建的张量图中获取哪些数据的信息。
+                    </p>
+                    <p>
+                        其次，使用
+                    </p>
+                    <p>
+                    
+                    </p>
                 </div>
-
                 <div class="blog_content">
                     <style>
                         #bloglink {
