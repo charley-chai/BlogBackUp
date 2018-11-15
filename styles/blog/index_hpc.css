@@ -1,0 +1,216 @@
+body{
+    max-width: 1500px; 
+    text-align: center;
+    align-self: center;
+    align-items: center;
+}
+
+#HlArea{
+    height: 100em;
+    display: grid;
+}
+
+.highlight{
+    background: #DDD;
+}
+
+.highlight > h4{
+    color: #EA646F;
+}
+
+.theory{
+    background: #DDD;
+}
+
+.tittle{
+    background: #DDD;
+}
+
+.tittle > h4{
+    color: rgb(69, 238, 187);
+}
+
+.theory > h4{
+    color: orange;
+}
+
+.practice{
+    background: #DDD;
+}
+
+.practice > h4{
+    color: rgb(36, 185, 199);
+}
+
+#NeuralNetworkCNN{
+    background: white;
+    margin-top: 1em;
+}
+
+#NeuralNetworkHistory{
+    background: white;
+    margin-top: 1em;
+}
+
+#RLIntro{
+    background: white;
+    margin-top: 1em;
+}
+
+
+.popUp { 
+    animation-duration:2s;
+    -webkit-animation-duration:2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both; 
+    animation-name: popUp;
+}
+ 
+@keyframes popUp { 
+    from {
+        margin-top: 10em;
+        opacity: 0.2;
+    }
+    to {
+        margin-top: 1em;
+        opacity: 1;
+    }
+}
+
+
+.imageBox {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageInBox{
+    width: auto;
+    height: 200px;
+    animation-duration:1s;
+    -webkit-animation-duration:1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both; 
+    animation-name: scaleSmall;
+}
+
+.imageInBox:hover {
+    width: auto;
+    animation-duration:1s;
+    -webkit-animation-duration:1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both; 
+    animation-name: scaleBig;
+}
+
+
+@keyframes scaleBig { 
+    from {
+        height: 200px;
+    }
+    to {
+        height: 250px;
+    }
+}
+
+
+@keyframes scaleSmall { 
+    from {
+        height: 250px;
+    }
+    to {
+        height: 200px;
+    }
+}
+
+.BriefIntroCon{
+    margin: 2em;
+}
+
+.BriefIntroTitle{
+    font-size: 1.2em;
+    padding: 0;
+    margin: 1.5em 0 1em 0;
+    color: black;
+}
+
+.shadow{
+    background: white;
+}
+
+.shadow:hover{
+    box-shadow: 0px 4px 8px #DDD;
+}
+
+.BriefIntroTitle:hover{
+    color: #EA646F;
+    cursor: pointer;
+}
+
+.BriefIntro{
+    font-size: 0.9em;
+    color: #222;
+}
+
+.tittleTag{
+    font-size: 0.8em;
+    color: rgb(69, 238, 187);
+    margin: 0;
+    text-align: left;
+    padding: 2px;
+    width: auto;
+    border: 1px solid rgb(69, 238, 187);
+    border-radius: 3px;
+}
+
+.practiceTag{
+    font-size: 0.8em;
+    color: rgb(36, 185, 199);
+    margin: 0;
+    text-align: left;
+    padding: 2px;
+    width: auto;
+    border: 1px solid rgb(36, 185, 199);
+    border-radius: 3px;
+}
+
+.theoryTag{
+    font-size: 0.8em;
+    color: orange;
+    margin: 0;
+    text-align: left;
+    padding: 2px;
+    width: auto;
+    border: 1px solid orange;
+    border-radius: 3px;
+}
+
+#Pytorchintro{
+    background: white;
+}
+
+@media only screen and (max-width: 1000px){
+    #leftNav{
+        visibility: collapse;
+    }
+
+    #HlArea{
+        height: 100em;
+        display: grid;
+        grid-template-columns: 100%;
+    }
+}
+
+.articleLink{
+    width: 100%;
+    height: 20em;
+    background: black;
+    color: rgb(116, 177, 12);
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+

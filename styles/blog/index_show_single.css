@@ -9,25 +9,23 @@
     margin: 0 5%;
     display: grid;
     grid-template-columns: 32% 36% 32%;
-        height: 20em;
+    height: 20em;
 }
 
 #index_left{
     background: yellow;
-        height: 20em;
+    height: 20em;
 
 }
 
 #index_center{
     background: green;
-        height: 20em;
-
+    height: 20em;
 }
-
 
 #index_right{
     background: orange;
-        height: 20em;
+    height: 20em;
 
 }
 
