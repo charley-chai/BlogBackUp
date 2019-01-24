@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="/scripts/src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <div id="app2">
+        <span v-bind:title="message">
+            Hover your mouse over me for a few seconds to see my dynamically hound title!
+        </span>
+    </div>
+
+    <div id="app3">
+        <span v-if="seen">Now you see me!</span>
+    </div>
+
+    <div id="app4">
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
+    </div>
+
+    <div id="app5">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+
+    <div id="app6">
+        <p> {{ message }} </p>
+        <input v-model="message">
+    </div>
+
+    <div id="app7">
+        <ol>
+            <todo-item></todo-item>
+        </ol>
+    </div>
+
+    <div id="app8">
+        <ol>
+            <todo-item2
+            v-for="item in groceryList"
+            v-bind:todo="item"
+            v-bind:key="item.id"   
+            ></todo-item2>
+        </ol>
+    </div>
+
+    <script>
+        var app = new Vue(
+            {
+                el: '#app',
+                data: {
+                    message: "Hello Vue!"
+                }
+            }
+        )
+
+        var app2 = new Vue(
+            {
+                el: '#app2',
+                data: {
+                    message: 'You loaded this page on ' + new Date().toLocaleString()
+                }
+            }
+        )
+
+        var app3 = new Vue(
+            {
+                el: '#app3',
+                data: {
+                    seen: true
+                }
+            }
+        )
+
+        var app4 = new Vue(
+            {
+                el: '#app4',
+                data: {
+                    todos:[
+                        { text: 'Learn Vue.js' },
+                        { text: 'Learn CUDA' },
+                        { text: 'Learn openMP/MPI' },
+                        { text: 'Learn image registration' }
+                    ]
+                }
+            }
+        )
+
+        var app5 = new Vue(
+            {
+                el: '#app5',
+                data: {
+                    message: 'Hello Vue!'
+                },
+                methods: {
+                    reverseMessage: function () {
+                        this.message = this.message.split('').reverse().join('')
+                    }
+                }
+            }
+        )
+
+        var app6 = new Vue(
+            {
+                el: '#app6',
+                data: {
+                    message: 'Hello Vue!'
+                }
+            }
+        )
+
+        Vue.component('todo-item', {
+            template: '<li>This is a todo</li>'
+        })
+
+        var app7 = new Vue(
+            {
+                el: '#app7'
+            }
+        )
+
+        Vue.component('todo-item2', {
+            props: ['todo'],
+            template: '<li>{{ todo.text }}</li>' 
+        })
+
+        var app8 = new Vue(
+                {
+                    el: '#app8',
+                    data: {
+                        groceryList: [
+                            { id: 0, text: 'USTC' },
+                            { id: 1, text: 'THU' },
+                            { id: 2, text: 'Stanford'}
+                        ]
+                    }
+                }
+            )
+    </script>
+    
+    <style>
+        html{
+            font-family: 'Avenir', Helvetica, Arial, sans-serif;
+            font-size: 2em;
+        }
+    </style>
+</body>
+</html>
