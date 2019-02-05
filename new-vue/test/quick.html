@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue test</title>
+    <link rel="stylesheet" href="./demo.css">
+</head>
+<body>
+    <div id="app">
+        <h4>Hello, Vue.js!</h4>
+        <p v-if="yes">Yes!</p>
+        <p v-if="no">No!</p>
+        <p v-if="age >= 25">Age: {{ age }}</p>
+        <p v-if="name.indexOf('chai') >= 0">Name: {{ name }}</p>
+    </div>
+
+    <div id="app-else">
+        <h4>Hello Vue!</h4>
+        <p v-if="age >= 25">Age: {{ age }}</p>
+        <p v-else>Name: {{ name }}</p>
+        <p>---------------------</p>
+        <p v-show="name.indexOf('chai') >= 0">Name: {{ name }}</p>
+        <p>Sex: {{ sex }}</p>
+    </div>
+
+    <div id="app-for">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Sex</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="person in people">
+                    <td> {{ person.name }} </td>
+                    <td> {{ person.age }} </td>
+                    <td> {{ person.sex }} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="app-bind">
+        <ul class="pagination">
+            <li v-for="n in pageCount">
+                <a href="javasript: void(0)" v-bind:class="activeNumber === n ? 'active' :  ''">
+                {{ n }}
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="app-on">
+        <p><input type="text" v-model="message"></p>
+        <p><button v-on:click="greet">Greet</button></p>
+        <p><button v-on:click="say('Hi')">Hi</button></p>
+    </div>
+
+    <script src="/scripts/src/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                 yes: true,
+                 no: false,
+                 age: 29,
+                 name: 'charleychai'
+            }
+        })
+
+        var vm1 = new Vue({
+            el: '#app-else',
+            data: {
+                age: 34,
+                name: 'chai lei',
+                sex: 'Male'
+            }
+        })
+    
+        var vm2 = new Vue({
+            el: '#app-for',
+            data: {
+                people: [{
+                    name: 'Jack',
+                    age: 30,
+                    sex: 'Male'
+                }, {
+                    name: 'Bill',
+                    age: 23,
+                    sex: 'Male'
+                }, {
+                    name: 'Tracy',
+                    age: 33,
+                    sex: 'Female'
+                }]
+            }
+        })
+    
+        var vm3 = new Vue({
+            el: '#app-bind',
+            data: {
+                activeNumber: 1,
+                pageCount: 10
+            }
+        })
+    
+        var vm4 = new Vue({
+            el: '#app-on',
+            data: {
+                message: 'Hello Vue',
+            },
+            methods: {
+                greet: function () {
+                    alert(this.message)
+                },
+                say: function (msg) {
+                    alert(msg)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

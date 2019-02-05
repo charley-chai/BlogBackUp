@@ -13,13 +13,52 @@
         <p>Using v-html directive: <span v-html="rawHtml"></span></p>
     </div>
 
+    <div id="bind">
+        <button v-bind:disabled="isButtonDisabled">Button</button>
+    </div>
+
+    <div id="sjs">
+        <p> {{ number + 1 }} </p>
+        <p> {{ ok ? 'THU' : 'MSRA' }} </p>
+        <p v-if="ok">ETH Zurich</p>
+    </div>
+
     <script>        
         var app = new Vue(
             {
                 el: '#app',
-                rawHtml: "<span style='color: red'>This should be red.</span>"
+                data:{
+                    rawHtml: "<span style='color: red'>This should be red.</span>"
+                }
+            }
+        )
+
+        var bind = new Vue(
+            {
+                el: '#bind',
+                data: {
+                    isButtonDisabled: false
+                }
+            }
+        )
+
+        var sjs = new Vue(
+            {
+                el: '#sjs',
+                data: {
+                    number: 2,
+                    ok: true
+                }
             }
         )
     </script>
+
+
+    <style>
+        html{
+            font-family: 'Avenir', Helvetica, Arial, sans-serif;
+            font-size: 2em;
+        }
+    </style>
 </body>
 </html>
