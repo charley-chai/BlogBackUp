@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="/styles/notes.css">
   <link rel="stylesheet" href="/styles/calendar.css">
   <script src="/scripts/src/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+  <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+  <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
 </head>
 <body>
   <header>
@@ -41,105 +44,160 @@
     </div>
   </header>
 
-  <div id="background">
-    <div class="placeholder"></div>
-    <img src="/images/notes/ustc_logo.svg" alt="ustc" id="ustc">
-    <img src="/images/notes/globe.png" id="globe">
-  </div>
-
-  <div id="place"></div>
-
-  <div id="cs_nav">
-    <ul>
-      <li>
-        <a href="http://222.195.68.57/011144">
-          <img src="/images/notes/computer_network.jpg" class="project_logos">
-          <br/>
-          <p>计算机网络</p>
-          <p class="teacher">田野</p>
-        </a>
-      </li>
-      <li>
-        <a href="http://staff.ustc.edu.cn/~qlzheng/compiler/">
-          <img src="/images/notes/compiler.jpg" class="project_logos">
-          <br/>
-          <p>编译原理与技术</p>
-          <p class="teacher">郑启龙</p>
-        </a>
-      </li>
-      <li>
-        <a href="http://staff.ustc.edu.cn/~xuyun/algcs.htm">
-          <img src="/images/notes/algorithm.jpg" class="project_logos">
-          <br/>
-          <p>算法基础</p>
-          <p class="teacher">徐云</p>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="/images/notes/micro-computer.jpg" class="project_logos">
-          <br/>
-          <p>微机原理与系统B</p>
-          <p class="teacher">张俊霞</p>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="/images/notes/stochastic_process.jpg" class="project_logos">
-          <br/>
-          <p>随机过程</p>
-          <p class="teacher">郑坚坚</p>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="/images/notes/Electromagnetism.jpg" class="project_logos">
-          <br/>
-          <p>电磁学C</p>
-          <p class="teacher">张一飞</p>
-        </a>
-      </li>
-      <li>
-        <a href="http://staff.ustc.edu.cn/~han/">
-          <img src="/images/notes/hpc.jpg" class="project_logos">
-          <br />
-          <p>高性能处理器体系结构</p>
-          <p class="teacher">安虹</p>
-        </a>
-      </li>
-    </ul>
-  </div>
-
-  <div id="updateabout">
-    <div id="update">
-      <p id="log">作业和资料更新</p>
-      <hr color="brown" size=0.5/>
-      <ul>
-        <li>
-          <p><abbr class="time">05/09/18</abbr> <abbr class="type">Homework</abbr> 随机过程B: 第一章1-6</p>
-        </li>
-        <li>
-          <p><abbr class="time">07/09/18</abbr> <abbr class="type">Homework</abbr> 电磁学C: 1.2、1.3、1.4</p>
-        </li>
-        <li>
-          <p><abbr class="time">10/09/18</abbr> <abbr class="type">Test</abbr> 计算机网络：随堂测试@3A311;3(3,4)</p>
-        </li>
-        <li>
-          <p><abbr class="time">11/27/18</abbr> <abbr class="type">Link</abbr> 编译原理：<a href="/notes/compile/pl0_reference.md">资料</a></p>
-        </li>
-      </ul>
+  <div>
+    <h2>2019春季学期课程主页和资料链接</h2>
+    <div id="app">
+      <Collapse simple>
+        <Panel v-for="course in courses" :key="course.id">
+          {{ course.name }}
+          <div slot="content">
+            <Card class="card">
+              <div slot="title">
+                <span>
+                  <Icon type="md-school" size="15"></Icon>
+                </span>
+                {{ course.teacher }}
+              </div>
+              <a :href="course.home" slot="extra" target="_blank">Home</a>
+              <div>
+                <Alert show-icon v-for="link in course.links" :key="link.id" :type="link.type">
+                  {{ link.title }}
+                  <Icon :type="link.icon" slot="icon"></Icon>
+                  <template slot="desc">
+                    {{ link.desc }}
+                  </template>
+                </Alert>
+              </div>
+            </Card>
+          </div>
+        </Panel>
+      </Collapse>
     </div>
-
-    <div id="findbytag">
-      <div id="tag" class="box shadow">
-        <a href="#">课程主页</a>
-        <div class="circle"></div>
-      </div>
-      <div id="calendar" class="calendar"></div>
-    </div>
+    <script>
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            courses: [
+              {
+                name: '人工智能基础',
+                teacher: '徐林莉',
+                home: 'http://staff.ustc.edu.cn/~linlixu/',
+                links: [
+                  {
+                    url: 'www.google.com',
+                    type: 'success', // error, warning, info
+                    icon: 'ios-bulb-outline',
+                    title: 'Google',
+                    desc: 'Hello world',
+                  }
+                ]
+              },
+              {
+                name: '并行计算',
+                teacher: '徐云',
+                home: 'http://staff.ustc.edu.cn/~xuyun/pc.htm',
+                links: [
+                  {
+                    url: 'www.nividia.com',
+                    type: 'success', // error, warning, info
+                    icon: 'md-filing',
+                    title: 'Nividia Doc',
+                    desc: 'Nividia 的相关资料',
+                  }
+                ]
+              },
+              {
+                name: '数据库系统及应用',
+                teacher: '金培权',
+                home: 'http://staff.ustc.edu.cn/~jpq/courses/db.html',
+                links: [
+                  {
+                    url: 'www.oracle.com',
+                    type: 'error', // error, warning, info
+                    icon: 'md-filing',
+                    title: 'Oracle Doc',
+                    desc: 'Oracle 的相关资料',
+                  }
+                ]
+              },
+              {
+                name: '计算方法B',
+                teacher: '陈先进',
+                home: 'http://staff.ustc.edu.cn/~chenxjin/courses/cm/main17.htm',
+                links: []
+              },
+              {
+                name: '计算机体系结构',
+                teacher: '周学海',
+                home: 'http://home.ustc.edu.cn/~candrol/',
+                links: [
+                  {
+                    url: 'http://rec.ustc.edu.cn/share/1a1cdb90-38cf-11e9-9702-994be29a06c5',
+                    type: 'error', // error, warning, info
+                    icon: 'ios-cloud-download-outline',
+                    title: 'Vivado 2017.4 下载',
+                    desc: '实验所需的 Vivado 2017.4 下载，使用校园网',
+                  }
+                ]
+              },
+              {
+                name: '计算机图形与图像',
+                teacher: '董兰芳',
+                home: 'http://staff.ustc.edu.cn/~lfdong/teach.html',
+                links: [
+                  {
+                    url: 'www.opengl.com',
+                    type: 'success', // error, warning, info
+                    icon: 'md-filing',
+                    title: 'OpenGL Doc',
+                    desc: 'OpenGL 的相关资料',
+                  }
+                ]
+              },
+              {
+                name: '软件工程',
+                teacher: '周颢',
+                home: 'http://staff.ustc.edu.cn/~xuyun/pc.htm',
+                links: [
+                  {
+                    url: 'www.react.com',
+                    type: 'success', // error, warning, info
+                    icon: 'md-filing',
+                    title: 'React Doc',
+                    desc: 'React 的相关资料',
+                  }
+                ]
+              },
+              {
+                name: '大学生心理学',
+                teacher: '徐晓飞',
+                home: 'http://staff.ustc.edu.cn/~xuyun/pc.htm',
+                links: []
+              }
+            ]
+          }
+        }
+      })
+    </script>
+    <style>
+      h2 {
+        text-align: center;
+        margin: 2em 0;
+      }
+    
+      #app {
+        max-width: 800px;
+        width: 70%;
+        margin: 0 auto;
+      }
+    
+      .card {
+        width: 50%;
+        min-width: 400px;
+        margin: 0 25%;
+      }
+    </style>
   </div>
-
-  <script src="/scripts/notes.js"></script>
-  <script src="/scripts/calendar.js"></script>
 </body>
 </html>
