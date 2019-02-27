@@ -61,7 +61,12 @@
               <a :href="course.home" slot="extra" target="_blank">Home</a>
               <div>
                 <Alert show-icon v-for="link in course.links" :key="link.id" :type="link.type">
-                  {{ link.title }}
+                  <span>
+                    {{ link.title }}
+                    <a target="_blank" :href="link.url">
+                      <Icon type="ios-link" />
+                    </a>
+                  </span>
                   <Icon :type="link.icon" slot="icon"></Icon>
                   <template slot="desc">
                     {{ link.desc }}
@@ -166,6 +171,20 @@
                     icon: 'md-filing',
                     title: 'React Doc',
                     desc: 'React 的相关资料',
+                  }
+                ]
+              },
+              {
+                name: '程序设计提高',
+                teacher: 'LeetCode',
+                home: 'https://leetcode.com',
+                links: [
+                  {
+                    url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+                    type: 'info', // error, warning, info
+                    icon: 'logo-javascript',
+                    title: 'JavaScript | MDN',
+                    desc: 'JaveScript 的相关资料',
                   }
                 ]
               },
