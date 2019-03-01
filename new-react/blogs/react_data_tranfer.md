@@ -1,4 +1,3 @@
-# React与Redux
 ## React中的数据传递
 React中的数据有两种：prop和state。其中prop负责对外的数据交互，state负责内部的数据管理。
 ### React中的prop
