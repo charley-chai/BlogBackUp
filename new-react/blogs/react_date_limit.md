@@ -32,3 +32,12 @@
 ```
 npm install --save flux
 ```
+#### Dispatcher
+在`src/`目录下新建`dispatcher.js`，该文件中创建一个全局唯一的`Dispatcher`对象。
+```js
+import { Dispatcher } from 'flux'
+
+export default new Dispatcher()
+```
+该对象负责派发`Action`
+#### action
