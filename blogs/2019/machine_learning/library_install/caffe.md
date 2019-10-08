@@ -134,6 +134,8 @@ Beacuse of the environment variable error of `hdf5`, we need to change two files
 
 In **Makefile.config**:
 
+__hdf5 path error:__
+
 change
 
 ```makefile
@@ -146,9 +148,33 @@ to
 INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial/
 ```
 
-In **Makefile**:
+__python caffe issue:__
 
-change
+uncomment
+
+```makefile
+WITH_PYTHON_LAYER=1
+```
+
+to avoid `Check failed: registry.count(type) == 1 (0 vs. 1) Unknown layer type: Python` error.
+
+And change
+
+```sh
+PYTHON_INCLUDE := /usr/include/python2.7 /usr/lib/python2.7/dist-packages/numpy/core/include
+```
+
+to
+
+```sh
+PYTHON_INCLUDE := /usr/include/python2.7 /usr/local/lib/python2.7/dist-packages/numpy/core/include
+```
+
+for using of `pip` installed pakcage.
+
+#### In Makefile
+
+change(@180 line around)
 
 ```makefile
 LIBRARIES += glog gflags protobuf boost_system boost_filesystem m hdf5_hl hdf5
@@ -184,7 +210,17 @@ CUDA_ARCH := -gencode arch=compute_20,code=sm_20 \
 ```sh
 # rebuild caffe
 $ cd /opt/caffe
-$ make -j4
+$ make all -j4
+
+# you can test [not necessary]
+$ make test
+$ make runtest
+
+# python interface
+$ cd $CAFFE_ROOT/python
+$ for req in $(cat requirements.txt); do pip install $req; done
+$ make pycaffe
+$ export PYTHONPATH="$CAFFE_ROOT/python:$PYTHONPATH"
 ```
 
 ## Add cuDNN usage to Caffe
@@ -193,9 +229,11 @@ null
 
 ## Test
 
+### Just Caffe
+
 ```sh
 # test caffe by training le_net on mnist
-$ cd /opt/caffe
+$ cd $CAFFE_ROOT
 
 # get mnist data
 $ ./data/mnist/get_mnist.sh
@@ -205,6 +243,33 @@ $ ./examples/mnist/create_mnist.sh
 
 # train le_net
 $ ./build/tools/caffe train --solver=examples/mnist/lenet_solver.prototxt
+```
+
+### Test Caffe Python
+
+```sh
+# test
+$ python
+$ ...
+$ >>> import caffe
+```
+
+If you cannot pass above test, try
+
+```sh
+# in python interactive env
+$ >>> import sys
+$ >>> sys.path.insert(0, 'path to caffe python')
+$ >>> import caffe
+```
+
+If you can import `caffe`, but get some errors when constructing models, do
+```sh
+# set $PYTHONPATH
+$ cd ~
+$ vim .bashrc
+# add `export PYTHONPATH=/path/to/caffe/pylayer`
+$ source .bashrc
 ```
 
 ## Save Docker image
